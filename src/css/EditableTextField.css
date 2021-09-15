@@ -1,0 +1,20 @@
+.EditableTextField {
+    background-color: rgb(188, 165, 252);
+    padding: 5px;
+    display: flex;
+    align-items: flex-start
+}
+
+.EditableTextField > button {
+    float: right;
+}
+
+.EditableTextField > input {
+    flex: 1;
+}
+
+.EditableTextField > p {
+    margin: 0;
+    text-align: left;
+    flex: 1;
+}

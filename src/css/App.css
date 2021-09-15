@@ -1,0 +1,10 @@
+.App {
+  margin: auto;
+  text-align: center;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vw;
+}

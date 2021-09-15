@@ -1,0 +1,34 @@
+.topSection .dayItem {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+
+.topSection .day {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    background-color: rgb(205, 187, 255);
+}
+
+.topSection .meal {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    background-color: rgb(188, 165, 252);
+    text-align: left;
+}
+
+.bottomSection {
+    text-align: left;
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(10, auto);
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(253, 198, 255);
+}
+
+.bottomSection p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
