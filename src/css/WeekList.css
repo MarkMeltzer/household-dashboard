@@ -1,3 +1,12 @@
+.weekList {
+    text-align: right;
+}
+
+.editButton {
+    width: 50%;
+    height: 50px;
+}
+
 .topSection .dayItem {
     display: grid;
     grid-template-columns: 50px 1fr;
@@ -8,6 +17,7 @@
     margin-bottom: 0;
     padding: 5px;
     background-color: rgb(205, 187, 255);
+    text-align: center;
 }
 
 .topSection .meal {
@@ -24,11 +34,48 @@
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(10, auto);
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     background-color: rgb(253, 198, 255);
 }
 
 .bottomSection p {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.shoppingItem {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+}
+
+.shoppingItem button {
+        width: 25px;
+        height: 25px;
+}
+
+.shoppingItem input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.addNewButton {
+    width: 50%;
+}
+
+/* Phones sizes */
+@media only screen and (max-width: 600px) {
+    .bottomSection {
+        grid-auto-flow: unset;
+        grid-template-columns: 1fr;
+    }
+
+    .shoppingItem button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .add-new-button {
+        width: 100%;
+        height: 50px;
+    }
 }
