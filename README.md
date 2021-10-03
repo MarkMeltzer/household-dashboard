@@ -28,6 +28,7 @@ To run the web api simply run "python .\flask_api.py" or "python3 .\flask_api.py
  - Implement cleanup of useEffect fetches.
  - Create a logo/favicon
  - Salt is appended to hash, so doesn't need to be saved seperatly.
+ - Flask is still running in development mode.
   
 # Future features
 - Save meals as proper objects in database with information on recipes, ingredients, vegetarian etc
