@@ -13,11 +13,6 @@ The username and password are "demo".
 | ------------- | ------------- | ------------- |
 | ![screenshot of the main page](./imgs/screen3.png)  | ![screenshot of a week list](./imgs/screen1.png) | ![screenshot of a editing week list](./imgs/screen2.png) |
 
-
-![screenshot of the main page](./imgs/screen3.png)
-![screenshot of a week list](./imgs/screen1.png)
-![screenshot of a editing week list](./imgs/screen2.png)
-
 # Installation
 
 The project requires npm and react for the website and flask and bcrypt for the web api.
