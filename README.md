@@ -8,6 +8,11 @@ A demo is available at [COMING SOON].
 
 The username and password are "demo".
 
+### Screenshots
+![screenshot of the main page](./imgs/screen3.png)
+![screenshot of a week list](./imgs/screen1.png)
+![screenshot of a editing week list](./imgs/screen2.png)
+
 # Installation
 
 The project requires npm and react for the website and flask and bcrypt for the web api.
@@ -22,6 +27,7 @@ To run the web api simply run "python .\flask_api.py" or "python3 .\flask_api.py
  - Updating a weeklist should be done using a PUT request rather than a POST.
  - Implement cleanup of useEffect fetches.
  - Create a logo/favicon
+ - Salt is appended to hash, so doesn't need to be saved seperatly.
   
 # Future features
 - Save meals as proper objects in database with information on recipes, ingredients, vegetarian etc
