@@ -1,0 +1,167 @@
+{
+    "6de14b5354e34f308f39cd851c962ae3": {
+        "creationDate": "2 september 2020",
+        "meals": {
+            "Di": "Pizza",
+            "Do": "Brocolli and something idk",
+            "Ma": "Pasta",
+            "Vrij": "Some cool meal",
+            "Wo": "Soup",
+            "Za": "Wraps",
+            "Zo": "Boboti"
+        },
+        "shoppingItems": [
+            "bread",
+            "cheese",
+            "3x paprika",
+            "3L milk",
+            "coke",
+            "more bread",
+            "brocolli",
+            "pasta",
+            "avocado",
+            "salami",
+            "toilet paper"
+        ]
+    },
+    "f07cfee33c474c57a625fdf466d91dc4": {
+        "creationDate": "12 august 2020",
+        "meals": {
+            "Di": "Pannekoeken",
+            "Do": "Pannekoeken",
+            "Ma": "Pannekoeken",
+            "Vrij": "Pannekoeken",
+            "Wo": "Pannekoeken",
+            "Za": "Pannekoeken",
+            "Zo": "Pannekoeken"
+        },
+        "shoppingItems": [
+            "Bloem",
+            "Kaas",
+            "Uien",
+            "Eieren",
+            "Melk",
+            "Karamel stroop",
+            "poedersuiker"
+        ]
+    },
+    "d853b0b876684ae98bfbe725a4724373": {
+        "id": "223366",
+        "creationDate": "15 august 2020",
+        "meals": {
+            "Di": "Pasta",
+            "Do": "Tortolonio",
+            "Ma": "Tortolonio",
+            "Vrij": "Tortolonio",
+            "Wo": "Tortolonio",
+            "Za": "Tortolonio",
+            "Zo": "Tortolonio"
+        },
+        "shoppingItems": [
+            "Bloem",
+            "Kaas",
+            "Uien",
+            "Eieren",
+            "Melk",
+            "Karamel stroop",
+            "poedersuiker",
+            "New item"
+        ]
+    },
+    "384ea576c2594fa09a4f57cd0ff5d6e8": {
+        "meals": {
+            "Di": "Lorem ",
+            "Do": "dolor ",
+            "Ma": "This is a new test list",
+            "Vrij": "sit ",
+            "Wo": "ipsum ",
+            "Za": "amet",
+            "Zo": "consectetur "
+        },
+        "shoppingItems": [
+            "Look at these cool items",
+            "Lorem ",
+            "ipsum ",
+            "dolor ",
+            "sit ",
+            "amet",
+            "consectetur ",
+            "adipiscing",
+            "elit",
+            "sed ",
+            "do ",
+            "eiusmod ",
+            "tempor ",
+            "incididunt ",
+            "ut ",
+            "labore ",
+            "et",
+            "dolore ",
+            "magna ",
+            "New item",
+            "aliqua",
+            "Ut "
+        ],
+        "creationDate": "Wednesday 29 Sep 2021 - 12:13"
+    },
+    "511860d121ea4e80a7f4b79626b0d168": {
+        "meals": {
+            "Di": "dinsgag",
+            "Do": "Dongersdad",
+            "Ma": "Hallo ik ben shannon",
+            "Vrij": "",
+            "Wo": "",
+            "Za": "",
+            "Zo": ""
+        },
+        "shoppingItems": [
+            "Brood",
+            "rlol",
+            "Kaas",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item",
+            "New item"
+        ],
+        "creationDate": "Saturday  2 Oct 2021 - 14:48"
+    },
+    "373638f82cdb411a90280d8a8694a92e": {
+        "meals": {
+            "Di": "",
+            "Do": "",
+            "Ma": "",
+            "Vrij": "",
+            "Wo": "wowoeo",
+            "Za": "",
+            "Zo": ""
+        },
+        "shoppingItems": [],
+        "creationDate": "Sunday  3 Oct 2021 - 10:37"
+    }
+}

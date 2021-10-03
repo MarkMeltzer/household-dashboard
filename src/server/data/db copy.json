@@ -1,0 +1,72 @@
+[
+    {
+        "id" : 1,
+        "creationDate": "2 september 2020",
+        "meals" : {
+            "Ma" : "Pasta",
+            "Di" : "Pizza",
+            "Wo" : "Soup",
+            "Do" : "Brocolli and something idk",
+            "Vrij" : "Some cool meal",
+            "Za" : "Wraps",
+            "Zo" : "Boboti"
+        },
+        "shoppingItems" : [
+            "bread", 
+            "cheese", 
+            "3x paprika", 
+            "3L milk", 
+            "coke", 
+            "more bread", 
+            "brocolli", 
+            "pasta", 
+            "avocado", 
+            "salami", 
+            "toilet paper"
+        ]
+    },
+    {
+        "id" : 2,
+        "creationDate": "12 august 2020",
+        "meals" : {
+            "Ma" : "Pannekoeken",
+            "Di" : "Pannekoeken",
+            "Wo" : "Pannekoeken",
+            "Do" : "Pannekoeken",
+            "Vrij" : "Pannekoeken",
+            "Za" : "Pannekoeken",
+            "Zo" : "Pannekoeken"
+        },
+        "shoppingItems" : [
+            "Bloem", 
+            "Kaas", 
+            "Uien", 
+            "Eieren", 
+            "Melk", 
+            "Karamel stroop", 
+            "poedersuiker"
+        ]
+    },
+    {
+        "id" : 223366,
+        "creationDate": "15 august 2020",
+        "meals" : {
+            "Ma" : "Tortolonio",
+            "Di" : "Tortolonio",
+            "Wo" : "Tortolonio",
+            "Do" : "Tortolonio",
+            "Vrij" : "Tortolonio",
+            "Za" : "Tortolonio",
+            "Zo" : "Tortolonio"
+        },
+        "shoppingItems" : [
+            "Bloem", 
+            "Kaas", 
+            "Uien", 
+            "Eieren", 
+            "Melk", 
+            "Karamel stroop", 
+            "poedersuiker"
+        ]
+    }
+]

@@ -1,0 +1,7 @@
+{
+    "admin": {
+        "pw_hash": "$2b$12$Q0/S5GzSpeZV2Gec5qUMneEPvtZRMj9v1k2E1R.dhrvQirmgNJE6O",
+        "salt": "$2b$12$Q0/S5GzSpeZV2Gec5qUMne",
+        "login_token": "3d599b869d3340db85e3bc3380814752"
+    }
+}

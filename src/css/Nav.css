@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    flex-flow: row wrap;
+
+    background-color: #382A1E;
+}
+
+nav a {
+    padding: 10px;
+    color: #F8F4EF;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffffff;
+    background-color: hsl(28, 30%, 25%);
+}
+
+nav >* {
+    flex: 1;
+}

@@ -1,0 +1,23 @@
+.WeekListList {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.WeekListList >* {
+    flex: 1;
+}
+
+.weekListItem {
+    margin: 5px;
+    padding: 10px;
+    background-color: #5D4632;
+
+    text-decoration: none;
+    color: #F8F4EF;
+
+}
+
+.weekListItem:hover {
+    background-color: hsl(28, 30%, 32%);
+    color: #F8F4EF;
+}

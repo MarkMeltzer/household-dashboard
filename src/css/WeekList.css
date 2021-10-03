@@ -2,9 +2,23 @@
     text-align: right;
 }
 
+.title {
+    padding: 10px;
+    margin-bottom: 20px;
+
+    color: #F8F4EF;
+    background-color: #5D4632;
+    text-align: center;
+    font-size: large;
+}
+
+.editButtonContainer {
+    background-color: rgb(217, 210, 191);
+}
+
 .editButton {
-    width: 50%;
-    height: 50px;
+    width: 20%;
+    height: 30px;
 }
 
 .topSection .dayItem {
@@ -16,7 +30,8 @@
     margin-top: 0;
     margin-bottom: 0;
     padding: 5px;
-    background-color: rgb(205, 187, 255);
+    /* background-color: rgb(205, 187, 255); */
+    background-color: rgb(217, 210, 191);
     text-align: center;
 }
 
@@ -24,18 +39,24 @@
     margin-top: 0;
     margin-bottom: 0;
     padding: 5px;
-    background-color: rgb(188, 165, 252);
+    /* background-color: rgb(188, 165, 252); */
+    background-color: hsl(56, 25%, 87%);
+
     text-align: left;
 }
 
 .bottomSection {
     text-align: left;
     padding: 10px;
+    /* background-color: rgb(253, 198, 255); */
+    background-color: rgb(230, 229, 213);
+    border-top: 4px dotted hsl(37, 45%, 35%);
+
+
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(10, auto);
     grid-template-columns: repeat(3, 1fr);
-    background-color: rgb(253, 198, 255);
 }
 
 .bottomSection p {
@@ -46,6 +67,7 @@
 .shoppingItem {
     display: grid;
     grid-template-columns: 1fr auto auto auto;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.267);
 }
 
 .shoppingItem button {
@@ -63,6 +85,13 @@
 }
 
 /* Phones sizes */
+@media only screen and (max-width: 1000px) {
+    .bottomSection {
+        grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .bottomSection {
         grid-auto-flow: unset;
