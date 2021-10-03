@@ -2,6 +2,11 @@
     "admin": {
         "pw_hash": "$2b$12$Q0/S5GzSpeZV2Gec5qUMneEPvtZRMj9v1k2E1R.dhrvQirmgNJE6O",
         "salt": "$2b$12$Q0/S5GzSpeZV2Gec5qUMne",
-        "login_token": "3d599b869d3340db85e3bc3380814752"
+        "login_token": "dd567653fe9845f7ba1e380346af413b"
+    },
+    "demo": {
+        "pw_hash": "$2b$12$Avs0utt644n4Id/ujqWcguasW5hGdNfT5eEnDY1Z6s5MzxCv6zdl6",
+        "salt": "$2b$12$Avs0utt644n4Id/ujqWcgu",
+        "login_token": "6b1b90dea70f487aa1a1e96906944f92"
     }
 }

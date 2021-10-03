@@ -1,0 +1,9 @@
+.login {
+    color: #F8F4EF;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.131);
+}
+
+.login button{
+    margin: 15px;
+}
