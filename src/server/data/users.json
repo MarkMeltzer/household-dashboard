@@ -1,9 +1,4 @@
 {
-    "admin": {
-        "pw_hash": "$2b$12$Q0/S5GzSpeZV2Gec5qUMneEPvtZRMj9v1k2E1R.dhrvQirmgNJE6O",
-        "salt": "$2b$12$Q0/S5GzSpeZV2Gec5qUMne",
-        "login_token": "dd567653fe9845f7ba1e380346af413b"
-    },
     "demo": {
         "pw_hash": "$2b$12$Avs0utt644n4Id/ujqWcguasW5hGdNfT5eEnDY1Z6s5MzxCv6zdl6",
         "salt": "$2b$12$Avs0utt644n4Id/ujqWcgu",

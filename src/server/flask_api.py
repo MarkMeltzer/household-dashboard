@@ -1,12 +1,10 @@
-from logging import log
-import re
 from flask import Flask, jsonify, abort, request
-from werkzeug.exceptions import RequestEntityTooLarge
 from flask_cors import CORS, cross_origin
 import json
 import time
 import uuid
 import bcrypt
+import logging
 
 SIM_DELAY = 0.0
 
@@ -35,6 +33,12 @@ def verify_token(request):
             return True
     return False
 
+logging.basicConfig(
+    level=logging.INFO,
+    filename="flask.log",
+    format="%(asctime)s %(levelname)s: %(message)s",
+    datefmt="%d/%b/%Y %H:%M:%S"
+)
 app = Flask(__name__)
 CORS(app)
 
