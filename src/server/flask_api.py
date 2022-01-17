@@ -15,7 +15,7 @@ def load_data():
 
 # save data
 def save_data(data):
-    with open("./data/db.json", "w") as f:
+    with open("./data/db.json", "w+") as f:
         json.dump(data, f, indent=4)
 
 # verify token
@@ -29,7 +29,7 @@ def verify_token(request):
         content = json.load(f)
     
     for user in content:
-        if content[user]["login_token"] == token:
+        if token in content[user]["login_tokens"]:
             return True
     return False
 
@@ -41,6 +41,11 @@ logging.basicConfig(
 )
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/", methods=["GET"])
+@cross_origin()
+def landing_page():
+    return "<h1>Welcome to the backend webapi of my househould dashboard application!</h1>"
 
 @app.route("/weekLists", methods=["GET", "POST"])
 @cross_origin()
@@ -126,7 +131,7 @@ def getLoginToken():
     print("Login succesful!")
     token = uuid.uuid4().hex
 
-    users_data[username]["login_token"] = token
+    users_data[username]["login_tokens"].append(token)
     with open("./data/users.json", "w") as f:
         json.dump(users_data, f, indent=4)
 
@@ -143,4 +148,4 @@ def add_header(response):
     return response
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000)

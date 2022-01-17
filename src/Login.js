@@ -12,6 +12,7 @@ const Login = ({ setLoginToken }) => {
     e.preventDefault();
 
     // send a post request to the server asking for a token
+    console.log(config.DATA_SERVER_URL + "/getLoginToken")
     const apiURL = config.DATA_SERVER_URL + "/getLoginToken"
     const requestOpts = {
       method: "POST",

@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router basename={"/household-dashboard-demo"}>
     <div className="App">
       <globalContext.Provider value={{"token" : token}}>
         <div className="content">

@@ -2,6 +2,7 @@
     "demo": {
         "pw_hash": "$2b$12$Avs0utt644n4Id/ujqWcguasW5hGdNfT5eEnDY1Z6s5MzxCv6zdl6",
         "salt": "$2b$12$Avs0utt644n4Id/ujqWcgu",
-        "login_token": "76f2dbce2cfc4193b8dafa665f3e9a43"
+        "login_tokens": [
+        ]
     }
 }

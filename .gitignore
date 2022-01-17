@@ -24,3 +24,5 @@ yarn-error.log*
 
 notes.txt
 temp.py
+docker-image.tar
+/src/Dockerfile
