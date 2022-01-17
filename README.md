@@ -4,7 +4,7 @@ This is a react based web app to assist with various of our household tasks. For
 
 # Demo
 
-A demo is available at [COMING SOON].
+A demo is available at http://markmeltzer.nl/household-dashboard-demo/.
 
 The username and password are "demo".
 
