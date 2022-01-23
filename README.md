@@ -20,7 +20,7 @@ The project requires npm and react for the website and flask and bcrypt for the 
 To run the web api simply run "python .\flask_api.py" or "python3 .\flask_api.py" from the "/server/" directory. Change the "DATA_SERVER_URL" variable in "/src/config.json" to the url of this server. To build a production version of the react app clone this repository and change run "npm run build". This creates a build folder which can then be served using a webserver of your choosing. The password is sent in plaintext to the api when acquiring a login token (this will be changed later), so HTTPS should be used to protect the credentials.
 
 # TODO/Known issues
- - Fetch errors aren't caught correctly. They are caught on the json parse promise which will still fail if the api responds with an error but prevents providing useful error messages.
+ - ~~Fetch errors aren't caught correctly. They are caught on the json parse promise which will still fail if the api responds with an error but prevents providing useful error messages.~~
  - Passwords should also be hashed client-side to protect passwords sent over insecure connections.
  - The WeekList component is getting a bit crowded. Top and bottom sections should be spun of into their own components.
  - Currently login tokens do not expire.

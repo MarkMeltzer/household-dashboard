@@ -36,6 +36,9 @@ const Login = ({ setLoginToken }) => {
   }
 
   return <div className="login">
+    <p>
+       You are not logged in. Please log in. 
+    </p>
     <form onSubmit={handleSubmit}>
       {errorMessage && 
         <div>

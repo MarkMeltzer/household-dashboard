@@ -13,7 +13,7 @@ import { useState } from "react";
 import globalContext from './globalContext';
 
 function App() {
-  // look for login tokin in localstorage
+  // look for login token in localstorage
   const loginToken = localStorage.getItem("loginToken");
 
   const [token, setToken] = useState(loginToken);
@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <globalContext.Provider value={{"token" : token}}>
         <div className="content">
-          <Nav />
+          <Nav setLoginToken={setToken}/>
           <Switch>
             <Route exact path="/"><Home /></Route>
             <Route path="/week/:id"><WeekListPage /></Route>

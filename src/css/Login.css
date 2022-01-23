@@ -1,7 +1,8 @@
 .login {
     color: #F8F4EF;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.131);
+    /* background-color: rgba(0, 0, 0, 0.131); */
+    background-color: #5D4632;
 }
 
 .login button{
