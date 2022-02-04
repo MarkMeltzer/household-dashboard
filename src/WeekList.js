@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import './css/WeekList.css';
 import { updateObject, updateArray, swapArrayElements, removeItemFromArray } from './utils';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import config from "./config.json"
 import globalContext from "./globalContext";
 
@@ -75,7 +75,7 @@ const WeekList = (props) => {
     <div className="bottomSection" style={bottomStyle}>{
       shoppingItems.map((item, index) => 
         <div className="shoppingItem" key={index}>
-          {!isEditing && <p>{item}</p>}
+          {!isEditing && <Link to={"/shoppingItem/" + item}>{item}</Link>}
           
           {isEditing && <>
             <input 
@@ -188,8 +188,8 @@ const WeekList = (props) => {
   }
 
 
-  if (error) return <div className="weekList"><p>Error retrieving data :(</p></div>
-  if (isLoading) return <div className="weekList"><p>Loading...</p></div>
+  if (error) return <div className="weekList"><p className="error">Error: {error.message}</p></div>
+  if (isLoading) return <div className="weekList"><p className="loading">Loading...</p></div>
   return (
     <div className="weekList">
       {title}

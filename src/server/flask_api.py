@@ -1,3 +1,4 @@
+# from crypt import methods
 from flask import Flask, jsonify, abort, request
 from flask_cors import CORS, cross_origin
 import json
@@ -47,9 +48,16 @@ CORS(app)
 def landing_page():
     return "<h1>Welcome to the backend webapi of my househould dashboard application!</h1>"
 
+#####
+# WeekLists
+#####
+
 @app.route("/weekLists", methods=["GET", "POST"])
 @cross_origin()
 def all_week_lists():
+    # TODO: split this into all weeklist and update week list and new weeklist
+    # with routes /weekLists/all (GET), /weekLists/<id> (PUT) and /weekLists/new (POST) respectively
+
     # authorize client
     if not verify_token(request):
         print("Wrong token.")
@@ -58,17 +66,17 @@ def all_week_lists():
     data = load_data()
 
     if request.method == "GET":
-        return jsonify(data)
+        return jsonify(data["weekLists"])
     elif request.method == "POST":
         if "id" in request.json:
             # change an existing record (should be moved to a PUT method)
             print("Changing existing record...")
 
-            weekList = data[request.json["id"]]
+            weekList = data["weekLists"][request.json["id"]]
             weekList["meals"] = request.json["meals"]
             weekList["shoppingItems"] = request.json["shoppingItems"]
             
-            data[request.json["id"]] = weekList
+            data["weekLists"][request.json["id"]] = weekList
             save_data(data)
 
             return jsonify({"id" : request.json["id"]})
@@ -82,7 +90,7 @@ def all_week_lists():
             weekList["creationDate"] = nowStr
             
             id = uuid.uuid4().hex
-            data[id] = weekList
+            data["weekLists"][id] = weekList
             save_data(data)
             
             return jsonify({"id" : id})
@@ -98,11 +106,56 @@ def specific_week_list(arg):
         print("Wrong token.")
         abort(401)
 
-    data = load_data()
+    data = load_data()["weekLists"]
     if arg in data:
         return jsonify(data[arg])
     else:
         abort(404)
+
+#####
+# Shopping items
+#####
+
+@app.route("/shoppingItems/all", methods=["GET"])
+@cross_origin()
+def all_shopping_items():
+    # authorize client
+    if not verify_token(request):
+        print("Wrong token.")
+        abort(401)
+
+    data = load_data()["shoppingItems"]
+    return jsonify(data)
+
+@app.route("/shoppingItems/all/onlyNames", methods=["GET"])
+@cross_origin()
+def all_shopping_items_names():
+    # authorize client
+    if not verify_token(request):
+        print("Wrong token.")
+        abort(401)
+    
+    data = load_data()["shoppingItems"]
+    return jsonify(list(data.keys()))
+
+@app.route("/shoppingItems/<string:arg>", methods=["GET"])
+@cross_origin()
+def specific_shopping_item(arg):
+    # authorize client
+    if not verify_token(request):
+        print("Wrong token.")
+        abort(401)
+
+    data = load_data()["shoppingItems"]
+    if arg in data:
+        return jsonify(data[arg])
+    else:
+        abort(404)
+
+
+#####
+# Login
+#####
 
 @app.route("/getLoginToken", methods=["POST"])
 @cross_origin()

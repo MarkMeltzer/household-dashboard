@@ -1,0 +1,37 @@
+.searchableInputWrapper {
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchInput {
+    display: block;
+    width: 200px;
+    border:none;
+}
+
+.searchResults {
+    border: none;
+
+    width: 200px;
+    background-color: bisque;
+}
+
+.searchResult {
+    display: flex;
+    justify-content: left;
+}
+
+.searchResult > input:checked + label {
+    background-color: coral;
+}
+
+.searchResult > label {
+    width: 100%;
+}
+
+.searchResult > input {
+    display: none;
+}

@@ -1,5 +1,5 @@
 {
-    "weekLists": {
+    "weekLists" : {
         "6de14b5354e34f308f39cd851c962ae3": {
             "creationDate": "2 september 2020",
             "meals": {
@@ -162,9 +162,7 @@
                 "Za": "",
                 "Zo": ""
             },
-            "shoppingItems": [
-                "Brood"
-            ],
+            "shoppingItems": [],
             "creationDate": "Sunday  3 Oct 2021 - 10:37"
         },
         "436a100f7524426c81aa6f848191cb15": {
@@ -181,51 +179,51 @@
             "creationDate": "Sunday  3 Oct 2021 - 13:13"
         }
     },
-    "shoppingItems": {
-        "bread": {},
-        "cheese": {},
-        "3x paprika": {},
-        "3L milk": {},
-        "coke": {},
-        "more bread": {},
-        "brocolli": {},
-        "pasta": {},
-        "avocado": {},
-        "salami": {},
-        "toilet paper": {},
-        "Bloem": {},
-        "Kaas": {},
-        "Uien": {},
-        "Eieren": {},
-        "Melk": {},
-        "Karamel stroop": {},
-        "poedersuiker": {},
-        "New item": {},
-        "Look at these cool items": {},
-        "Lorem ": {},
-        "ipsum ": {},
-        "sit ": {},
-        "amet": {},
-        "consectetur ": {},
-        "adipiscing": {},
-        "elit": {},
-        "sed ": {},
-        "do ": {},
-        "eiusmod ": {},
-        "tempor ": {},
-        "incididunt ": {},
-        "ut ": {},
-        "labore ": {},
-        "et": {},
-        "dolore ": {},
-        "magna ": {},
-        "aliqua": {},
-        "Brood": {
-            "shop": "lidl",
-            "location": "brood",
-            "price": 1.2
+    "shoppingItems" : {
+        "bread" : {},
+        "cheese" : {},
+        "3x paprika" : {},
+        "3L milk" : {},
+        "coke" : {},
+        "more bread" : {},
+        "brocolli" : {},
+        "pasta" : {},
+        "avocado" : {},
+        "salami" : {},
+        "toilet paper" : {},
+        "Bloem" : {},
+        "Kaas" : {},
+        "Uien" : {},
+        "Eieren" : {},
+        "Melk" : {},
+        "Karamel stroop" : {},
+        "poedersuiker" : {},
+        "New item" : {},
+        "Look at these cool items" : {},
+        "Lorem " : {},
+        "ipsum " : {},
+        "sit " : {},
+        "amet" : {},
+        "consectetur " : {},
+        "adipiscing" : {},
+        "elit" : {},
+        "sed " : {},
+        "do " : {},
+        "eiusmod " : {},
+        "tempor " : {},
+        "incididunt " : {},
+        "ut " : {},
+        "labore " : {},
+        "et" : {},
+        "dolore " : {},
+        "magna " : {},
+        "aliqua" : {},
+        "Brood" : {
+            "shop" : "lidl",
+            "location" : "brood",
+            "price" : 1.20
         },
-        "Ut": {},
-        "rlol": {}
+        "Ut" : {},
+        "rlol" : {}        
     }
 }

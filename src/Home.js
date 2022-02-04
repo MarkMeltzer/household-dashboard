@@ -8,8 +8,8 @@ const Home = () => {
   
   return (
     <div className="WeekListList">
-      {error && <p>error: {error ? error.message : "null"}</p>}
-      {!error && isLoading && <p>Loading....</p>}
+      {error && <p className='error'>Error: {error.message}</p>}
+      {!error && isLoading && <p className='loading'>Loading....</p>}
       {weekLists &&
         Object.entries(weekLists).map((el) => 
           <Link to={`/week/${el[0]}`} className="weekListItem" key={el[0]}>

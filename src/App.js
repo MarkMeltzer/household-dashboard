@@ -1,6 +1,7 @@
 import './css/App.css';
 import WeekListPage from './WeekListPage';
 import NewWeekListPage from './NewWeekListPage';
+import PlaygroundPage from './PlaygroundPage';
 import Home from './Home';
 import {
   BrowserRouter as Router,
@@ -11,6 +12,7 @@ import Nav from './Nav';
 import Login from "./Login";
 import { useState } from "react";
 import globalContext from './globalContext';
+import ShoppingItemPage from './ShoppingItemPage';
 
 function App() {
   // look for login token in localstorage
@@ -36,7 +38,9 @@ function App() {
           <Switch>
             <Route exact path="/"><Home /></Route>
             <Route path="/week/:id"><WeekListPage /></Route>
+            <Route path="/shoppingItem/:id"><ShoppingItemPage /></Route>
             <Route path="/newweek"><NewWeekListPage /></Route>
+            <Route path="/playground"><PlaygroundPage /></Route>
             <Route render={() => <h1>Page not found :(</h1>} />
           </Switch>
         </div>

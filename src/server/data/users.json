@@ -3,6 +3,8 @@
         "pw_hash": "$2b$12$Avs0utt644n4Id/ujqWcguasW5hGdNfT5eEnDY1Z6s5MzxCv6zdl6",
         "salt": "$2b$12$Avs0utt644n4Id/ujqWcgu",
         "login_tokens": [
+            "b952f50c7d204e229aefcca3325ce148",
+            "c37c4ab3e11d436ab221aefcb6cba51a"
         ]
     }
 }

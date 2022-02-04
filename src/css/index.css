@@ -19,3 +19,17 @@ code {
 html {
   height: 100%;
 }
+
+.error {
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(104, 17, 35);
+  color: white;
+}
+
+.loading {
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(118, 155, 207);
+  color: black;
+}
