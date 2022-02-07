@@ -16,7 +16,7 @@ const Nav = ({ setLoginToken }) => {
       <Link to="/">Home</Link>
       <Link to="/newweek">New Week</Link>
       <Link to="/playground">Playground</Link>
-      <Link to="/week">Dead link</Link>
+      <Link to="/shoppingItems">Shopping items</Link>
       <button onClick={logout}>Logout!</button>
     </nav>
   );

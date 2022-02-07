@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import useFetch from './hooks/useFetch';
-import './css/Home.css'
-import config from "./config.json"
+import './css/Home.css';
+import config from "./config.json";
 
 const Home = () => {
   const { data: weekLists, isLoading, error } = useFetch(config.DATA_SERVER_URL + "/weekLists");

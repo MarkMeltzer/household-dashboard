@@ -1,0 +1,19 @@
+.ShoppingItemsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ShoppingItemsListItem {
+  margin: 5px;
+  padding: 10px;
+  background-color: #5D4632;
+
+  text-decoration: none;
+  color: #F8F4EF;
+
+}
+
+.ShoppingItemsListItem:hover {
+  background-color: hsl(28, 30%, 32%);
+  color: #F8F4EF;
+}

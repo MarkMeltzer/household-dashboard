@@ -4,6 +4,8 @@ import { updateObject, updateArray, swapArrayElements, removeItemFromArray } fro
 import { useHistory, Link } from 'react-router-dom';
 import config from "./config.json"
 import globalContext from "./globalContext";
+import AsyncCreatableSelect from 'react-select/async-creatable';
+
 
 const WeekList = (props) => {
   const hist = useHistory();

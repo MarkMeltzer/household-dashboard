@@ -13,7 +13,7 @@ const ShoppingItemPage = () => {
     const dataDisplay = data &&
         <div className="shoppingItemDisplay">
             <p className="shoppingItemTitle">Shopping Item</p>
-            <p className="shoppingItemName">{id}</p>
+            <p className="shoppingItemName">{data.name}</p>
             <div className="price">
                 <span className="priceTitle">Price: </span>
                 <span className="priceValue">{data.price ? "€ " + data.price.toFixed(2) : "Not specified"}</span>

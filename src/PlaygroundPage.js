@@ -1,23 +1,44 @@
 import SearchableInput from "./SearchableInput";
 import AsyncCreatableSelect from 'react-select/async-creatable';
+import useFetch from "./hooks/useFetch";
+import config from "./config.json";
+import "./css/PlaygroundPage.css"
+import { useState } from "react";
 
 const PlaygroundPage = () => {
+    const { data, isLoading, error } = useFetch("https://catfact.ninja/fact");
+    const [temp, setTemp] = useState("temp");
+    const { data: shoppingItems } = useFetch(
+        config.DATA_SERVER_URL + "/shoppingItems/all/onlyNames"
+    );
+    function handleCreation(value) {
+        setTemp(value);
+    }
+
+    function loadShoppingItems(value) {
+        return shoppingItems ? shoppingItems.filter(value) : [];
+    }
+
     return <div className="playground">
+        {data && <div className="whitetext">
+            {JSON.stringify(
+                shoppingItems,
+                null,
+                "\t"
+            )}
+        </div>}
+
+        <div>{temp}</div>
+
         <br />
         <SearchableInput />
         <br />
         <AsyncCreatableSelect
             isClearable
-            onChange={e=>console.log(e.value)}
-            defaultOptions={
-                [
-                    { value: "item 1", label: "item 1" },
-                    { value: "item 2", label: "item 2" },
-                    { value: "item 3", label: "item 3" },
-                    { value: "item 4", label: "item 4" },
-                    { value: "item 5", label: "item 5" },
-                ]
-            }
+            onChange={e=>console.log("test: " + e.value)}
+            defaultOptions={true}
+            loadOptions={loadShoppingItems}
+            onCreateOption={handleCreation}
         ></AsyncCreatableSelect>
     </div>
 }

@@ -52,7 +52,6 @@
     background-color: rgb(230, 229, 213);
     border-top: 4px dotted hsl(37, 45%, 35%);
 
-
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(10, auto);

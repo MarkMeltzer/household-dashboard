@@ -1,5 +1,5 @@
 {
-    "weekLists" : {
+    "weekLists": {
         "6de14b5354e34f308f39cd851c962ae3": {
             "creationDate": "2 september 2020",
             "meals": {
@@ -162,7 +162,9 @@
                 "Za": "",
                 "Zo": ""
             },
-            "shoppingItems": [],
+            "shoppingItems": [
+                "Brood"
+            ],
             "creationDate": "Sunday  3 Oct 2021 - 10:37"
         },
         "436a100f7524426c81aa6f848191cb15": {
@@ -177,53 +179,145 @@
             },
             "shoppingItems": [],
             "creationDate": "Sunday  3 Oct 2021 - 13:13"
+        },
+        "9088ef8f0e5045f1a1a35d397c5be928": {
+            "meals": {
+                "Ma": "",
+                "Di": "",
+                "Wo": "",
+                "Do": "",
+                "Vrij": "",
+                "Za": "",
+                "Zo": ""
+            },
+            "shoppingItems": [],
+            "creationDate": "Friday  4 Feb 2022 - 17:35"
+        },
+        "ca4e2dad83e44f6d8a7380c439ff4e57": {
+            "meals": {
+                "Ma": "",
+                "Di": "",
+                "Wo": "",
+                "Do": "",
+                "Vrij": "",
+                "Za": "",
+                "Zo": ""
+            },
+            "shoppingItems": [],
+            "creationDate": "Friday  4 Feb 2022 - 17:35"
+        },
+        "dde3cc449ec54887b297725e6db0ef22": {
+            "meals": {
+                "Ma": "",
+                "Di": "",
+                "Wo": "",
+                "Do": "",
+                "Vrij": "",
+                "Za": "",
+                "Zo": ""
+            },
+            "shoppingItems": [],
+            "creationDate": "Friday  4 Feb 2022 - 17:36"
+        },
+        "92e7ee5b2c4a4d92a6e981c6ceec84db": {
+            "meals": {
+                "Ma": "",
+                "Di": "",
+                "Wo": "",
+                "Do": "",
+                "Vrij": "",
+                "Za": "",
+                "Zo": ""
+            },
+            "shoppingItems": [],
+            "creationDate": "Friday  4 Feb 2022 - 17:40"
+        },
+        "ff5bc95c26ac4b8d80a8518cfad03a30": {
+            "meals": {
+                "Ma": "",
+                "Di": "",
+                "Wo": "",
+                "Do": "",
+                "Vrij": "",
+                "Za": "",
+                "Zo": ""
+            },
+            "shoppingItems": [],
+            "creationDate": "Friday  4 Feb 2022 - 17:40"
+        },
+        "f231c4b666684e8287c3ebe42f6b8956": {
+            "meals": {
+                "Ma": "",
+                "Di": "",
+                "Wo": "",
+                "Do": "",
+                "Vrij": "",
+                "Za": "",
+                "Zo": ""
+            },
+            "shoppingItems": [],
+            "creationDate": "Friday  4 Feb 2022 - 17:40"
+        },
+        "6f30bb78476848f8a1578b20c05a7265": {
+            "meals": {
+                "Ma": "",
+                "Di": "",
+                "Wo": "",
+                "Do": "",
+                "Vrij": "",
+                "Za": "",
+                "Zo": ""
+            },
+            "shoppingItems": [],
+            "creationDate": "Friday  4 Feb 2022 - 18:13"
         }
     },
-    "shoppingItems" : {
-        "bread" : {},
-        "cheese" : {},
-        "3x paprika" : {},
-        "3L milk" : {},
-        "coke" : {},
-        "more bread" : {},
-        "brocolli" : {},
-        "pasta" : {},
-        "avocado" : {},
-        "salami" : {},
-        "toilet paper" : {},
-        "Bloem" : {},
-        "Kaas" : {},
-        "Uien" : {},
-        "Eieren" : {},
-        "Melk" : {},
-        "Karamel stroop" : {},
-        "poedersuiker" : {},
-        "New item" : {},
-        "Look at these cool items" : {},
-        "Lorem " : {},
-        "ipsum " : {},
-        "sit " : {},
-        "amet" : {},
-        "consectetur " : {},
-        "adipiscing" : {},
-        "elit" : {},
-        "sed " : {},
-        "do " : {},
-        "eiusmod " : {},
-        "tempor " : {},
-        "incididunt " : {},
-        "ut " : {},
-        "labore " : {},
-        "et" : {},
-        "dolore " : {},
-        "magna " : {},
-        "aliqua" : {},
-        "Brood" : {
-            "shop" : "lidl",
-            "location" : "brood",
-            "price" : 1.20
+    "shoppingItems": {
+        "bread": {},
+        "cheese": {},
+        "3x paprika": {},
+        "3L milk": {},
+        "coke": {},
+        "more bread": {},
+        "brocolli": {},
+        "pasta": {},
+        "avocado": {},
+        "salami": {},
+        "toilet paper": {},
+        "Bloem": {},
+        "Kaas": {},
+        "Uien": {},
+        "Eieren": {},
+        "Melk": {},
+        "Karamel stroop": {},
+        "poedersuiker": {},
+        "New item": {},
+        "Look at these cool items": {},
+        "Lorem ": {},
+        "ipsum ": {},
+        "sit ": {},
+        "amet": {},
+        "consectetur ": {},
+        "adipiscing": {},
+        "elit": {},
+        "sed ": {},
+        "do ": {},
+        "eiusmod ": {},
+        "tempor ": {},
+        "incididunt ": {},
+        "ut ": {},
+        "labore ": {},
+        "et": {},
+        "dolore ": {},
+        "magna ": {},
+        "aliqua": {},
+        "Brood": {
+            "shop": "lidl",
+            "location": "brood",
+            "price": 1.2
         },
-        "Ut" : {},
-        "rlol" : {}        
+        "Ut": {},
+        "rlol": {},
+        "playground": {}
     }
 }

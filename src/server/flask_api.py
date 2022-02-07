@@ -1,4 +1,6 @@
 # from crypt import methods
+from audioop import cross
+# from crypt import methods
 from flask import Flask, jsonify, abort, request
 from flask_cors import CORS, cross_origin
 import json
@@ -136,22 +138,38 @@ def all_shopping_items_names():
         abort(401)
     
     data = load_data()["shoppingItems"]
-    return jsonify(list(data.keys()))
+    return jsonify([data[id]["name"] for id in data])
 
-@app.route("/shoppingItems/<string:arg>", methods=["GET"])
+@app.route("/shoppingItems/<string:id>", methods=["GET"])
 @cross_origin()
-def specific_shopping_item(arg):
+def specific_shopping_item(id):
     # authorize client
     if not verify_token(request):
         print("Wrong token.")
         abort(401)
 
-    data = load_data()["shoppingItems"]
-    if arg in data:
-        return jsonify(data[arg])
+    data = load_data()
+
+    if id in data["shoppingItems"]:
+        return jsonify(data["shoppingItems"][id])
     else:
         abort(404)
 
+@app.route("/shoppingItems", methods=["POST"])
+@cross_origin()
+def new_shoppingItem():
+    # authorize client
+    if not verify_token(request):
+        print("Wrong token.")
+        abort(401)
+
+    data = load_data()
+    
+    shoppingItem = request.json
+    id = uuid.uuid4().hex
+    data["shoppingItems"][id] = shoppingItem
+    save_data(data)
+    return jsonify({"id" : id})
 
 #####
 # Login
