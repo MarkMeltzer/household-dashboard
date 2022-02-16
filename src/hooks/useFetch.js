@@ -4,6 +4,7 @@ import globalContext from "../globalContext";
 
 const useFetch = (
   apiEndpoint,
+  extraDependencies=[],
   requestOpts={ method: "GET", headers: {} },
   authorize=true
 ) => {
@@ -22,6 +23,11 @@ const useFetch = (
   }
 
   useEffect(() => {
+    // reset defaults for subsequent requests
+    setData(null);
+    setIsLoading(true);
+    setError(null);
+
     // send request and handle response
     fetch(
       apiEndpoint,
@@ -42,9 +48,9 @@ const useFetch = (
           setData(null);
           setError(err)
       })
-  }, [apiEndpoint, context]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [apiEndpoint, context, ...extraDependencies]) // eslint-disable-line react-hooks/exhaustive-deps
   
-  return { data, isLoading, error }; 
+  return { data, setData, isLoading, error }; 
 }
 
 export default useFetch;

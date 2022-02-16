@@ -76,7 +76,7 @@ def all_week_lists():
 
             weekList = data["weekLists"][request.json["id"]]
             weekList["meals"] = request.json["meals"]
-            weekList["shoppingItems"] = request.json["shoppingItems"]
+            weekList["shoppingList"] = request.json["shoppingList"]
             
             data["weekLists"][request.json["id"]] = weekList
             save_data(data)
@@ -125,6 +125,10 @@ def all_shopping_items():
     if not verify_token(request):
         print("Wrong token.")
         abort(401)
+
+    # simulate slow network
+    # TODO: remove this
+    time.sleep(2)
 
     data = load_data()["shoppingItems"]
     return jsonify(data)

@@ -22,6 +22,10 @@ const ShoppingItemPage = () => {
                 <span className="locationTitle">Location: </span>
                 <span className="locationValue">{data.location ? data.location : "Not specified"}</span>
             </div>
+            <div className="shop">
+                <span className="shopTitle">Shop: </span>
+                <span className="shopValue">{data.shop ? data.shop : "Not specified"}</span>
+            </div>
         </div>
 
     return <div className="shoppingItemDisplayContainer">

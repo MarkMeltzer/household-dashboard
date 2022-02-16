@@ -63,15 +63,22 @@
     margin-bottom: 0;
 }
 
+.react-select-container {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: small;
+}
+
 .shoppingItem {
     display: grid;
     grid-template-columns: 1fr auto auto auto;
+    align-items: center;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.267);
 }
 
 .shoppingItem button {
-        width: 25px;
-        height: 25px;
+    width: 35px;
+    height: 35px;
 }
 
 .shoppingItem input[type="text"] {
@@ -81,6 +88,9 @@
 
 .addNewButton {
     width: 50%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+
 }
 
 /* Phones sizes */

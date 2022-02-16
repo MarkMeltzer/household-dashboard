@@ -3,7 +3,7 @@
  * 
  * @param {object} object the object to return a changed copy of
  * @param {string} key the key of the attribute to change
- * @param {string} value the value to change the attribute to
+ * @param {any} value the value to change the attribute to
  * @returns 
  */
  export function updateObject(object, key, value) {

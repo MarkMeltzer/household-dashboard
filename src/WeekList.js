@@ -5,6 +5,8 @@ import { useHistory, Link } from 'react-router-dom';
 import config from "./config.json"
 import globalContext from "./globalContext";
 import AsyncCreatableSelect from 'react-select/async-creatable';
+import ShoppingItemInput from './ShoppingItemInput';
+import useFetch from './hooks/useFetch';
 
 
 const WeekList = (props) => {
@@ -16,7 +18,10 @@ const WeekList = (props) => {
   =========================================================================*/
   const days = ["Ma", "Di", "Wo", "Do", "Vrij", "Za", "Zo"];
   const [meals, setMeals] = useState(Object.fromEntries(days.map(day => [day, ""])));
-  const [shoppingItems, setShoppingItems] = useState([]);
+
+  const [shoppingList, setShoppingList] = useState([]);
+  const shoppingItems = useFetch(config.DATA_SERVER_URL + "/shoppingItems/all");
+
   const [isEditing, setIsEditing] = useState(props.isEditing);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -30,7 +35,7 @@ const WeekList = (props) => {
   useEffect(() => {
     if (props.initialData && !error && data) {
       setMeals(data["meals"])
-      setShoppingItems(data["shoppingItems"])
+      setShoppingList(data["shoppingList"])
     }
   }, [data, error, props.initialData])
 
@@ -68,26 +73,31 @@ const WeekList = (props) => {
   =========================================================================*/   
   // extend the shoppinglist when it gets too big
   const nMaxItems = window.innerWidth < 1000 ? 20 : 30;
-  const nRows = (Math.floor(shoppingItems.length / nMaxItems) + 1) * 10;
+  const nRows = (Math.floor(shoppingList.length / nMaxItems) + 1) * 10;
   const bottomStyle = {
     gridTemplateRows: `repeat(${nRows}, auto)`
   }
 
   const bottomSection = 
-    <div className="bottomSection" style={bottomStyle}>{
-      shoppingItems.map((item, index) => 
+    <div className="bottomSection" style={bottomStyle}>
+      {!shoppingItems.data && <p className='loading'>Loading....</p>}
+
+      {shoppingItems.data && shoppingList.map((item, index) => 
         <div className="shoppingItem" key={index}>
-          {!isEditing && <Link to={"/shoppingItem/" + item}>{item}</Link>}
+          {!isEditing &&
+          shoppingItems.data[item.id] &&
+           <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>}
           
           {isEditing && <>
-            <input 
-              type="text" 
-              value={item}
-              onChange={e => handleShoppingItemChange(e, index) }
-            /> 
+            <ShoppingItemInput 
+              shoppingItems={shoppingItems}
+              shoppingList={shoppingList}
+              setShoppingList={setShoppingList}
+              index={index}
+            />
             {index > 0 &&
               <button onClick={e => moveShoppingItemUp(index)} >↑</button>}
-            {index < shoppingItems.length - 1 &&
+            {index < shoppingList.length - 1 &&
               <button onClick={e => moveShoppingItemDown(index)}>↓</button>}
             <button
               className="deleteItemButton"
@@ -96,31 +106,29 @@ const WeekList = (props) => {
           </>}
         </div>
       )}
-      {isEditing && 
+
+      {isEditing && shoppingItems.data && 
         <button 
             onClick={addShoppingItem}
             className="addNewButton"
           >Add new</button>}
     </div>
-  
-  function handleShoppingItemChange(e, index) {
-    setShoppingItems(updateArray(shoppingItems, index, e.target.value));
-  }
 
   function addShoppingItem() {
-    setShoppingItems([...shoppingItems, "New item"]);    
+    setShoppingList([...shoppingList, { id: "newItem", checked: false }]);    
   }
 
   function deleteShoppingItem(index) {
-    setShoppingItems(removeItemFromArray(shoppingItems, index));
+    setShoppingList(removeItemFromArray(shoppingList, index));
   }
 
   function moveShoppingItemUp(index) {
-    setShoppingItems(swapArrayElements(shoppingItems, index, index-1))
+    setShoppingList(swapArrayElements(shoppingList, index, index-1))
+
   }
 
   function moveShoppingItemDown(index) {
-    setShoppingItems(swapArrayElements(shoppingItems, index, index+1))
+    setShoppingList(swapArrayElements(shoppingList, index, index+1))
   }
 
   function clickEditButton(e) {
@@ -129,6 +137,10 @@ const WeekList = (props) => {
       return;
     }
 
+    // filter out the empty new items
+    const filteredShoppingList = shoppingList.filter(item => item.id != "newItem");
+    setShoppingList(filteredShoppingList);
+
     e.target.disabled = true;
     setIsEditing(false);
     setIsSubmitting(true);
@@ -136,7 +148,7 @@ const WeekList = (props) => {
     // collect the data to send back to the server
     const objToSend = {
       "meals" : meals,
-      "shoppingItems": shoppingItems
+      "shoppingList": filteredShoppingList
     }
 
     let apiURL, requestOpts, onSucces;
@@ -178,15 +190,23 @@ const WeekList = (props) => {
 
     // send the request to the server
     fetch(apiURL, requestOpts)
-      .then(res => res.json())
-      .then(
-        onSucces,
-        err => {
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw Error("HTTP error code " + res.status + " " + res.statusText);
+        }
+      }).then(json => {
+        // success
+        onSucces(json)
+        console.log(shoppingList);
+        console.log(json)
+      }).catch(err => {
           // error
           setIsSubmitting(false);
           e.target.disabled = false;
           alert("Error submitting list: \n" + err)
-        })
+      })
   }
 
 

@@ -18,10 +18,10 @@
     margin-bottom: 30px;
 }
 
-.priceTitle, .locationTitle {
+.priceTitle, .locationTitle, .shopTitle {
     color: rgb(199, 199, 199);
 }
 
-.priceValue, .locationValue {
+.priceValue, .locationValue, .shopValue {
     color: white;
 }
