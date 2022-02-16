@@ -14,47 +14,58 @@
             "shoppingList": [
                 {
                     "id": "82ab17da60bf469c93b116b7358e5a1d",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "7a845c300921417994ac0abdf8650053",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "70128a2b8ccc4f22a37d909a20d5b3a4",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "333da0503ff54ab0be488a72d1eef35c",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "b65259daa716401aa9880cc36416ca07",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "004ab4c7b4684db09ed98e6c4355d584",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "e36c26cbdcdc4463a30d0309be0c8c37",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "0684963bfe1f4a6eacf916c2600f4a6b",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "b19391ad064c4eb6b284edbc514ddc2f",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "4e117cecffd346d5b62cabafb4036fed",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "2580c5c400af4e10b53f44d846aebf38",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 }
             ]
         },
@@ -72,31 +83,38 @@
             "shoppingList": [
                 {
                     "id": "8878b170b33c40fa852c006f824b6a6a",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "5287dd5e33704d7987b9023a548646f0",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "ae51c41814ad4dd08a15b2fc1739657e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "0a1ffdaa69c8459bb461087502b4e29c",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "98dafac7aa35419b870a7af344e7f2fe",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "e2307d6c7bbe41e0884bd4ef0a95386d",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "a351d3cbb57e48d38a41aa903665702f",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 }
             ]
         },
@@ -115,35 +133,43 @@
             "shoppingList": [
                 {
                     "id": "8878b170b33c40fa852c006f824b6a6a",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "5287dd5e33704d7987b9023a548646f0",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "ae51c41814ad4dd08a15b2fc1739657e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "0a1ffdaa69c8459bb461087502b4e29c",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "98dafac7aa35419b870a7af344e7f2fe",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "e2307d6c7bbe41e0884bd4ef0a95386d",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "a351d3cbb57e48d38a41aa903665702f",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 }
             ]
         },
@@ -159,83 +185,103 @@
             "shoppingList": [
                 {
                     "id": "c7382a5eca6a471780ce58d3562d0193",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "a572b16fb6c54c2b973d42edfe2e5357",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "5193bcee8e214b56a6f6914bea98bddf",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "2ddd9fd5ff6242f4b4f77b030866bf93",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "ed4eeee57d2b4609acbee5dce50dc929",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "e7c8e2e76f344f8989b66db1d6257bdf",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "6077e76573af4810a82e5ff49abed638",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "809f242bebc743bfbc0a6f24028eb98f",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "eebced9e83b34ad993564df88081e3be",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "0edb1696349548658dca2211aed5c4c1",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "c7a585cb19f94f659f69ed236400c0f1",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "143731e5461f46679f3fcf184b3d10b5",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "a4e4f649d72b44298f584167be36fc87",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "9716d4445e2e41639de4bb873fb8df97",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "d9b2d237c4f645d09e69625f87863f8e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "3edb3e609a334a95a10fc184e6f4f802",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "ed7b65dac7104749a1228369b9c5c2de",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "0e9afcb998f745bb998d8c5132b22be3",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "f953733ed4fd4fce83b1ec9f9bc99a3e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 }
             ],
             "creationDate": "Wednesday 29 Sep 2021 - 12:13"
@@ -253,135 +299,168 @@
             "shoppingList": [
                 {
                     "id": "19ddb0ea294d4ed5a4f27789afa95bf3",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "4ae6f00f693f42d8bb31c51dd87b6ade",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "5287dd5e33704d7987b9023a548646f0",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "8cc5f22b1865463db7e258664e58307e",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 }
             ],
             "creationDate": "Saturday  2 Oct 2021 - 14:48"
@@ -399,125 +478,49 @@
             "shoppingList": [
                 {
                     "checked": false,
-                    "id": "19ddb0ea294d4ed5a4f27789afa95bf3"
+                    "id": "19ddb0ea294d4ed5a4f27789afa95bf3",
+                    "amount": 1
                 },
                 {
                     "id": "0684963bfe1f4a6eacf916c2600f4a6b",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "004ab4c7b4684db09ed98e6c4355d584",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 },
                 {
                     "id": "0a1ffdaa69c8459bb461087502b4e29c",
-                    "checked": false
+                    "checked": false,
+                    "amount": 1
                 }
             ],
             "creationDate": "Sunday  3 Oct 2021 - 10:37"
         },
-        "436a100f7524426c81aa6f848191cb15": {
-            "meals": {
-                "Ma": "",
-                "Di": "",
-                "Wo": "",
-                "Do": "",
-                "Vrij": "",
-                "Za": "",
-                "Zo": ""
-            },
-            "shoppingList": [],
-            "creationDate": "Sunday  3 Oct 2021 - 13:13"
-        },
-        "9088ef8f0e5045f1a1a35d397c5be928": {
-            "meals": {
-                "Ma": "",
-                "Di": "",
-                "Wo": "",
-                "Do": "",
-                "Vrij": "",
-                "Za": "",
-                "Zo": ""
-            },
-            "shoppingList": [],
-            "creationDate": "Friday  4 Feb 2022 - 17:35"
-        },
-        "ca4e2dad83e44f6d8a7380c439ff4e57": {
-            "meals": {
-                "Ma": "",
-                "Di": "",
-                "Wo": "",
-                "Do": "",
-                "Vrij": "",
-                "Za": "",
-                "Zo": ""
-            },
-            "shoppingList": [],
-            "creationDate": "Friday  4 Feb 2022 - 17:35"
-        },
-        "dde3cc449ec54887b297725e6db0ef22": {
-            "meals": {
-                "Ma": "",
-                "Di": "",
-                "Wo": "",
-                "Do": "",
-                "Vrij": "",
-                "Za": "",
-                "Zo": ""
-            },
-            "shoppingList": [],
-            "creationDate": "Friday  4 Feb 2022 - 17:36"
-        },
-        "92e7ee5b2c4a4d92a6e981c6ceec84db": {
-            "meals": {
-                "Ma": "",
-                "Di": "",
-                "Wo": "",
-                "Do": "",
-                "Vrij": "",
-                "Za": "",
-                "Zo": ""
-            },
-            "shoppingList": [],
-            "creationDate": "Friday  4 Feb 2022 - 17:40"
-        },
-        "ff5bc95c26ac4b8d80a8518cfad03a30": {
-            "meals": {
-                "Ma": "",
-                "Di": "",
-                "Wo": "",
-                "Do": "",
-                "Vrij": "",
-                "Za": "",
-                "Zo": ""
-            },
-            "shoppingList": [],
-            "creationDate": "Friday  4 Feb 2022 - 17:40"
-        },
-        "f231c4b666684e8287c3ebe42f6b8956": {
-            "meals": {
-                "Ma": "",
-                "Di": "",
-                "Wo": "",
-                "Do": "",
-                "Vrij": "",
-                "Za": "",
-                "Zo": ""
-            },
-            "shoppingList": [],
-            "creationDate": "Friday  4 Feb 2022 - 17:40"
-        },
         "6f30bb78476848f8a1578b20c05a7265": {
             "meals": {
-                "Ma": "",
                 "Di": "",
-                "Wo": "",
                 "Do": "",
+                "Ma": "",
                 "Vrij": "",
+                "Wo": "",
                 "Za": "",
                 "Zo": ""
             },
-            "shoppingList": [],
+            "shoppingList": [
+                {
+                    "amount": 7,
+                    "checked": false,
+                    "id": "0684963bfe1f4a6eacf916c2600f4a6b"
+                },
+                {
+                    "id": "4e117cecffd346d5b62cabafb4036fed",
+                    "checked": false,
+                    "amount": 2
+                }
+            ],
             "creationDate": "Friday  4 Feb 2022 - 18:13"
         }
     },

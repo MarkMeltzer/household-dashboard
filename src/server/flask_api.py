@@ -128,7 +128,7 @@ def all_shopping_items():
 
     # simulate slow network
     # TODO: remove this
-    time.sleep(2)
+    time.sleep(0)
 
     data = load_data()["shoppingItems"]
     return jsonify(data)

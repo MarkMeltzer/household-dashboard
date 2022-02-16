@@ -63,12 +63,6 @@
     margin-bottom: 0;
 }
 
-.react-select-container {
-    margin-top: 3px;
-    margin-bottom: 3px;
-    font-size: small;
-}
-
 .shoppingItem {
     display: grid;
     grid-template-columns: 1fr auto auto auto;

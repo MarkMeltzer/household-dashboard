@@ -83,10 +83,13 @@ const WeekList = (props) => {
       {!shoppingItems.data && <p className='loading'>Loading....</p>}
 
       {shoppingItems.data && shoppingList.map((item, index) => 
+        // item = { id, checked, amount }
         <div className="shoppingItem" key={index}>
           {!isEditing &&
-          shoppingItems.data[item.id] &&
-           <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>}
+          shoppingItems.data[item.id] && <div>
+            {item.amount > 1 && item.amount + "x  "}
+            <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>
+          </div>}
           
           {isEditing && <>
             <ShoppingItemInput 
@@ -199,8 +202,6 @@ const WeekList = (props) => {
       }).then(json => {
         // success
         onSucces(json)
-        console.log(shoppingList);
-        console.log(json)
       }).catch(err => {
           // error
           setIsSubmitting(false);

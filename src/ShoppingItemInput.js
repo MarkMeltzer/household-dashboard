@@ -4,6 +4,7 @@ import config from "./config.json";
 import { useState, useEffect, useContext } from "react";
 import globalContext from './globalContext';
 import { updateObject, updateArray } from './utils';
+import './css/ShoppingItemInput.css';
 
 /**
  * Dropdown for slecting and creating shopping items
@@ -19,6 +20,7 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
   const context = useContext(globalContext);
   const [createdItem, setCreatedItem] = useState("");
   const [selectedItem, setSelectedItem] = useState(shoppingList[index].id);
+  const [amount, setAmount] = useState(shoppingList[index].amount);
   
   // select option from dropdown
   useEffect(() => {
@@ -30,10 +32,10 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
       updateArray(
         shoppingList,
         index,
-        { id: selectedItem, checked: false }
+        { id: selectedItem, checked: false, amount: amount}
       )
     )
-  }, [selectedItem])
+  }, [selectedItem, amount])
 
   // create new option from dropdown
   useEffect(() => {
@@ -94,11 +96,13 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
     setCreatedItem(value);
   }
 
-  return <div>
-    {/* <div>Created item: {createdItem}</div>
-    <div>Selected item: {selectedItem} 
-    <br />
-    Which means: {shoppingItems.data && JSON.stringify(shoppingItems.data[selectedItem])}</div> */}
+  return <div className='ShoppingItemInputContainer'>
+    <input type="number"
+      id='amount'
+      className='shoppingItemInputNumber'
+      value={amount}
+      onChange={e => setAmount(parseInt(e.target.value))}
+    />
     <CreatableSelect
       className="react-select-container"
       classNamePrefix="react-select"
@@ -113,7 +117,6 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
         { value: selectedItem, label: shoppingItems.data[selectedItem]?.name }
       }
     ></CreatableSelect>
-    {/* <div>ShoppingList: {JSON.stringify(shoppingList, null, 4)}</div> */}
   </div>
 }
 
