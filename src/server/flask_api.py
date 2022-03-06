@@ -5,6 +5,7 @@ from flask import Flask, jsonify, abort, request
 from flask_cors import CORS, cross_origin
 import json
 import time
+from datetime import datetime
 import uuid
 import bcrypt
 import logging
@@ -36,6 +37,10 @@ def verify_token(request):
             return True
     return False
 
+# get current time in nice format
+def get_datetime():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 logging.basicConfig(
     level=logging.INFO,
     filename="flask.log",
@@ -57,9 +62,6 @@ def landing_page():
 @app.route("/weekLists", methods=["GET", "POST"])
 @cross_origin()
 def all_week_lists():
-    # TODO: split this into all weeklist and update week list and new weeklist
-    # with routes /weekLists/all (GET), /weekLists/<id> (PUT) and /weekLists/new (POST) respectively
-
     # authorize client
     if not verify_token(request):
         print("Wrong token.")
@@ -68,39 +70,28 @@ def all_week_lists():
     data = load_data()
 
     if request.method == "GET":
+        print(f"{get_datetime()} -- Retrieving all weekList records...")
+
         return jsonify(data["weekLists"])
     elif request.method == "POST":
-        if "id" in request.json:
-            # change an existing record (should be moved to a PUT method)
-            print("Changing existing record...")
+        # add a new weeklist record
+        print(f"{get_datetime()} -- Adding new weekList record...")
 
-            weekList = data["weekLists"][request.json["id"]]
-            weekList["meals"] = request.json["meals"]
-            weekList["shoppingList"] = request.json["shoppingList"]
-            
-            data["weekLists"][request.json["id"]] = weekList
-            save_data(data)
-
-            return jsonify({"id" : request.json["id"]})
-        else:
-            # add a new record
-            print("Adding new record...")
-
-            weekList = request.json
-            now = time.localtime()
-            nowStr = time.strftime("%A %e %b %Y - %H:%M", now)
-            weekList["creationDate"] = nowStr
-            
-            id = uuid.uuid4().hex
-            data["weekLists"][id] = weekList
-            save_data(data)
-            
-            return jsonify({"id" : id})
+        weekList = request.json
+        now = time.localtime()
+        nowStr = time.strftime("%A %e %b %Y - %H:%M", now)
+        weekList["creationDate"] = nowStr
+        
+        id = uuid.uuid4().hex
+        data["weekLists"][id] = weekList
+        save_data(data)
+        
+        return jsonify({"id" : id})
     else:
         print(request.method + " not implemented for this route!")
         abort(404)
 
-@app.route("/weekLists/<string:arg>", methods=["GET"])
+@app.route("/weekLists/<string:arg>", methods=["GET", "PUT"])
 @cross_origin()
 def specific_week_list(arg):
     # authorize client
@@ -108,10 +99,30 @@ def specific_week_list(arg):
         print("Wrong token.")
         abort(401)
 
-    data = load_data()["weekLists"]
-    if arg in data:
-        return jsonify(data[arg])
+    data = load_data()
+
+    if request.method == "GET":
+        # get existing weeklist record
+        print(f"{get_datetime()} -- Retrieving weekList record with id: {arg}...")
+
+        if arg in data["weekLists"]:
+            return jsonify(data["weekLists"][arg])
+        else:
+            abort(404)
+    elif request.method == "PUT":
+        # change existing weeklist record
+        print(f"{get_datetime()} -- Changing existing weeklist record with id: {arg}...")
+
+        weekList = data["weekLists"][arg]
+        weekList["meals"] = request.json["meals"]
+        weekList["shoppingList"] = request.json["shoppingList"]
+        
+        data["weekLists"][arg] = weekList
+        save_data(data)
+
+        return jsonify({"id" : arg})
     else:
+        print(request.method + " not implemented for this route!")
         abort(404)
 
 #####
@@ -130,6 +141,8 @@ def all_shopping_items():
     # TODO: remove this
     time.sleep(0)
 
+    print(f"{get_datetime()} -- Retrieving all shoppingItem records...")
+
     data = load_data()["shoppingItems"]
     return jsonify(data)
 
@@ -140,6 +153,8 @@ def all_shopping_items_names():
     if not verify_token(request):
         print("Wrong token.")
         abort(401)
+
+    print(f"{get_datetime()} -- Retrieving all shoppingItem name records...")
     
     data = load_data()["shoppingItems"]
     return jsonify([data[id]["name"] for id in data])
@@ -151,6 +166,8 @@ def specific_shopping_item(id):
     if not verify_token(request):
         print("Wrong token.")
         abort(401)
+
+    print(f"{get_datetime()} -- Retrieving shoppingItem record with id: {id}...")
 
     data = load_data()
 
@@ -169,6 +186,8 @@ def new_shoppingItem():
 
     data = load_data()
     
+    print(f"{get_datetime()} -- Adding new shoppingItem record...")
+
     shoppingItem = request.json
     id = uuid.uuid4().hex
     data["shoppingItems"][id] = shoppingItem

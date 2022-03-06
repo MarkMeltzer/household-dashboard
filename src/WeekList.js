@@ -158,12 +158,11 @@ const WeekList = (props) => {
     if (props.initialData) {
       // if record already exist, add information so it can be updated
       // by the server
-      objToSend["id"] = props.weekListId;
-      objToSend["creationDate"] = data["creationDate"];
+      objToSend["creationDate"] = data["creationDate"]; // TODO: this date should be noted server-side
 
-      apiURL = config.DATA_SERVER_URL + "/weekLists"
+      apiURL = config.DATA_SERVER_URL + "/weekLists/" + props.weekListId
       requestOpts = {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + context["token"]
