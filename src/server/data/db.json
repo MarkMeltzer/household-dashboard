@@ -477,24 +477,28 @@
             },
             "shoppingList": [
                 {
+                    "amount": 1,
                     "checked": false,
-                    "id": "19ddb0ea294d4ed5a4f27789afa95bf3",
-                    "amount": 1
+                    "id": "19ddb0ea294d4ed5a4f27789afa95bf3"
                 },
                 {
-                    "id": "0684963bfe1f4a6eacf916c2600f4a6b",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "0684963bfe1f4a6eacf916c2600f4a6b"
                 },
                 {
-                    "id": "004ab4c7b4684db09ed98e6c4355d584",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "004ab4c7b4684db09ed98e6c4355d584"
                 },
                 {
                     "id": "0a1ffdaa69c8459bb461087502b4e29c",
                     "checked": false,
                     "amount": 1
+                },
+                {
+                    "id": "2580c5c400af4e10b53f44d846aebf38",
+                    "checked": false
                 }
             ],
             "creationDate": "Sunday  3 Oct 2021 - 10:37"
@@ -521,9 +525,9 @@
                     "id": "4e117cecffd346d5b62cabafb4036fed"
                 },
                 {
-                    "id": "5287dd5e33704d7987b9023a548646f0",
+                    "amount": 4,
                     "checked": false,
-                    "amount": 4
+                    "id": "5287dd5e33704d7987b9023a548646f0"
                 },
                 {
                     "id": "0a1ffdaa69c8459bb461087502b4e29c",
@@ -550,13 +554,15 @@
             "name": "coke"
         },
         "004ab4c7b4684db09ed98e6c4355d584": {
-            "name": "more bread"
+            "name": "more bread",
+            "price": null
         },
         "e36c26cbdcdc4463a30d0309be0c8c37": {
             "name": "brocolli"
         },
         "0684963bfe1f4a6eacf916c2600f4a6b": {
-            "name": "pasta"
+            "name": "pasta",
+            "shop": "Jumbo"
         },
         "b19391ad064c4eb6b284edbc514ddc2f": {
             "name": "avocado"
@@ -565,7 +571,10 @@
             "name": "salami"
         },
         "2580c5c400af4e10b53f44d846aebf38": {
-            "name": "toilet paper"
+            "location": "Cosmetics",
+            "name": "toilet paper",
+            "price": 2.5,
+            "shop": "Lidl"
         },
         "8878b170b33c40fa852c006f824b6a6a": {
             "name": "Bloem"

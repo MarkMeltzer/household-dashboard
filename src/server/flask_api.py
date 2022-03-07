@@ -129,7 +129,7 @@ def specific_week_list(arg):
 # Shopping items
 #####
 
-@app.route("/shoppingItems/all", methods=["GET"])
+@app.route("/shoppingItems", methods=["GET", "POST"])
 @cross_origin()
 def all_shopping_items():
     # authorize client
@@ -141,14 +141,30 @@ def all_shopping_items():
     # TODO: remove this
     time.sleep(0)
 
-    print(f"{get_datetime()} -- Retrieving all shoppingItem records...")
+    if request.method == "GET":
+        # get all shoppingItem records
+        print(f"{get_datetime()} -- Retrieving all shoppingItem records...")
 
-    data = load_data()["shoppingItems"]
-    return jsonify(data)
+        data = load_data()["shoppingItems"]
+        return jsonify(data)
+    elif request.method == "POST":
+        # add a new shoppingItem record
+        print(f"{get_datetime()} -- Adding new shoppingItem record...")
+
+        id = uuid.uuid4().hex
+        shoppingItem = request.json
+        data = load_data()
+        data["shoppingItems"][id] = shoppingItem
+        save_data(data)
+        return jsonify({"id" : id})
+    else:
+        print(request.method + " not implemented for this route!")
+        abort(404)
 
 @app.route("/shoppingItems/all/onlyNames", methods=["GET"])
 @cross_origin()
 def all_shopping_items_names():
+    # TODO: decide wether this route will be used or not
     # authorize client
     if not verify_token(request):
         print("Wrong token.")
@@ -159,7 +175,7 @@ def all_shopping_items_names():
     data = load_data()["shoppingItems"]
     return jsonify([data[id]["name"] for id in data])
 
-@app.route("/shoppingItems/<string:id>", methods=["GET"])
+@app.route("/shoppingItems/<string:id>", methods=["GET", "PUT"])
 @cross_origin()
 def specific_shopping_item(id):
     # authorize client
@@ -167,32 +183,28 @@ def specific_shopping_item(id):
         print("Wrong token.")
         abort(401)
 
-    print(f"{get_datetime()} -- Retrieving shoppingItem record with id: {id}...")
+    if request.method == "GET":
+        # get specific shoppingItem record
+        print(f"{get_datetime()} -- Retrieving shoppingItem record with id: {id}...")
 
-    data = load_data()
+        data = load_data()
+        if id in data["shoppingItems"]:
+            return jsonify(data["shoppingItems"][id])
+        else:
+            # TODO: this check has to be done for either verb, so move it outside
+            abort(404)
+    elif request.method == "PUT":
+        # get specific shoppingItem record
+        print(f"{get_datetime()} -- Changing existing shoppingItem record with id: {id}...")
 
-    if id in data["shoppingItems"]:
-        return jsonify(data["shoppingItems"][id])
+        data = load_data()
+        data["shoppingItems"][id] = request.json
+        save_data(data)
+
+        return jsonify({"id": id})
     else:
+        print(request.method + " not implemented for this route!")
         abort(404)
-
-@app.route("/shoppingItems", methods=["POST"])
-@cross_origin()
-def new_shoppingItem():
-    # authorize client
-    if not verify_token(request):
-        print("Wrong token.")
-        abort(401)
-
-    data = load_data()
-    
-    print(f"{get_datetime()} -- Adding new shoppingItem record...")
-
-    shoppingItem = request.json
-    id = uuid.uuid4().hex
-    data["shoppingItems"][id] = shoppingItem
-    save_data(data)
-    return jsonify({"id" : id})
 
 #####
 # Login

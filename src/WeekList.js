@@ -20,7 +20,7 @@ const WeekList = (props) => {
   const [meals, setMeals] = useState(Object.fromEntries(days.map(day => [day, ""])));
 
   const [shoppingList, setShoppingList] = useState([]);
-  const shoppingItems = useFetch(config.DATA_SERVER_URL + "/shoppingItems/all");
+  const shoppingItems = useFetch(config.DATA_SERVER_URL + "/shoppingItems");
 
   const [isEditing, setIsEditing] = useState(props.isEditing);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -215,8 +215,8 @@ const WeekList = (props) => {
   return (
     <div className="weekList">
       {title}
-      <div className="editButtonContainer">
-        <button className="editButton" onClick={clickEditButton}>
+      <div className="weekListEditButtonContainer">
+        <button className="weekListEditButton" onClick={clickEditButton}>
           {(() => {
             if (isSubmitting) {
               return "Submitting..."

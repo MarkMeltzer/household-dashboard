@@ -12,11 +12,11 @@
     font-size: large;
 }
 
-.editButtonContainer {
+.weekListEditButtonContainer {
     background-color: rgb(217, 210, 191);
 }
 
-.editButton {
+.weekListEditButton {
     width: 20%;
     height: 30px;
 }

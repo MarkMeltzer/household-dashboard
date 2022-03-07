@@ -5,7 +5,7 @@ import "./css/ShoppingItemsPage.css";
 
 const ShoppingItemsPage = () => {
     const { data: shoppingItems, isLoading, error } = useFetch(
-        config.DATA_SERVER_URL + "/shoppingItems/all"
+        config.DATA_SERVER_URL + "/shoppingItems"
     );
 
     return <div className="ShoppingItemsList">

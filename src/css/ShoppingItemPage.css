@@ -5,6 +5,18 @@
     text-align: left;
 }
 
+.shoppingItemEditButton {
+    float: right;
+    width: 20%;
+    height: 30px;
+
+    /* color: white;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-color: rgba(126, 126, 126, 0.75);
+    border-style: solid;
+    border-radius: 3px; */
+}
+
 .shoppingItemTitle {
     font-size: small;
     margin: 0px;
