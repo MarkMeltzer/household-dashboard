@@ -78,13 +78,27 @@ const WeekList = (props) => {
     gridTemplateRows: `repeat(${nRows}, auto)`
   }
 
+  const shopColors = {
+    "Lidl": "rgba(0, 79, 170, 0.178)",
+    "Jumbo": "rgba(238, 184, 23, 0.37)",
+    "Albert Heijn": "rgba(0, 173, 230, 0.253)"
+  }
+
   const bottomSection = 
     <div className="bottomSection" style={bottomStyle}>
       {!shoppingItems.data && <p className='loading'>Loading....</p>}
 
       {shoppingItems.data && shoppingList.map((item, index) => 
         // item = { id, checked, amount }
-        <div className="shoppingItem" key={index}>
+        <div
+          className="shoppingItem"
+          key={index}
+          style={
+            shoppingItems.data[item.id]?.shop ? 
+              { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
+              {}
+          }
+        >
           {!isEditing &&
           shoppingItems.data[item.id] && <div>
             {item.amount > 1 && item.amount + "x  "}
@@ -140,8 +154,23 @@ const WeekList = (props) => {
       return;
     }
 
-    // filter out the empty new items
-    const filteredShoppingList = shoppingList.filter(item => item.id != "newItem");
+    // filter and sort the shopping list
+    let filteredShoppingList = shoppingList.filter(item => item.id != "newItem");
+    filteredShoppingList = [...filteredShoppingList].sort(
+      (a, b) => {
+        const shopOrder = {"Lidl": 0, "": 1, undefined: 1, "Jumbo": 2, "Albert Heijn": 3}
+        
+        const aShop = shoppingItems.data[a.id].shop
+        const bShop = shoppingItems.data[b.id].shop
+        if (shopOrder[aShop] < shopOrder[bShop]) {
+          return -1;
+        } else if (shopOrder[bShop] < shopOrder[aShop]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+    )
     setShoppingList(filteredShoppingList);
 
     e.target.disabled = true;

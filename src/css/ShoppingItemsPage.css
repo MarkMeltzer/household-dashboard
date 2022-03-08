@@ -3,6 +3,21 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.shoppingItemsFilterContainer {
+  grid-column: 1 / 4;
+
+  margin: 5px;
+}
+
+.shoppingItemsFilter {
+  margin: 15px;
+  padding: 5px;
+  width: 50%;
+
+  background-color: rgba(255, 255, 255, 0.842);
+  border: 2px solid #5D4632;
+}
+
 .ShoppingItemsListItem {
   margin: 5px;
   padding: 10px;

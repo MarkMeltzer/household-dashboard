@@ -26,3 +26,4 @@ notes.txt
 temp.py
 docker-image.tar
 /src/Dockerfile
+/src/server/flask.log

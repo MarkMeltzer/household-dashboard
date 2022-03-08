@@ -184,99 +184,99 @@
             },
             "shoppingList": [
                 {
-                    "id": "c7382a5eca6a471780ce58d3562d0193",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "c7382a5eca6a471780ce58d3562d0193"
                 },
                 {
-                    "id": "a572b16fb6c54c2b973d42edfe2e5357",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "a572b16fb6c54c2b973d42edfe2e5357"
                 },
                 {
-                    "id": "5193bcee8e214b56a6f6914bea98bddf",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "5193bcee8e214b56a6f6914bea98bddf"
                 },
                 {
-                    "id": "2ddd9fd5ff6242f4b4f77b030866bf93",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "2ddd9fd5ff6242f4b4f77b030866bf93"
                 },
                 {
-                    "id": "ed4eeee57d2b4609acbee5dce50dc929",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "ed4eeee57d2b4609acbee5dce50dc929"
                 },
                 {
-                    "id": "e7c8e2e76f344f8989b66db1d6257bdf",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "e7c8e2e76f344f8989b66db1d6257bdf"
                 },
                 {
-                    "id": "6077e76573af4810a82e5ff49abed638",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "6077e76573af4810a82e5ff49abed638"
                 },
                 {
-                    "id": "809f242bebc743bfbc0a6f24028eb98f",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "809f242bebc743bfbc0a6f24028eb98f"
                 },
                 {
-                    "id": "eebced9e83b34ad993564df88081e3be",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "eebced9e83b34ad993564df88081e3be"
                 },
                 {
-                    "id": "0edb1696349548658dca2211aed5c4c1",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "0edb1696349548658dca2211aed5c4c1"
                 },
                 {
-                    "id": "c7a585cb19f94f659f69ed236400c0f1",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "c7a585cb19f94f659f69ed236400c0f1"
                 },
                 {
-                    "id": "143731e5461f46679f3fcf184b3d10b5",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "143731e5461f46679f3fcf184b3d10b5"
                 },
                 {
-                    "id": "a4e4f649d72b44298f584167be36fc87",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "a4e4f649d72b44298f584167be36fc87"
                 },
                 {
-                    "id": "9716d4445e2e41639de4bb873fb8df97",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "9716d4445e2e41639de4bb873fb8df97"
                 },
                 {
-                    "id": "d9b2d237c4f645d09e69625f87863f8e",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "d9b2d237c4f645d09e69625f87863f8e"
                 },
                 {
-                    "id": "3edb3e609a334a95a10fc184e6f4f802",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "3edb3e609a334a95a10fc184e6f4f802"
                 },
                 {
-                    "id": "ed7b65dac7104749a1228369b9c5c2de",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "ed7b65dac7104749a1228369b9c5c2de"
                 },
                 {
-                    "id": "0e9afcb998f745bb998d8c5132b22be3",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "0e9afcb998f745bb998d8c5132b22be3"
                 },
                 {
-                    "id": "8cc5f22b1865463db7e258664e58307e",
+                    "amount": 1,
                     "checked": false,
-                    "amount": 1
+                    "id": "8cc5f22b1865463db7e258664e58307e"
                 },
                 {
                     "id": "f953733ed4fd4fce83b1ec9f9bc99a3e",
@@ -505,33 +505,43 @@
         },
         "6f30bb78476848f8a1578b20c05a7265": {
             "meals": {
-                "Di": "",
-                "Do": "",
-                "Ma": "",
-                "Vrij": "",
-                "Wo": "",
+                "Di": "Pannekoeken",
+                "Do": "Pasta",
+                "Ma": "Pangafilet m/Pesto + broccoli",
+                "Vrij": "Bloemkoolsoep",
+                "Wo": "Pizza",
                 "Za": "",
                 "Zo": ""
             },
             "shoppingList": [
                 {
-                    "amount": 7,
-                    "checked": false,
-                    "id": "0684963bfe1f4a6eacf916c2600f4a6b"
-                },
-                {
-                    "amount": 2,
-                    "checked": false,
-                    "id": "4e117cecffd346d5b62cabafb4036fed"
-                },
-                {
-                    "amount": 4,
                     "checked": false,
                     "id": "5287dd5e33704d7987b9023a548646f0"
                 },
                 {
-                    "id": "0a1ffdaa69c8459bb461087502b4e29c",
+                    "id": "2580c5c400af4e10b53f44d846aebf38",
                     "checked": false
+                },
+                {
+                    "checked": false,
+                    "id": "0a1ffdaa69c8459bb461087502b4e29c"
+                },
+                {
+                    "checked": false,
+                    "id": "1061e1ebcc984263926a8e6b9362ebab"
+                },
+                {
+                    "id": "0684963bfe1f4a6eacf916c2600f4a6b",
+                    "checked": false
+                },
+                {
+                    "checked": false,
+                    "id": "b5c0cb7763b2421cbd6877776b8018f8"
+                },
+                {
+                    "id": "4e117cecffd346d5b62cabafb4036fed",
+                    "checked": false,
+                    "amount": 4
                 }
             ],
             "creationDate": "Friday  4 Feb 2022 - 18:13"
@@ -568,7 +578,8 @@
             "name": "avocado"
         },
         "4e117cecffd346d5b62cabafb4036fed": {
-            "name": "salami"
+            "name": "salami",
+            "shop": "Albert Heijn"
         },
         "2580c5c400af4e10b53f44d846aebf38": {
             "location": "Cosmetics",
@@ -580,7 +591,8 @@
             "name": "Bloem"
         },
         "5287dd5e33704d7987b9023a548646f0": {
-            "name": "Kaas"
+            "name": "Kaas",
+            "shop": "Lidl"
         },
         "ae51c41814ad4dd08a15b2fc1739657e": {
             "name": "Uien"
@@ -658,7 +670,7 @@
             "name": "aliqua"
         },
         "19ddb0ea294d4ed5a4f27789afa95bf3": {
-            "shop": "lidl",
+            "shop": "Lidl",
             "location": "brood",
             "price": 1.2,
             "name": "Brood"
@@ -674,6 +686,14 @@
         },
         "eb694822c30446fe9d86263b2940b1ee": {
             "name": "postman test"
+        },
+        "1061e1ebcc984263926a8e6b9362ebab": {
+            "name": "Coca-Cola Cherry",
+            "shop": "Jumbo"
+        },
+        "b5c0cb7763b2421cbd6877776b8018f8": {
+            "name": "Coca-Cola Vanille",
+            "shop": "Jumbo"
         }
     }
 }
