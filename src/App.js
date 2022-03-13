@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-    <Router basename={"/household-dashboard-demo"}>
+    <Router basename={"/household-dashboard"}>
     <div className="App">
       <globalContext.Provider value={{"token" : token}}>
         <div className="content">

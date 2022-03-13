@@ -53,7 +53,7 @@ CORS(app)
 @app.route("/", methods=["GET"])
 @cross_origin()
 def landing_page():
-    return "<h1>Welcome to the backend webapi of my househould dashboard application!</h1>"
+    return "<h1>Welcome to the backend webapi of my household dashboard application!</h1>\n"
 
 #####
 # WeekLists

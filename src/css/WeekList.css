@@ -56,6 +56,7 @@
     grid-auto-flow: column;
     grid-template-rows: repeat(10, auto);
     grid-template-columns: repeat(3, 1fr);
+    column-gap: 2%;
 }
 
 .bottomSection p {
@@ -88,10 +89,17 @@
 }
 
 /* Phones sizes */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1900px) {
     .bottomSection {
         grid-auto-flow: column;
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .bottomSection {
+        grid-auto-flow: unset;
+        grid-template-columns: 1fr;
     }
 }
 
