@@ -141,7 +141,6 @@ const WeekList = (props) => {
 
   function moveShoppingItemUp(index) {
     setShoppingList(swapArrayElements(shoppingList, index, index-1))
-
   }
 
   function moveShoppingItemDown(index) {

@@ -18,9 +18,7 @@ import './css/ShoppingItemInput.css';
 */
 const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index }) => {
   const context = useContext(globalContext);
-  const [createdItem, setCreatedItem] = useState("");
   const [selectedItem, setSelectedItem] = useState(shoppingList[index].id);
-  const [amount, setAmount] = useState(shoppingList[index].amount);
   
   // select option from dropdown
   useEffect(() => {
@@ -32,41 +30,11 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
       updateArray(
         shoppingList,
         index,
-        { id: selectedItem, checked: false, amount: amount}
+        { ...shoppingList[index], id: selectedItem }
       )
     )
-  }, [selectedItem, amount])
+  }, [selectedItem])
 
-  // create new option from dropdown
-  useEffect(() => {
-    if (createdItem == "") {
-      return;
-    }
-
-    // add new item to the DB
-    fetch(
-      config.DATA_SERVER_URL + "/shoppingItems",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + context["token"]
-        },
-        body: JSON.stringify({
-          name: createdItem
-        })
-      }
-    ).then(res => { return res.json(); }
-    ).then(json => {
-      // add to list of all shopping items
-      shoppingItems.setData(updateObject(
-        shoppingItems.data,
-        json.id,
-        { name: createdItem }
-      ))
-    })
-  }, [createdItem])
-  
   // when the shoppingList updates (for ex. when order of items changes) the
   // selected item should also needs to be updated to reflect the new shoppingList
   useEffect(() => {
@@ -84,6 +52,18 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
     }
   }
 
+  function changeAmount(e) {
+    const value = e.target.value;
+
+    setShoppingList(
+      updateArray(
+        shoppingList,
+        index,
+        { ...shoppingList[index], amount: parseInt(value) }
+      )
+    )
+  }
+
   function handleSelection(event) {
     if (event) {
       setSelectedItem(event.value);
@@ -92,16 +72,44 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
     }
   }
 
-  function handleCreation(value) {
-    setCreatedItem(value);
+  function handleCreation(item) {
+    if (item == "") {
+      return;
+    }
+
+    // add new item to the DB
+    fetch(
+      config.DATA_SERVER_URL + "/shoppingItems",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + context["token"]
+        },
+        body: JSON.stringify({
+          name: item
+        })
+      }
+    ).then(res => { return res.json(); }
+    ).then(json => {
+      console.log(shoppingItems)
+      // add to list of all shopping items
+      shoppingItems.setData(updateObject(
+        shoppingItems.data,
+        json.id,
+        { name: item }
+      ))
+
+      setSelectedItem(json.id);
+    })
   }
 
   return <div className='ShoppingItemInputContainer'>
     <input type="number"
       id='amount'
       className='shoppingItemInputNumber'
-      value={amount}
-      onChange={e => setAmount(parseInt(e.target.value))}
+      value={shoppingList[index].amount ? shoppingList[index].amount : 1}
+      onChange={changeAmount}
     />
     <CreatableSelect
       className="react-select-container"
