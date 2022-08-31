@@ -5,41 +5,45 @@ import config from "./config.json";
 import "./css/PlaygroundPage.css"
 import { useState } from "react";
 import globalContext from "./globalContext";
+import { ReactSortable } from "react-sortablejs";
+
+const TestCompontent = ({ text }) => {
+  return <>
+    <hr />
+    <div className="handle" style={{backgroundColor: "rgb(255,0,0)", width: "50px", height: "50px"}}></div>
+    <div style={{padding: "5px"}}>
+      Text: {text && text}
+    </div>
+    <hr />
+  </>
+}
 
 const PlaygroundPage = () => {
-  const testStr = "this is a cool string";
-  const dateArray = [
-    "Friday 4 Feb 2022 - 18:13",
-    "Wednesday 29 Sep 2021 - 12:13",
-    "Sunday  3 Oct 2021 - 13:13",
-    "Thursday 3 Feb 2022 - 22:00",
-    "Friday 4 Feb 2022 - 18:10",
-    "Friday 4 Feb 2022 - 18:15",
-    "Friday 4 Feb 2022 - 18:00",
+  const items = [
+    { id: 1, name: "item1", word: "hello" },
+    { id: 2, name: "item2", word: "world" },
+    { id: 3, name: "item3", word: "mr" },
+    { id: 4, name: "item4", word: "robot" },
   ]
+  const [list, setList] = useState(items)
 
-  const sortedDateArray = [...dateArray].sort((a, b) => new Date(a) - new Date(b)).reverse();
-  
-
-
-  return <div className="playground" className="whitetext">
+  return <div className="playground whitetext">
     <br />
     <br />
+    <ReactSortable list={list} setList={setList} handle=".handle" animation={150}>
+      {
+        list.map(item => (
+          <div key={item.id}>
+            <TestCompontent text={item.word}/>
+          </div>
+        ))
+      }
+    </ReactSortable>
     <br />
-    {dateArray.map(item => {
-      return <div key={item}>{
-        item
-      }</div>
-    })}
     <br />
-    Sorted:
-    <br />
-    {sortedDateArray.map(item => {
-      return <div key={item}>{
-        item
-      }</div>
-    })}
-    <br />
+    <pre>
+      {JSON.stringify(list, null, 2)}
+    </pre>
   </div>
 }
 

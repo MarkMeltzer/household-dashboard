@@ -10,6 +10,8 @@
 }
 
 .shoppingItemInputNumber {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 4px;
   margin-top: 3px;
   margin-bottom: 3px;
 }

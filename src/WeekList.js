@@ -7,6 +7,7 @@ import globalContext from "./globalContext";
 import AsyncCreatableSelect from 'react-select/async-creatable';
 import ShoppingItemInput from './ShoppingItemInput';
 import useFetch from './hooks/useFetch';
+import { ReactSortable } from 'react-sortablejs';
 
 
 const WeekList = (props) => {
@@ -87,8 +88,62 @@ const WeekList = (props) => {
   const bottomSection = 
     <div className="bottomSection" style={bottomStyle}>
       {!shoppingItems.data && <p className='loading'>Loading....</p>}
+      
+      {
+        // Not editing
+        shoppingItems.data && !isEditing && shoppingList.map((item, index) => 
+          // item = { id, checked, amount }
+          <div
+            className="shoppingItem"
+            key={item.id}
+            style={
+              shoppingItems.data[item.id]?.shop ? 
+                { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
+                {}}
+          >
+            {shoppingItems.data[item.id] && <>
+              {item.amount > 1 && item.amount + "x  "}
+              <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>
+            </>}
+          </div>)
+      }
 
-      {shoppingItems.data && shoppingList.map((item, index) => 
+      {
+        // In edit mode
+        shoppingItems.data && isEditing && 
+        <ReactSortable list={shoppingList} setList={setShoppingList} handle=".dragHandle" animation={150}>
+            {
+              shoppingList.map((item, index) => 
+                // item = { id, checked, amount }
+                <div
+                  className="shoppingItem"
+                  key={item.id}
+                  style={
+                    shoppingItems.data[item.id]?.shop ? 
+                      { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
+                      {}}
+                >
+                  {<>
+                    <div className='dragHandleContainer'>
+                      <div className='dragHandle'></div>
+                    </div>
+                    <ShoppingItemInput 
+                      shoppingItems={shoppingItems}
+                      shoppingList={shoppingList}
+                      setShoppingList={setShoppingList}
+                      index={index}
+                    />
+                    <button
+                      className="deleteItemButton"
+                      onClick={e => {deleteShoppingItem(index)}}
+                    >X</button>
+                  </>}
+                </div>)
+            }
+        </ReactSortable>
+      }
+
+      {/* {shoppingItems.data && !isEditing && shoppingList.map((item, index) => 
         // item = { id, checked, amount }
         <div
           className="shoppingItem"
@@ -104,8 +159,8 @@ const WeekList = (props) => {
             {item.amount > 1 && item.amount + "x  "}
             <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>
           </div>}
-          
           {isEditing && <>
+            <div className='dragHandle'>:::</div>
             <ShoppingItemInput 
               shoppingItems={shoppingItems}
               shoppingList={shoppingList}
@@ -122,7 +177,7 @@ const WeekList = (props) => {
             >X</button>
           </>}
         </div>
-      )}
+      )} */}
 
       {isEditing && shoppingItems.data && 
         <button 
