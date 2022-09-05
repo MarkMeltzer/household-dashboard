@@ -9,9 +9,9 @@ A demo is available at http://markmeltzer.nl/household-dashboard-demo/.
 The username and password are "demo".
 
 ### Screenshots
-| Main page  | Weeklist | Editing weeklist |
-| ------------- | ------------- | ------------- |
-| ![screenshot of the main page](./imgs/screen3.png)  | ![screenshot of a week list](./imgs/screen1.png) | ![screenshot of a editing week list](./imgs/screen2.png) |
+| Main page  | Weeklist | Editing weeklist | Shopping item list | Shopping item |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| ![screenshot of the main page](./imgs/main_page_cropped.png)  | ![screenshot of a week list](./imgs/weekList_view_cropped.png) | ![screenshot of a editing week list](./imgs/weekList_edit_cropped.png) | ![screenshot of a editing week list](./imgs/shoppingItems_cropped.png) | ![screenshot of a editing week list](./imgs/shoppingItem_cropped.png) |
 
 # Installation
 
@@ -24,11 +24,13 @@ To run the web api simply run "python .\flask_api.py" or "python3 .\flask_api.py
  - Passwords should also be hashed client-side to protect passwords sent over insecure connections.
  - The WeekList component is getting a bit crowded. Top and bottom sections should be spun of into their own components.
  - Currently login tokens do not expire.
- - Updating a weeklist should be done using a PUT request rather than a POST.
+ - ~~Updating a weeklist should be done using a PUT request rather than a POST.~~
  - Implement cleanup of useEffect fetches.
  - Create a logo/favicon
  - Salt is appended to hash, so doesn't need to be saved seperatly.
  - Flask is still running in development mode.
+ - Navigating directly to an existing URL below the root gives a 404.
+ - In weekList edit mode the list is not shown in columns like in the view mode.
   
 # Future features
 - Save meals as proper objects in database with information on recipes, ingredients, vegetarian etc

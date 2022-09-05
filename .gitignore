@@ -26,3 +26,4 @@ yarn-error.log*
 docker-image.tar
 /src/Dockerfile
 /src/server/flask.log
+/temp
