@@ -106,10 +106,10 @@
 }
 
 .addNewButton {
-    width: 50%;
+    /* width: 50%; */
     margin-top: 3px;
     margin-bottom: 3px;
-
+    height: 38px;
 }
 
 /* Phones sizes */

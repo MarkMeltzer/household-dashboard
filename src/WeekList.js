@@ -1,14 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 import './css/WeekList.css';
-import { updateObject, updateArray, swapArrayElements, removeItemFromArray } from './utils';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import config from "./config.json"
 import globalContext from "./globalContext";
-import AsyncCreatableSelect from 'react-select/async-creatable';
-import ShoppingItemInput from './ShoppingItemInput';
 import useFetch from './hooks/useFetch';
-import { ReactSortable } from 'react-sortablejs';
-
+import MealList from './MealList';
+import ShoppingList from './ShoppingList';
 
 const WeekList = (props) => {
   const hist = useHistory();
@@ -18,6 +15,7 @@ const WeekList = (props) => {
   ================================= State =================================
   =========================================================================*/
   const days = ["Ma", "Di", "Wo", "Do", "Vrij", "Za", "Zo"];
+
   const [meals, setMeals] = useState(Object.fromEntries(days.map(day => [day, ""])));
 
   const [shoppingList, setShoppingList] = useState([]);
@@ -40,7 +38,6 @@ const WeekList = (props) => {
     }
   }, [data, error, props.initialData])
 
-  // TODO: move both top and bottom sections into their own components
   // TODO: do useEffect cleanup
 
   /*=======================================================================
@@ -53,154 +50,22 @@ const WeekList = (props) => {
     title = <div className="title">New Week List</div>
   }
 
-  const topSection =
-    <div className="topSection">{
-      days.map((day) => 
-        <div className="dayItem" key={day}>
-          {<p className="day">{day}</p>}
-    
-          {!isEditing && <p className="meal">{meals[day]}</p>}
-          {isEditing && <input 
-            type="text" 
-            value={meals[day]} 
-            onChange={(e) => { setMeals(updateObject(meals, day, e.target.value)) }}
-          />}
-        </div>
-    )}</div>
+  const topSection = <MealList
+    isEditing={isEditing}
+    setMeals={setMeals}
+    meals={meals}
+    days={days}
+  />
   
-
   /*=======================================================================
   ============================= Bottom section ============================
   =========================================================================*/   
-  // extend the shoppinglist when it gets too big
-  const nMaxItems = window.innerWidth < 1000 ? 20 : 30;
-  const nRows = (Math.floor(shoppingList.length / nMaxItems) + 1) * 10;
-  const bottomStyle = {
-    gridTemplateRows: `repeat(${nRows}, auto)`
-  }
-
-  const shopColors = {
-    "Lidl": "rgba(0, 79, 170, 0.178)",
-    "Jumbo": "rgba(238, 184, 23, 0.37)",
-    "Albert Heijn": "rgba(0, 173, 230, 0.253)"
-  }
-
-  const bottomSection = 
-    <div className="bottomSection" style={bottomStyle}>
-      {!shoppingItems.data && <p className='loading'>Loading....</p>}
-      
-      {
-        // Not editing
-        shoppingItems.data && !isEditing && shoppingList.map((item, index) => 
-          // item = { id, checked, amount }
-          <div
-            className="shoppingItem"
-            key={item.id}
-            style={
-              shoppingItems.data[item.id]?.shop ? 
-                { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
-                {}}
-          >
-            {shoppingItems.data[item.id] && <>
-              {item.amount > 1 && item.amount + "x  "}
-              <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>
-            </>}
-          </div>)
-      }
-
-      {
-        // In edit mode
-        shoppingItems.data && isEditing && 
-        <ReactSortable list={shoppingList} setList={setShoppingList} handle=".dragHandle" animation={150}>
-            {
-              shoppingList.map((item, index) => 
-                // item = { id, checked, amount }
-                <div
-                  className="shoppingItem"
-                  key={item.id}
-                  style={
-                    shoppingItems.data[item.id]?.shop ? 
-                      { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
-                      {}}
-                >
-                  {<>
-                    <div className='dragHandleContainer'>
-                      <div className='dragHandle'></div>
-                    </div>
-                    <ShoppingItemInput 
-                      shoppingItems={shoppingItems}
-                      shoppingList={shoppingList}
-                      setShoppingList={setShoppingList}
-                      index={index}
-                    />
-                    <button
-                      className="deleteItemButton"
-                      onClick={e => {deleteShoppingItem(index)}}
-                    >X</button>
-                  </>}
-                </div>)
-            }
-        </ReactSortable>
-      }
-
-      {/* {shoppingItems.data && !isEditing && shoppingList.map((item, index) => 
-        // item = { id, checked, amount }
-        <div
-          className="shoppingItem"
-          key={index}
-          style={
-            shoppingItems.data[item.id]?.shop ? 
-              { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
-              {}
-          }
-        >
-          {!isEditing &&
-          shoppingItems.data[item.id] && <div>
-            {item.amount > 1 && item.amount + "x  "}
-            <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>
-          </div>}
-          {isEditing && <>
-            <div className='dragHandle'>:::</div>
-            <ShoppingItemInput 
-              shoppingItems={shoppingItems}
-              shoppingList={shoppingList}
-              setShoppingList={setShoppingList}
-              index={index}
-            />
-            {index > 0 &&
-              <button onClick={e => moveShoppingItemUp(index)} >↑</button>}
-            {index < shoppingList.length - 1 &&
-              <button onClick={e => moveShoppingItemDown(index)}>↓</button>}
-            <button
-              className="deleteItemButton"
-              onClick={e => {deleteShoppingItem(index)}}
-            >X</button>
-          </>}
-        </div>
-      )} */}
-
-      {isEditing && shoppingItems.data && 
-        <button 
-            onClick={addShoppingItem}
-            className="addNewButton"
-          >Add new</button>}
-    </div>
-
-  function addShoppingItem() {
-    setShoppingList([...shoppingList, { id: "newItem", checked: false }]);    
-  }
-
-  function deleteShoppingItem(index) {
-    setShoppingList(removeItemFromArray(shoppingList, index));
-  }
-
-  function moveShoppingItemUp(index) {
-    setShoppingList(swapArrayElements(shoppingList, index, index-1))
-  }
-
-  function moveShoppingItemDown(index) {
-    setShoppingList(swapArrayElements(shoppingList, index, index+1))
-  }
+  const bottomSection = <ShoppingList 
+    isEditing={isEditing}
+    shoppingItems={shoppingItems}
+    shoppingList={shoppingList}
+    setShoppingList={setShoppingList}
+  />
 
   function clickEditButton(e) {
     if (!isEditing) {
@@ -291,7 +156,6 @@ const WeekList = (props) => {
           alert("Error submitting list: \n" + err)
       })
   }
-
 
   if (error) return <div className="weekList"><p className="error">Error: {error.message}</p></div>
   if (isLoading) return <div className="weekList"><p className="loading">Loading...</p></div>
