@@ -1,6 +1,5 @@
-# from crypt import methods
 from audioop import cross
-# from crypt import methods
+#from crypt import methods
 from flask import Flask, jsonify, abort, request
 from flask_cors import CORS, cross_origin
 import json
@@ -124,6 +123,39 @@ def specific_week_list(arg):
     else:
         print(request.method + " not implemented for this route!")
         abort(404)
+
+@app.route("/weekLists/<string:weekListId>/shoppingList/<string:index>", methods=["GET", "PATCH"])
+@cross_origin()
+def shoppingListItem(weekListId, index):
+    # authorize client
+    if not verify_token(request):
+        print("Wrong token.")
+        abort(401)    
+
+    # load dat and get shoppingList item
+    data = load_data()
+    shoppingList = data["weekLists"][weekListId]["shoppingList"]
+    item = shoppingList[int(index)]
+
+    if request.method == "GET":
+        print(f"{get_datetime()} -- Retrieving shoppingList item record: index {index} from weekList {weekListId}...")
+        
+        return jsonify(item)
+    elif request.method == "PATCH":
+        print(f"{get_datetime()} -- Patching shoppingList item record: index {index} from weekList {weekListId}...")
+
+
+        for key in request.json:
+            if key not in item:
+                abort(400)
+
+            item[key] = request.json[key]
+
+        data["weekLists"][weekListId]["shoppingList"][int(index)] = item
+        save_data(data)
+        return "", 204
+
+    abort(405)
 
 #####
 # Shopping items

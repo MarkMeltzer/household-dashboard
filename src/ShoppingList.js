@@ -1,14 +1,20 @@
 import ShoppingItemInput from './ShoppingItemInput';
 import { ReactSortable } from 'react-sortablejs';
-import { removeItemFromArray } from './utils';
+import { removeItemFromArray, updateArray, updateObject } from './utils';
 import { Link } from 'react-router-dom';
+import config from "./config.json"
+import { useContext } from 'react';
+import globalContext from './globalContext';
 
 const ShoppingList = ({
   isEditing,
   shoppingItems,
   shoppingList,
-  setShoppingList
+  setShoppingList,
+  weekListId
 }) => {
+  const context = useContext(globalContext);
+
   // extend the shoppinglist when it gets too big
   const nMaxItems = window.innerWidth < 1000 ? 20 : 30;
   const nRows = (Math.floor(shoppingList.length / nMaxItems) + 1) * 10;
@@ -30,6 +36,45 @@ const ShoppingList = ({
     setShoppingList(removeItemFromArray(shoppingList, index));
   }
 
+  function checkItem(index, e) {
+    e.target.disabled = true;
+
+    // update local shoppingList
+    const newShoppingList = updateArray(
+      shoppingList,
+      index,
+      updateObject(shoppingList[index], "checked", e.target.checked)
+    );
+    setShoppingList(newShoppingList);
+
+    // update server shoppingList
+    const apiURL = config.DATA_SERVER_URL +
+      "/weekLists/" + weekListId +
+      "/shoppingList/" + index;
+    const requestOpts = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + context["token"]
+      },
+      body: JSON.stringify({ checked: e.target.checked })
+    }
+    fetch(apiURL, requestOpts)
+      .then(res => {
+        if (res.ok) {
+          console.log(res.status)
+      
+          e.target.disabled = false;
+        } else {
+          throw Error("HTTP error code " + res.status + " " + res.statusText);
+        }
+      }).catch(err => {
+        console.warn(err);
+        e.target.disabled = false;
+      })
+    
+  }
+
   let bottomSection;
   if (!shoppingItems.data) {
     // Data is not loaded yet
@@ -42,16 +87,32 @@ const ShoppingList = ({
       {shoppingList.map((item, index) => 
         // item = { id, checked, amount }
         <div
-          className="shoppingItem"
+          className="shoppingItemViewMode"
           key={item.id}
-          style={
-            shoppingItems.data[item.id]?.shop ? 
-              { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
-              {}}
+          style={{
+            backgroundColor: shoppingItems.data[item.id]?.shop ?
+              shopColors[shoppingItems.data[item.id].shop] :
+              "rgba(0,0,0,0)"
+          }}
         >
           {shoppingItems.data[item.id] && <>
-            {item.amount > 1 && item.amount + "x  "}
-            <Link to={"/shoppingItem/" + item.id}>{shoppingItems.data[item.id].name}</Link>
+            <input
+              type="checkbox"
+              id="shoppingListItemCheckbox"
+              onClick={e => {checkItem(index, e)}}
+              defaultChecked={item.checked}/>
+            <div>
+              {item.amount > 1 && item.amount + "x  "}
+              <Link 
+                to={"/shoppingItem/" + item.id}
+                style={{
+                  textDecorationLine: item.checked ? "line-through" : "revert",
+                  color: item.checked ? "#6a6c79" : "revert"
+                }}
+              >
+                {shoppingItems.data[item.id].name}
+              </Link>
+            </div>
           </>}
         </div>)}
     </div>
@@ -70,12 +131,13 @@ const ShoppingList = ({
           shoppingList.map((item, index) => 
             // item = { id, checked, amount }
             <div
-              className="shoppingItem"
+              className="shoppingItemEditMode"
               key={item.id}
-              style={
-                shoppingItems.data[item.id]?.shop ? 
-                  { backgroundColor: shopColors[shoppingItems.data[item.id].shop]} :
-                  {}}
+              style={{
+                backgroundColor: shoppingItems.data[item.id]?.shop ?
+                  shopColors[shoppingItems.data[item.id].shop] :
+                  "rgba(0,0,0,0)"
+              }}
             >
               {<>
                 <div className='dragHandleContainer'>

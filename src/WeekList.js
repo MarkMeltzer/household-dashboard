@@ -65,6 +65,7 @@ const WeekList = (props) => {
     shoppingItems={shoppingItems}
     shoppingList={shoppingList}
     setShoppingList={setShoppingList}
+    weekListId={props.weekListId}
   />
 
   function clickEditButton(e) {

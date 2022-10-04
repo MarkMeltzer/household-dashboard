@@ -12,11 +12,11 @@
             },
             "shoppingList": [
                 {
-                    "amount": 6,
-                    "checked": true,
+                    "checked": false,
                     "chosen": false,
                     "id": "e36c26cbdcdc4463a30d0309be0c8c37",
-                    "selected": false
+                    "selected": false,
+                    "amount": 6
                 },
                 {
                     "checked": false,
@@ -49,7 +49,7 @@
                     "selected": false
                 },
                 {
-                    "checked": true,
+                    "checked": false,
                     "chosen": false,
                     "id": "3094e7b3d6f648569bc1fb6af7bf3d78",
                     "selected": false
@@ -85,19 +85,19 @@
                     "selected": false
                 },
                 {
-                    "checked": true,
+                    "checked": false,
                     "chosen": false,
                     "id": "6b2d8ccfecec49daa67c72c75fa5f5e5",
                     "selected": false
                 },
                 {
-                    "checked": true,
+                    "checked": false,
                     "chosen": false,
                     "id": "50b4e654e3cd45b296adb46fbc118c9d",
                     "selected": false
                 },
                 {
-                    "checked": true,
+                    "checked": false,
                     "chosen": false,
                     "id": "055f5e822bac4f848b4079cdf487562a",
                     "selected": false
@@ -127,9 +127,9 @@
                     "selected": false
                 },
                 {
-                    "checked": true,
-                    "chosen": false,
+                    "checked": false,
                     "id": "0575e1c812bb476aa77d3e4137e936b8",
+                    "chosen": false,
                     "selected": false
                 },
                 {
@@ -151,7 +151,7 @@
                     "selected": false
                 },
                 {
-                    "checked": true,
+                    "checked": false,
                     "chosen": false,
                     "id": "80dd0eba09f94b14b428245dada6c4b8",
                     "selected": false
@@ -161,37 +161,26 @@
         },
         "fb9fe65ea0814ec6b68d7f41da770dde": {
             "meals": {
-                "Di": "Patat",
-                "Do": "Patat",
                 "Ma": "Patat",
-                "Vrij": "Patat",
+                "Di": "Patat",
                 "Wo": "Patat",
+                "Do": "Patat",
+                "Vrij": "Patat",
                 "Za": "Patat",
                 "Zo": "Patat"
             },
             "shoppingList": [
                 {
-                    "amount": 5,
-                    "checked": true,
-                    "chosen": false,
                     "id": "04a87a23f5f84f83a50c8b92b6cb3315",
-                    "selected": false
+                    "checked": false
                 },
                 {
-                    "checked": true,
-                    "chosen": false,
                     "id": "6b2d8ccfecec49daa67c72c75fa5f5e5",
-                    "selected": false
+                    "checked": false
                 },
                 {
-                    "checked": false,
-                    "chosen": false,
                     "id": "8c3252e8c0cd4b77a12e88999d9e798d",
-                    "selected": false
-                },
-                {
-                    "id": "004ab4c7b4684db09ed98e6c4355d584",
-                    "checked": true
+                    "checked": false
                 }
             ],
             "creationDate": "Thursday 22 Sep 2022 - 23:34"

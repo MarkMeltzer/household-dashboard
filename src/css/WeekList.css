@@ -64,11 +64,35 @@
     margin-bottom: 0;
 }
 
-.shoppingItem {
+.shoppingItemViewMode, .shoppingItemEditMode {
     display: grid;
-    grid-template-columns: auto 1fr auto;
     align-items: center;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.267);
+}
+
+.shoppingItemViewMode {
+    grid-template-columns: auto 1fr;
+    padding: 0.15em;
+    /* padding-left: 0.5em; */
+    padding-right: 0.5em;
+}
+
+.shoppingItemEditMode {
+    grid-template-columns: auto 1fr auto;
+}
+
+.shoppingItemEditMode button {
+    width: 38px;
+    height: 38px;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 4px;
+    color: hsl(0, 78%, 43%);
+    margin-right: 5px;
+}
+
+.shoppingItemEditMode input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .dragHandleContainer {
@@ -91,20 +115,6 @@
     color: green;
 }
 
-.shoppingItem button {
-    width: 38px;
-    height: 38px;
-    border: 1px solid hsl(0, 0%, 80%);
-    border-radius: 4px;
-    color: hsl(0, 78%, 43%);
-    margin-right: 5px;
-}
-
-.shoppingItem input[type="text"] {
-    box-sizing: border-box;
-    width: 100%;
-}
-
 .addNewButton {
     /* width: 50%; */
     margin-top: 3px;
@@ -124,6 +134,13 @@
     .bottomSection {
         grid-auto-flow: unset;
         grid-template-columns: 1fr;
+    }
+
+    .shoppingItemViewMode input[type=checkbox] {
+        margin-right: 1em;
+        height: 25px;
+        width: 25px;
+        background-color: #5D4632;
     }
 }
 
