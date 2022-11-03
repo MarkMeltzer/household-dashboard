@@ -22,7 +22,7 @@ To run the web api simply run "python .\flask_api.py" or "python3 .\flask_api.py
 # TODO/Known issues
  - ~~Fetch errors aren't caught correctly. They are caught on the json parse promise which will still fail if the api responds with an error but prevents providing useful error messages.~~
  - Passwords should also be hashed client-side to protect passwords sent over insecure connections.
- - The WeekList component is getting a bit crowded. Top and bottom sections should be spun of into their own components.
+ - ~~The WeekList component is getting a bit crowded. Top and bottom sections should be spun of into their own components.~~
  - Currently login tokens do not expire.
  - ~~Updating a weeklist should be done using a PUT request rather than a POST.~~
  - Implement cleanup of useEffect fetches.
@@ -30,7 +30,7 @@ To run the web api simply run "python .\flask_api.py" or "python3 .\flask_api.py
  - Salt is appended to hash, so doesn't need to be saved seperatly.
  - Flask is still running in development mode.
  - Navigating directly to an existing URL below the root gives a 404.
- - In weekList edit mode the list is not shown in columns like in the view mode.
+ - ~~In weekList edit mode the list is not shown in columns like in the view mode.~~
   
 # Future features
 - Save meals as proper objects in database with information on recipes, ingredients, vegetarian etc
