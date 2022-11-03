@@ -1,24 +1,46 @@
-import { updateObject } from "./utils";
+import { useRef } from "react";
+import { updateArray, updateObject } from "./utils";
 
 const MealList = ({
   isEditing,
   setMeals,
-  meals,
-  days
+  meals
 }) => {
+  const inputEl = useRef(null);
+
+  const dayLabelMap = {
+    0 : "Zo",
+    1 : "Ma",
+    2 : "Di",
+    3 : "Wo",
+    4 : "Do",
+    5 : "Vrij",
+    6 : "Za"
+  }
+
+  function changeMeal(e, index) {
+    const newMealObject = updateObject(meals[index], "meal", e.target.value);
+    const newMealArray = updateArray(meals, index, newMealObject);
+    setMeals(newMealArray);
+  }
+
   return (
     <div className="topSection">{
-      days.map((day) => 
-        <div className="dayItem" key={day}>
-          {<p className="day">{day}</p>}
+      meals.map((meal, index) => {
+        const date = new Date(meal.date);
+        const dayLabel = dayLabelMap[date.getDay()] + " " + date.getDate();
+
+        return <div className="dayItem" key={meal.date}>
+          {<p className="day">{dayLabel}</p>}
     
-          {!isEditing && <p className="meal">{meals[day]}</p>}
+          {!isEditing && <p className="meal">{meal.meal}</p>}
           {isEditing && <input 
-            type="text" 
-            value={meals[day]} 
-            onChange={(e) => { setMeals(updateObject(meals, day, e.target.value)) }}
+            ref={inputEl}
+            type="text"
+            value={meal.meal}
+            onChange={e => changeMeal(e, index)}
           />}
-        </div>
+        </div>}
     )}</div>)
 }
 

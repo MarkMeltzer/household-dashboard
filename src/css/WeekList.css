@@ -23,7 +23,7 @@
 
 .topSection .dayItem {
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 55px 1fr;
 }
 
 .topSection .day {

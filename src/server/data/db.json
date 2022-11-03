@@ -1,15 +1,36 @@
 {
     "weekLists": {
         "4d3370ec178d47778ab90a8e603127e6": {
-            "meals": {
-                "Di": "Vega kip, Broccoli en gekookte aardappel",
-                "Do": "Bami + ei en kroepoek",
-                "Ma": "Pannekoeken",
-                "Vrij": "Spaghetti",
-                "Wo": "Pompoensoep m\\ stokbrood",
-                "Za": "Pizza",
-                "Zo": "Rosti, sperziebonen, groente shnitzel"
-            },
+            "meals": [
+                {
+                    "date": "Thu Sep 22 2022",
+                    "meal": "Vega kip, Broccoli en gekookte aardappel"
+                },
+                {
+                    "date": "Fri Sep 23 2022",
+                    "meal": "Bami + ei en kroepoek"
+                },
+                {
+                    "date": "Sat Sep 24 2022",
+                    "meal": "Pannekoeken"
+                },
+                {
+                    "date": "Sun Sep 25 2022",
+                    "meal": "Spaghetti"
+                },
+                {
+                    "date": "Mon Sep 26 2022",
+                    "meal": "Pompoensoep m\\ stokbrood"
+                },
+                {
+                    "date": "Tue Sep 27 2022",
+                    "meal": "Pizza"
+                },
+                {
+                    "date": "Wed Sep 28 2022",
+                    "meal": "Rosti, sperziebonen, groente shnitzel"
+                }
+            ],
             "shoppingList": [
                 {
                     "amount": 6,
@@ -160,15 +181,36 @@
             "creationDate": "Thursday 22 Sep 2022 - 23:32"
         },
         "fb9fe65ea0814ec6b68d7f41da770dde": {
-            "meals": {
-                "Di": "Patat",
-                "Do": "Patat",
-                "Ma": "Patat",
-                "Vrij": "Patat",
-                "Wo": "Patat",
-                "Za": "Patat",
-                "Zo": "Patat"
-            },
+            "meals": [
+                {
+                    "date": "Thu Sep 22 2022",
+                    "meal": "Patat"
+                },
+                {
+                    "date": "Fri Sep 23 2022",
+                    "meal": "Patat5"
+                },
+                {
+                    "date": "Sat Sep 24 2022",
+                    "meal": "Patat"
+                },
+                {
+                    "date": "Sun Sep 25 2022",
+                    "meal": "Patat"
+                },
+                {
+                    "date": "Mon Sep 26 2022",
+                    "meal": "Patat"
+                },
+                {
+                    "date": "Tue Sep 27 2022",
+                    "meal": "Patat3"
+                },
+                {
+                    "date": "Wed Sep 28 2022",
+                    "meal": "Patat2"
+                }
+            ],
             "shoppingList": [
                 {
                     "amount": 5,
@@ -190,11 +232,110 @@
                     "selected": false
                 },
                 {
+                    "checked": true,
+                    "chosen": false,
                     "id": "004ab4c7b4684db09ed98e6c4355d584",
-                    "checked": true
+                    "selected": false
                 }
             ],
             "creationDate": "Thursday 22 Sep 2022 - 23:34"
+        },
+        "25e21d4116574e0f9d8d01cc32f0ad04": {
+            "meals": [],
+            "shoppingList": [
+                {
+                    "id": "04a87a23f5f84f83a50c8b92b6cb3315",
+                    "checked": false
+                }
+            ],
+            "creationDate": "Wednesday 26 Oct 2022 - 10:59"
+        },
+        "9d45ce5144384698b1488a9171edcc8d": {
+            "meals": [],
+            "shoppingList": [
+                {
+                    "id": "055f5e822bac4f848b4079cdf487562a",
+                    "checked": false
+                }
+            ],
+            "creationDate": "Wednesday 26 Oct 2022 - 11:07"
+        },
+        "7e0806fcee0a4d2487a7a2aae9778121": {
+            "meals": [
+                {
+                    "date": "Wed Oct 26 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Thu Oct 27 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Fri Oct 28 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Sat Oct 29 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Sun Oct 30 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Mon Oct 31 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Tue Nov 01 2022",
+                    "meal": ""
+                }
+            ],
+            "shoppingList": [],
+            "creationDate": "Wednesday 26 Oct 2022 - 17:40"
+        },
+        "13553503cf8541c89482584edc4baf7c": {
+            "meals": [
+                {
+                    "date": "Wed Nov 09 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Thu Nov 10 2022",
+                    "meal": "I only eat on this day"
+                },
+                {
+                    "date": "Fri Nov 11 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Sat Nov 12 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Sun Nov 13 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Mon Nov 14 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Tue Nov 15 2022",
+                    "meal": ""
+                }
+            ],
+            "shoppingList": [
+                {
+                    "id": "004ab4c7b4684db09ed98e6c4355d584",
+                    "checked": true
+                },
+                {
+                    "id": "065ef124b5c04bf4bddb3e75ebeeda67",
+                    "checked": false
+                }
+            ],
+            "creationDate": "Tuesday  1 Nov 2022 - 14:54"
         }
     },
     "shoppingItems": {

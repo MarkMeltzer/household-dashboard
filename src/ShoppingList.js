@@ -1,9 +1,9 @@
-import ShoppingItemInput from './ShoppingItemInput';
 import { ReactSortable } from 'react-sortablejs';
-import { removeItemFromArray, updateArray, updateObject } from './utils';
 import { Link } from 'react-router-dom';
-import config from "./config.json"
 import { useContext } from 'react';
+import { removeItemFromArray, updateArray, updateObject } from './utils';
+import ShoppingItemInput from './ShoppingItemInput';
+import config from "./config.json"
 import globalContext from './globalContext';
 
 const ShoppingList = ({
@@ -61,9 +61,7 @@ const ShoppingList = ({
     }
     fetch(apiURL, requestOpts)
       .then(res => {
-        if (res.ok) {
-          console.log(res.status)
-      
+        if (res.ok) {      
           e.target.disabled = false;
         } else {
           throw Error("HTTP error code " + res.status + " " + res.statusText);

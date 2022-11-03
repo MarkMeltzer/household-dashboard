@@ -1,51 +1,64 @@
 import { useState, useEffect, useContext } from 'react';
-import './css/WeekList.css';
 import { useHistory} from 'react-router-dom';
 import config from "./config.json"
 import globalContext from "./globalContext";
 import useFetch from './hooks/useFetch';
+import useGetWeekList from './hooks/useGetWeekList';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
+import './css/WeekList.css';
 
 const WeekList = (props) => {
   const hist = useHistory();
   const context = useContext(globalContext);
+  const newWeekList = !props.weekListId && props.startingDate;
   
   /*=======================================================================
   ================================= State =================================
   =========================================================================*/
-  const days = ["Ma", "Di", "Wo", "Do", "Vrij", "Za", "Zo"];
+  const getWeekList = useGetWeekList(props.weekListId);
 
-  const [meals, setMeals] = useState(Object.fromEntries(days.map(day => [day, ""])));
+  // initialize mealList
+  let initialMeals = [];
+  if (newWeekList) {
+    // if this is a new week being created, create an empty mealList
+    initialMeals = [ {}, {}, {}, {}, {}, {}, {} ].map((_, index) => {
+      const newDate = new Date(props.startingDate);
+      newDate.setDate(newDate.getDate() + index);
+      return  { date: newDate.toDateString(), meal: ""};
+    })
+  }
+  const [meals, setMeals] = useState(initialMeals);
 
+  // initialize shoppingList
   const [shoppingList, setShoppingList] = useState([]);
+  
+  // initalize shoppingItems list
   const shoppingItems = useFetch(config.DATA_SERVER_URL + "/shoppingItems");
 
   const [isEditing, setIsEditing] = useState(props.isEditing);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // get the data via a fetch from the parent
-  // if no fetch result is passed create dummy data
-  const { data, isLoading, error } = props.initialData ? props.initialData : {
-    data : null, isLoading : false, error : null
-  }
-
-  // set the data once it arrives (and if a fetch result was passed)
   useEffect(() => {
-    if (props.initialData && !error && data) {
-      setMeals(data["meals"])
-      setShoppingList(data["shoppingList"])
+    // request weekList data when component mounts
+    if (!newWeekList && !getWeekList.isLoading && !getWeekList.data) {
+      getWeekList.sendRequest();
     }
-  }, [data, error, props.initialData])
 
+    // set local data once it arrives
+    if (!newWeekList && !getWeekList.error && getWeekList.data) {
+      setMeals(getWeekList.data["meals"])
+      setShoppingList(getWeekList.data["shoppingList"])
+    }
+  }, [getWeekList.data, getWeekList.error])
   // TODO: do useEffect cleanup
 
   /*=======================================================================
   ============================== Top section ==============================
   =========================================================================*/
   let title;
-  if (props.initialData) {
-    title = <div className="title">{data ? data["creationDate"] : "Loading..."}</div>
+  if (!newWeekList) {
+    title = <div className="title">{getWeekList.data ? getWeekList.data["creationDate"] : "Loading..."}</div>
   } else {
     title = <div className="title">New Week List</div>
   }
@@ -54,7 +67,6 @@ const WeekList = (props) => {
     isEditing={isEditing}
     setMeals={setMeals}
     meals={meals}
-    days={days}
   />
   
   /*=======================================================================
@@ -104,10 +116,9 @@ const WeekList = (props) => {
     }
 
     let apiURL, requestOpts, onSucces;
-    if (props.initialData) {
-      // if record already exist, add information so it can be updated
-      // by the server
-      objToSend["creationDate"] = data["creationDate"]; // TODO: this date should be noted server-side
+    if (!newWeekList) {
+      // weekList record already exists, update it with new data
+      objToSend["creationDate"] = getWeekList.data["creationDate"]; // TODO: this date should be noted server-side
 
       apiURL = config.DATA_SERVER_URL + "/weekLists/" + props.weekListId
       requestOpts = {
@@ -123,8 +134,7 @@ const WeekList = (props) => {
         e.target.disabled = false;
       };
     } else {
-      // if no initialData was passed, this weekList doesn't exist yet so we
-      // need to create a new record on the server
+      // new weekList record needs to be created
       apiURL = config.DATA_SERVER_URL + "/weekLists"
       requestOpts = {
         method: "POST",
@@ -158,8 +168,8 @@ const WeekList = (props) => {
       })
   }
 
-  if (error) return <div className="weekList"><p className="error">Error: {error.message}</p></div>
-  if (isLoading) return <div className="weekList"><p className="loading">Loading...</p></div>
+  if (getWeekList.error) return <div className="weekList"><p className="error">Error: {getWeekList.error.message}</p></div>
+  if (getWeekList.isLoading) return <div className="weekList"><p className="loading">Loading...</p></div>
   return (
     <div className="weekList">
       {title}

@@ -27,3 +27,4 @@ docker-image.tar
 /src/Dockerfile
 /src/server/flask.log
 /temp
+/data_backups

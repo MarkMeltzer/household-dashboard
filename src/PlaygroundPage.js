@@ -8,9 +8,9 @@ import globalContext from "./globalContext";
 import { ReactSortable } from "react-sortablejs";
 
 const TestCompontent = ({ text }) => {
+  console.log("RENDERED!")
   return <>
     <hr />
-    <div className="handle" style={{backgroundColor: "rgb(255,0,0)", width: "50px", height: "50px"}}></div>
     <div style={{padding: "5px"}}>
       Text: {text && text}
     </div>
@@ -19,31 +19,27 @@ const TestCompontent = ({ text }) => {
 }
 
 const PlaygroundPage = () => {
-  const items = [
-    { id: 1, name: "item1", word: "hello" },
-    { id: 2, name: "item2", word: "world" },
-    { id: 3, name: "item3", word: "mr" },
-    { id: 4, name: "item4", word: "robot" },
-  ]
-  const [list, setList] = useState(items)
+  const [date, setDate] = useState("");
+  const [confirmedDate, setConfirmedDate] = useState(false);
 
   return <div className="playground whitetext">
     <br />
     <br />
-    <ReactSortable list={list} setList={setList} handle=".handle" animation={150}>
-      {
-        list.map(item => (
-          <div key={item.id}>
-            <TestCompontent text={item.word}/>
-          </div>
-        ))
-      }
-    </ReactSortable>
-    <br />
-    <br />
     <pre>
-      {JSON.stringify(list, null, 2)}
+      {JSON.stringify(date, null, 2)}
     </pre>
+    {!confirmedDate &&
+    <div>
+      <label htmlFor="dateInput">Please select the starting date of the week you wish to create a list for:</label>
+      <input type="date" name="date" id="dateInput" onChange={e => setDate(e.target.value)}/>
+      <button
+        disabled={date ? false : true} 
+        onClick={e => { setConfirmedDate(true) }}
+      >Create Weeklist</button>
+    </div>}
+    <br />
+    <br />
+    {date && confirmedDate && <TestCompontent text={date}/>}
   </div>
 }
 
