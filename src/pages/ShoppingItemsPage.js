@@ -1,8 +1,8 @@
-import useFetch from "./hooks/useFetch";
-import config from "./config.json";
 import { Link } from "react-router-dom";
-import "./css/ShoppingItemsPage.css";
 import { useState } from "react";
+import useFetch from "../hooks/useFetch";
+import config from "../config.json";
+import "../css/pages/ShoppingItemsPage.css";
 
 const ShoppingItemsPage = () => {
     const { data: shoppingItems, isLoading, error } = useFetch(

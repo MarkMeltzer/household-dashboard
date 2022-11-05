@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { updateArray, updateObject } from "./utils";
+import { updateArray, updateObject } from "../utils";
 
 const MealList = ({
   isEditing,

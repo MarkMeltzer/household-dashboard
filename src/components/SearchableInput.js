@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import './css/SearchableInput.css';
+import '../css/components/SearchableInput.css';
 
 const SearchableInput = () => {
     const textInput = useRef(null);

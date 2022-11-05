@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./css/EditableTextField.css";
+import "../css/components/EditableTextField.css";
 
 const EditableTextField = (props) => {
     const [text, setText] = useState("");

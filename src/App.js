@@ -1,19 +1,19 @@
-import './css/App.css';
-import WeekListPage from './WeekListPage';
-import NewWeekListPage from './NewWeekListPage';
-import PlaygroundPage from './PlaygroundPage';
-import Home from './Home';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import Nav from './Nav';
-import Login from "./Login";
 import { useState } from "react";
+import WeekListPage from './pages/WeekListPage';
+import NewWeekListPage from './pages/NewWeekListPage';
+import PlaygroundPage from './pages/PlaygroundPage';
+import HomePage from './pages/HomePage';
+import LoginPage from "./pages/LoginPage";
+import ShoppingItemPage from './pages/ShoppingItemPage';
+import ShoppingItemsPage from './pages/ShoppingItemsPage';
+import Nav from './components/Nav';
 import globalContext from './globalContext';
-import ShoppingItemPage from './ShoppingItemPage';
-import ShoppingItemsPage from './ShoppingItemsPage';
+import './css/App.css';
 
 function App() {
   // look for login token in localstorage
@@ -25,7 +25,7 @@ function App() {
   if (token === null) {
     return <div className="App">
       <div className="content">
-        <Login setLoginToken={setToken}></Login>
+        <LoginPage setLoginToken={setToken}></LoginPage>
       </div>
     </div>
   }
@@ -37,7 +37,7 @@ function App() {
         <div className="content">
           <Nav setLoginToken={setToken}/>
           <Switch>
-            <Route exact path="/"><Home /></Route>
+            <Route exact path="/"><HomePage /></Route>
             <Route path="/week/:id"><WeekListPage /></Route>
             <Route path="/newweek"><NewWeekListPage /></Route>
             <Route path="/shoppingItems"><ShoppingItemsPage /></Route>

@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory} from 'react-router-dom';
-import config from "./config.json"
-import globalContext from "./globalContext";
-import useFetch from './hooks/useFetch';
-import useGetWeekList from './hooks/useGetWeekList';
+import useFetch from '../hooks/useFetch';
+import useGetWeekList from '../hooks/useGetWeekList';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
-import './css/WeekList.css';
+import globalContext from "../globalContext";
+import config from "../config.json"
+import '../css/components/WeekList.css';
 
 const WeekList = (props) => {
   const hist = useHistory();

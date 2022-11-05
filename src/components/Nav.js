@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import './css/Nav.css';
-import globalContext from "./globalContext";
+import globalContext from "../globalContext";
+import '../css/components/Nav.css';
 
 const Nav = ({ setLoginToken }) => {
   const context = useContext(globalContext);

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import config from "./config.json";
-import "./css/Login.css"
+import config from "../config.json";
+import "../css/pages/LoginPage.css"
 
-const Login = ({ setLoginToken }) => {
+const LoginPage = ({ setLoginToken }) => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -63,4 +63,4 @@ const Login = ({ setLoginToken }) => {
   </div>
 }
 
-export default Login;
+export default LoginPage;

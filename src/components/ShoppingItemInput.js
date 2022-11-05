@@ -1,10 +1,9 @@
-import CreatableSelect from 'react-select/creatable';
-import useFetch from "./hooks/useFetch";
-import config from "./config.json";
 import { useState, useEffect, useContext } from "react";
-import globalContext from './globalContext';
-import { updateObject, updateArray } from './utils';
-import './css/ShoppingItemInput.css';
+import CreatableSelect from 'react-select/creatable';
+import { updateObject, updateArray } from '../utils';
+import globalContext from '../globalContext';
+import config from "../config.json";
+import '../css/components/ShoppingItemInput.css';
 
 /**
  * Dropdown for slecting and creating shopping items

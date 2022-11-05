@@ -1,11 +1,5 @@
-import SearchableInput from "./SearchableInput";
-import ShoppingItemInput from "./ShoppingItemInput";
-import useFetch from "./hooks/useFetch";
-import config from "./config.json";
-import "./css/PlaygroundPage.css"
 import { useState } from "react";
-import globalContext from "./globalContext";
-import { ReactSortable } from "react-sortablejs";
+import "../css/pages/PlaygroundPage.css"
 
 const TestCompontent = ({ text }) => {
   console.log("RENDERED!")

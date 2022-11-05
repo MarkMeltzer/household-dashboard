@@ -1,10 +1,10 @@
-import { ReactSortable } from 'react-sortablejs';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { removeItemFromArray, updateArray, updateObject } from './utils';
+import { ReactSortable } from 'react-sortablejs';
 import ShoppingItemInput from './ShoppingItemInput';
-import config from "./config.json"
-import globalContext from './globalContext';
+import { removeItemFromArray, updateArray, updateObject } from '../utils';
+import globalContext from '../globalContext';
+import config from "../config.json"
 
 const ShoppingList = ({
   isEditing,

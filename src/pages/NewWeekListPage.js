@@ -1,6 +1,6 @@
 import { useState } from "react";
-import WeekList from "./WeekList";
-import "./css/NewWeekListPage.css";
+import WeekList from "../components/WeekList";
+import "../css/pages/NewWeekListPage.css";
 
 const NewWeekListPage = () => {
   const [date, setDate] = useState("");

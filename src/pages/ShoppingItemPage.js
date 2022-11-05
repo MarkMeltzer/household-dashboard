@@ -1,10 +1,10 @@
 import { useParams } from "react-router";
-import useFetch from "./hooks/useFetch";
-import config from "./config.json";
-import "./css/ShoppingItemPage.css"
 import { useState, useEffect, useContext } from "react";
-import { updateObject } from "./utils";
-import globalContext from "./globalContext";
+import useFetch from "../hooks/useFetch";
+import { updateObject } from "../utils";
+import globalContext from "../globalContext";
+import config from "../config.json";
+import "../css/pages/ShoppingItemPage.css"
 
 const ShoppingItemPage = () => {
   const context = useContext(globalContext);
