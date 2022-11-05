@@ -40,14 +40,32 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
     setSelectedItem(shoppingList[index].id);
   }, [shoppingList])
 
+  function isInShoppingList(itemId) {
+    return shoppingList.find(shoppingListItem => 
+      shoppingListItem.id === itemId
+    );
+  }
+
   function filterShoppingItems() {
     if (!shoppingItems.data) {
       return []
     } else {
+      // collect all shoppingItems in the correct format
       return Object.entries(shoppingItems.data).map((item) => {
         // item = [id, { name, location, etc... }]
-        return { value: item[0], label: item[1].name }
-      })
+        const inShoppingList = isInShoppingList(item[0])
+        
+        var label = item[1].name
+        if (inShoppingList) {
+          label += " - Already in shopping list"
+        }
+
+        return {
+          value: item[0],
+          label: label,
+          isDisabled: inShoppingList
+        }
+      });
     }
   }
 
@@ -91,7 +109,6 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
       }
     ).then(res => { return res.json(); }
     ).then(json => {
-      console.log(shoppingItems)
       // add to list of all shopping items
       shoppingItems.setData(updateObject(
         shoppingItems.data,
@@ -113,7 +130,6 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
     <CreatableSelect
       className="react-select-container"
       classNamePrefix="react-select"
-      isClearable
       options={filterShoppingItems()}
       isLoading={shoppingItems.isLoading}
       onChange={handleSelection}

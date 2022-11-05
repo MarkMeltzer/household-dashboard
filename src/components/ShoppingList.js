@@ -157,6 +157,7 @@ const ShoppingList = ({
                 onClick={addShoppingItem}
                 className="addNewButton"
                 key="addNewButton"
+                disabled={shoppingList.find(item => item.id === "newItem")}
               >Add new</button>
             )
         }

@@ -335,12 +335,28 @@
             ],
             "shoppingList": [
                 {
+                    "checked": true,
+                    "chosen": false,
                     "id": "004ab4c7b4684db09ed98e6c4355d584",
-                    "checked": true
+                    "selected": false
                 },
                 {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0575e1c812bb476aa77d3e4137e936b8",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "dfde009540bd48f5a89deef311cbf4d6",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
                     "id": "065ef124b5c04bf4bddb3e75ebeeda67",
-                    "checked": false
+                    "selected": false
                 }
             ],
             "creationDate": "Tuesday  1 Nov 2022 - 14:54"
@@ -1377,6 +1393,9 @@
         "10a0603d80b64738b3033eaaf0b00ccd": {
             "name": "Oreillettes (kroepoek koekjes?) ",
             "shop": "Lidl"
+        },
+        "dfde009540bd48f5a89deef311cbf4d6": {
+            "name": "yega"
         }
     }
 }
