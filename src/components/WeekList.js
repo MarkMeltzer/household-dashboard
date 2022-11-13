@@ -1,12 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory} from 'react-router-dom';
-import useFetch from '../hooks/useFetch';
+import useGet from '../hooks/useGet';
 import useGetWeekList from '../hooks/useGetWeekList';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
 import globalContext from "../globalContext";
 import config from "../config.json"
 import '../css/components/WeekList.css';
+import useGetShoppingItems from '../hooks/useGetShoppingItems';
 
 const WeekList = (props) => {
   const hist = useHistory();
@@ -34,7 +35,7 @@ const WeekList = (props) => {
   const [shoppingList, setShoppingList] = useState([]);
   
   // initalize shoppingItems list
-  const shoppingItems = useFetch(config.DATA_SERVER_URL + "/shoppingItems");
+  const shoppingItems = useGetShoppingItems();
 
   const [isEditing, setIsEditing] = useState(props.isEditing);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,6 +51,9 @@ const WeekList = (props) => {
       setMeals(getWeekList.data["meals"])
       setShoppingList(getWeekList.data["shoppingList"])
     }
+
+    // Get the shoppingItems data
+    shoppingItems.sendRequest();
   }, [getWeekList.data, getWeekList.error])
   // TODO: do useEffect cleanup
 

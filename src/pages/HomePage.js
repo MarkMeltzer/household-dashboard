@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
-import useFetch from '../hooks/useFetch';
-import config from "../config.json";
+import { useEffect } from 'react';
+import useGetWeekLists from '../hooks/useGetWeekLists';
 import '../css/pages/HomePage.css';
 
 const HomePage = () => {
-  const { data: weekLists, isLoading, error } = useFetch(config.DATA_SERVER_URL + "/weekLists");
+  const { data: weekLists, isLoading, error, sendRequest } = useGetWeekLists();
+
+  useEffect(() => {
+    sendRequest();
+  }, [])
   
   function sortWeekLists(weekListsEntries) {
     return [...weekListsEntries].sort((weekList1, weekList2) => {

@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { useRef } from "react";
 import CreatableSelect from 'react-select/creatable';
 import { updateObject, updateArray } from '../utils';
 import globalContext from '../globalContext';
@@ -8,21 +9,28 @@ import '../css/components/ShoppingItemInput.css';
 /**
  * Dropdown for slecting and creating shopping items
  * 
- * @param shoppingItems useFetch result object containing a dict of all
- * shoppingItems with the form { id: { name, location, etc }, ... }
+ * @param shoppingItems useGet result object containing a dict of all
+ *        shoppingItems with the form { id: { name, location, etc }, ... }
  * @param shoppingList useState data result containing an array of the
- * shoppingList part of a weekList in the form [{ id, checked }, ...]
- * @param setShoppingList useState data set function to set the shoppingList
- * @param index index of the shoppingItem in the shoppingList this input represents
+ *        shoppingList part of a weekList in the form [{ id, checked }, ...]
+ * @param setShoppingList 
+ *        useState data set function to set the shoppingList
+ * @param index
+ *        index of the shoppingItem in the shoppingList this input represents
 */
 const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index }) => {
   const context = useContext(globalContext);
+  const ref = useRef(null);
   const [selectedItem, setSelectedItem] = useState(shoppingList[index].id);
   
   // select option from dropdown
   useEffect(() => {
     if (selectedItem == "") {
       return;
+    }
+
+    if (selectedItem == "newItem") {
+      ref.current.focus()
     }
 
     setShoppingList(
@@ -134,6 +142,7 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
       isLoading={shoppingItems.isLoading}
       onChange={handleSelection}
       onCreateOption={handleCreation}
+      ref={ref}
       value={
         shoppingItems.data && 
         selectedItem &&

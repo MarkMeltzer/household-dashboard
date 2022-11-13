@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { useState, useEffect, useContext } from "react";
-import useFetch from "../hooks/useFetch";
+import useGetShoppingItem from "../hooks/useGetShoppingItem";
 import { updateObject } from "../utils";
 import globalContext from "../globalContext";
 import config from "../config.json";
@@ -9,10 +9,15 @@ import "../css/pages/ShoppingItemPage.css"
 const ShoppingItemPage = () => {
   const context = useContext(globalContext);
   const { id } = useParams();
-  const { data, isLoading, error } = useFetch(config.DATA_SERVER_URL + "/shoppingItems/" + id);
+  const { data, isLoading, error, sendRequest } = useGetShoppingItem(id);
   const [shoppingItem, setShoppingItem] = useState(null);
 
   useEffect(() => {
+    // request shoppingItem data when component mounts
+    if (!data && !isLoading) {
+      sendRequest();
+    }
+
     // data has arrived, lets keep track of it so we can change it later
     if (data && !error) {
       setShoppingItem(data)

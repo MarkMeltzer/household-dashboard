@@ -335,6 +335,16 @@
             ],
             "shoppingList": [
                 {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0684963bfe1f4a6eacf916c2600f4a6b",
+                    "selected": false
+                },
+                {
+                    "id": "055f5e822bac4f848b4079cdf487562a",
+                    "checked": false
+                },
+                {
                     "checked": true,
                     "chosen": false,
                     "id": "004ab4c7b4684db09ed98e6c4355d584",
@@ -347,9 +357,15 @@
                     "selected": false
                 },
                 {
-                    "checked": false,
+                    "checked": true,
                     "chosen": false,
                     "id": "dfde009540bd48f5a89deef311cbf4d6",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "c53a9b5ec6944ec38988a43ac16c0bbb",
                     "selected": false
                 },
                 {
@@ -360,6 +376,40 @@
                 }
             ],
             "creationDate": "Tuesday  1 Nov 2022 - 14:54"
+        },
+        "499149b4064349fc9330814673d65c59": {
+            "meals": [
+                {
+                    "date": "Thu Nov 03 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Fri Nov 04 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Sat Nov 05 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Sun Nov 06 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Mon Nov 07 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Tue Nov 08 2022",
+                    "meal": ""
+                },
+                {
+                    "date": "Wed Nov 09 2022",
+                    "meal": ""
+                }
+            ],
+            "shoppingList": [],
+            "creationDate": "Sunday 13 Nov 2022 - 21:04"
         }
     },
     "shoppingItems": {

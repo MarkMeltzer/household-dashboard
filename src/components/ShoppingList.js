@@ -14,7 +14,7 @@ const ShoppingList = ({
   weekListId
 }) => {
   const context = useContext(globalContext);
-
+  
   // extend the shoppinglist when it gets too big
   const nMaxItems = window.innerWidth < 1000 ? 20 : 30;
   const nRows = (Math.floor(shoppingList.length / nMaxItems) + 1) * 10;
