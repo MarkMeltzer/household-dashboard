@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import useGetWeekLists from '../hooks/useGetWeekLists';
 import '../css/pages/HomePage.css';
+import ConfirmDeleteButton from '../components/ConfirmDeleteButton';
 
 const HomePage = () => {
   const { data: weekLists, _, isLoading, error, sendRequest } = useGetWeekLists();
@@ -23,9 +24,14 @@ const HomePage = () => {
       {weekLists &&
         sortWeekLists(Object.entries(weekLists)).map((el) => 
           // el = [id, { creationDate, meals{}, shoppingList{} }]
-          <Link to={`/week/${el[0]}`} className="weekListItem" key={el[0]}>
-            {el[1].creationDate}
-          </Link>
+          <div className='weekListItemContainer' key={el[0]}>
+            <Link to={`/week/${el[0]}`} className="weekListItem">
+              {el[1].creationDate}
+            </Link>
+            <ConfirmDeleteButton 
+              deleteFunc={() => console.log("Deleted: " + el[0])}
+            />
+          </div>
         )
       }
     </div>  

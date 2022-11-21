@@ -3,18 +3,19 @@
     flex-flow: column wrap;
 }
 
-.WeekListList >* {
-    flex: 1;
+.weekListItemContainer {
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .weekListItem {
     margin: 5px;
     padding: 10px;
-    background-color: #5D4632;
+    flex-grow: 1;
 
+    background-color: #5D4632;
     text-decoration: none;
     color: #F8F4EF;
-
 }
 
 .weekListItem:hover {
