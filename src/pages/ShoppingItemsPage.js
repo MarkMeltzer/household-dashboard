@@ -5,11 +5,8 @@ import useGetShoppingItems from "../hooks/useGetShoppingItems";
 import "../css/pages/ShoppingItemsPage.css";
 
 const ShoppingItemsPage = () => {
-    // const { data: shoppingItems, isLoading, error } = useFetch(
-    //     config.DATA_SERVER_URL + "/shoppingItems"
-    // );
     const {
-      data: shoppingItems, isLoading, error, sendRequest
+      data: shoppingItems, _, isLoading, error, sendRequest
     } = useGetShoppingItems();
     const [filter, setFilter] = useState("");
 

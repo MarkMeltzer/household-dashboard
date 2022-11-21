@@ -1,16 +1,15 @@
 import { useParams } from "react-router";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import useGetShoppingItem from "../hooks/useGetShoppingItem";
+import useUpdateShoppingItem from "../hooks/useUpdateShoppingItem";
 import { updateObject } from "../utils";
-import globalContext from "../globalContext";
-import config from "../config.json";
 import "../css/pages/ShoppingItemPage.css"
 
 const ShoppingItemPage = () => {
-  const context = useContext(globalContext);
   const { id } = useParams();
-  const { data, isLoading, error, sendRequest } = useGetShoppingItem(id);
+  const { data, _, isLoading, error, sendRequest } = useGetShoppingItem(id);
   const [shoppingItem, setShoppingItem] = useState(null);
+  const updateShoppingItem = useUpdateShoppingItem(id);
 
   useEffect(() => {
     // request shoppingItem data when component mounts
@@ -25,40 +24,14 @@ const ShoppingItemPage = () => {
   }, [data, error])
 
   const [isEditing, setIsEditing] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   function handleEditClick(e) {
     if (isEditing) {
       // lets submit the changed shoppingItem data to the server
-      e.target.disabled = true;
-      setIsSubmitting(true);
-
-      fetch(
-        config.DATA_SERVER_URL + "/shoppingItems/" + id,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            	"Authorization": "Bearer " + context["token"]
-          },
-          body: JSON.stringify(shoppingItem)
-        }
-      ).then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw Error("HTTP error code " + res.status + " " + res.statusText);
-        }
-      }).then(json => {
-        e.target.disabled = false;
-        setIsSubmitting(false);
-        setIsEditing(false);
-      }).catch(err => {
-        // error
-        setIsSubmitting(false);
-        setIsEditing(false);
-        e.target.disabled = false;
-        alert("Error submitting shopping item: \n" + err)
-      })
+      updateShoppingItem.sendRequest(
+        JSON.stringify(shoppingItem),
+        (_) => { setIsEditing(false); },
+        (_) => { setIsEditing(false); },
+      )
     } else {
       setIsEditing(true);
     }
@@ -69,9 +42,9 @@ const ShoppingItemPage = () => {
       <button 
         className="shoppingItemEditButton"
         onClick={handleEditClick}
-        disabled={isSubmitting}>
+        disabled={updateShoppingItem.isLoading}>
         {(() => {
-          if (isSubmitting) {
+          if (updateShoppingItem.isLoading) {
               return "Submitting..."
             } else if (isEditing) {
               return "Submit!"
@@ -86,7 +59,7 @@ const ShoppingItemPage = () => {
         {isEditing &&
           <input type="text" 
             value={shoppingItem.name}
-            disabled={isSubmitting}
+            disabled={updateShoppingItem.isLoading}
             onChange={(e)=>(
               setShoppingItem(updateObject(shoppingItem, "name", e.target.value)))}
           />}
@@ -98,7 +71,7 @@ const ShoppingItemPage = () => {
           {!isEditing && (shoppingItem.price ? "€ " + shoppingItem.price.toFixed(2) : "Not specified")}
           {isEditing && <input type="number"
             value={shoppingItem.price ? shoppingItem.price : 0.0}
-            disabled={isSubmitting}
+            disabled={updateShoppingItem.isLoading}
             step={0.25}
             onChange={(e)=>(
               setShoppingItem(updateObject(shoppingItem, "price", e.target.valueAsNumber)))}
@@ -112,7 +85,7 @@ const ShoppingItemPage = () => {
           {!isEditing && (shoppingItem.location ? shoppingItem.location : "Not specified")}
           {isEditing && <input type="text"
             value={shoppingItem.location ? shoppingItem.location : ""}
-            disabled={isSubmitting}
+            disabled={updateShoppingItem.isLoading}
             onChange={(e)=>(
               setShoppingItem(updateObject(shoppingItem, "location", e.target.value)))}
           />}
@@ -125,7 +98,7 @@ const ShoppingItemPage = () => {
           {!isEditing && (shoppingItem.shop ? shoppingItem.shop : "Not specified")}
           {isEditing && <select name="shops"
             value={shoppingItem.shop ? shoppingItem.shop : ""}
-            disabled={isSubmitting}
+            disabled={updateShoppingItem.isLoading}
             onChange={(e)=>(
               setShoppingItem(updateObject(shoppingItem, "shop", e.target.value)))}
           >

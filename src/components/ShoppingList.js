@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ReactSortable } from 'react-sortablejs';
 import ShoppingItemInput from './ShoppingItemInput';
 import { removeItemFromArray, updateArray, updateObject } from '../utils';
@@ -14,7 +14,7 @@ const ShoppingList = ({
   weekListId
 }) => {
   const context = useContext(globalContext);
-  
+
   // extend the shoppinglist when it gets too big
   const nMaxItems = window.innerWidth < 1000 ? 20 : 30;
   const nRows = (Math.floor(shoppingList.length / nMaxItems) + 1) * 10;

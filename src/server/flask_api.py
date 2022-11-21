@@ -9,7 +9,7 @@ import uuid
 import bcrypt
 import logging
 
-SIM_DELAY = 0.0
+SIM_DELAY = 0.3
 
 # load data
 def load_data():
@@ -233,7 +233,7 @@ def specific_shopping_item(id):
         data["shoppingItems"][id] = request.json
         save_data(data)
 
-        return jsonify({"id": id})
+        return "", 204
     else:
         print(request.method + " not implemented for this route!")
         abort(404)

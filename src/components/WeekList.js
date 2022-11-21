@@ -1,23 +1,23 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory} from 'react-router-dom';
-import useGet from '../hooks/useGet';
 import useGetWeekList from '../hooks/useGetWeekList';
+import useUpdateWeekList from '../hooks/useUpdateWeekList';
+import useCreateWeekList from '../hooks/useCreateWeekList';
+import useGetShoppingItems from '../hooks/useGetShoppingItems';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
-import globalContext from "../globalContext";
-import config from "../config.json"
 import '../css/components/WeekList.css';
-import useGetShoppingItems from '../hooks/useGetShoppingItems';
 
 const WeekList = (props) => {
   const hist = useHistory();
-  const context = useContext(globalContext);
   const newWeekList = !props.weekListId && props.startingDate;
   
   /*=======================================================================
   ================================= State =================================
   =========================================================================*/
   const getWeekList = useGetWeekList(props.weekListId);
+  const updateWeekList = useUpdateWeekList(props.weekListId);
+  const createWeekList = useCreateWeekList(props.weekListId);
 
   // initialize mealList
   let initialMeals = [];
@@ -38,7 +38,6 @@ const WeekList = (props) => {
   const shoppingItems = useGetShoppingItems();
 
   const [isEditing, setIsEditing] = useState(props.isEditing);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     // request weekList data when component mounts
@@ -89,6 +88,7 @@ const WeekList = (props) => {
       setIsEditing(true);
       return;
     }
+    setIsEditing(false);
 
     // filter and sort the shopping list
     let filteredShoppingList = shoppingList.filter(item => item.id != "newItem");
@@ -109,67 +109,33 @@ const WeekList = (props) => {
     )
     setShoppingList(filteredShoppingList);
 
-    e.target.disabled = true;
-    setIsEditing(false);
-    setIsSubmitting(true);
-
     // collect the data to send back to the server
     const objToSend = {
       "meals" : meals,
       "shoppingList": filteredShoppingList
     }
 
-    let apiURL, requestOpts, onSucces;
     if (!newWeekList) {
       // weekList record already exists, update it with new data
-      objToSend["creationDate"] = getWeekList.data["creationDate"]; // TODO: this date should be noted server-side
+      objToSend["creationDate"] = getWeekList.data["creationDate"];
 
-      apiURL = config.DATA_SERVER_URL + "/weekLists/" + props.weekListId
-      requestOpts = {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + context["token"]
-        },
-        body: JSON.stringify(objToSend)
-      }
-      onSucces = (res) => {
-        setIsSubmitting(false);
-        e.target.disabled = false;
-      };
+      updateWeekList.sendRequest(
+        JSON.stringify(objToSend),
+        () => {},
+        (err) => {
+          alert("Error submitting list: \n" + err);
+        }
+      )
     } else {
       // new weekList record needs to be created
-      apiURL = config.DATA_SERVER_URL + "/weekLists"
-      requestOpts = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization" : "Bearer " + context["token"]
-        },
-        body: JSON.stringify(objToSend)
-      }
-      onSucces = (res) => {
-        hist.push(`/week/${res["id"]}`)
-      };
-    }
-
-    // send the request to the server
-    fetch(apiURL, requestOpts)
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw Error("HTTP error code " + res.status + " " + res.statusText);
+      createWeekList.sendRequest(
+        JSON.stringify(objToSend),
+        (res) => hist.push(`/week/${res["id"]}`),
+        (err) => {
+          alert("Error submitting list: \n" + err);
         }
-      }).then(json => {
-        // success
-        onSucces(json)
-      }).catch(err => {
-          // error
-          setIsSubmitting(false);
-          e.target.disabled = false;
-          alert("Error submitting list: \n" + err)
-      })
+      )
+    }
   }
 
   if (getWeekList.error) return <div className="weekList"><p className="error">Error: {getWeekList.error.message}</p></div>
@@ -178,9 +144,13 @@ const WeekList = (props) => {
     <div className="weekList">
       {title}
       <div className="weekListEditButtonContainer">
-        <button className="weekListEditButton" onClick={clickEditButton}>
+        <button 
+          className="weekListEditButton"
+          onClick={clickEditButton}
+          disabled={updateWeekList.isLoading || createWeekList.isLoading}
+        >
           {(() => {
-            if (isSubmitting) {
+            if (updateWeekList.isLoading || createWeekList.isLoading) {
               return "Submitting..."
             } else if (isEditing) {
               return "Submit!"

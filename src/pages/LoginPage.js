@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useGetLoginToken from "../hooks/useGetLoginToken";
 import config from "../config.json";
 import "../css/pages/LoginPage.css"
 
@@ -6,33 +7,23 @@ const LoginPage = ({ setLoginToken }) => {
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  const getLoginToken = useGetLoginToken();
 
 
   function handleSubmit(e) {
     e.preventDefault();
 
     // send a post request to the server asking for a token
-    console.log(config.DATA_SERVER_URL + "/getLoginToken")
-    const apiURL = config.DATA_SERVER_URL + "/getLoginToken"
-    const requestOpts = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
+    getLoginToken.sendRequest(
+      JSON.stringify({"username" : username, "password" : password}),
+      (res) => {
+        localStorage.setItem("loginToken", res["token"]); 
+        setLoginToken(res["token"]);
       },
-      body: JSON.stringify({"username" : username, "password" : password})
-    }
-    fetch(apiURL, requestOpts)
-      .then(res => res.json())
-      .then(
-        res => {
-          localStorage.setItem("loginToken", res["token"]); 
-          setLoginToken(res["token"]);
-
-        },
-        err => {
-          // error
-          setErrorMessage("Cannot login. Please provide correct username and password.")
-        })
+      (_) => {
+        setErrorMessage("Cannot login. Please provide correct username and password.")
+      }
+    )
   }
 
   return <div className="login">

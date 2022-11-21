@@ -3,7 +3,7 @@ import config from "../config.json"
 
 
 /**
- * Uses the household-dashboard API to check an item in a shoppingList
+ * Uses the household-dashboard API to get a specific weekList
  * 
  * @param {string} weekListId ID of the weekList
  * @returns {import("./useGet").Result}

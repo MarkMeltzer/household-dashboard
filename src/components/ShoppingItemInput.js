@@ -2,9 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { useRef } from "react";
 import CreatableSelect from 'react-select/creatable';
 import { updateObject, updateArray } from '../utils';
-import globalContext from '../globalContext';
-import config from "../config.json";
 import '../css/components/ShoppingItemInput.css';
+import useCreateShoppingItem from "../hooks/useCreateShoppingItem";
 
 /**
  * Dropdown for slecting and creating shopping items
@@ -19,12 +18,13 @@ import '../css/components/ShoppingItemInput.css';
  *        index of the shoppingItem in the shoppingList this input represents
 */
 const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index }) => {
-  const context = useContext(globalContext);
   const ref = useRef(null);
+  const createShoppingItem = useCreateShoppingItem();
   const [selectedItem, setSelectedItem] = useState(shoppingList[index].id);
-  
+
   // select option from dropdown
   useEffect(() => {
+
     if (selectedItem == "") {
       return;
     }
@@ -103,29 +103,19 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
     }
 
     // add new item to the DB
-    fetch(
-      config.DATA_SERVER_URL + "/shoppingItems",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + context["token"]
-        },
-        body: JSON.stringify({
-          name: item
-        })
-      }
-    ).then(res => { return res.json(); }
-    ).then(json => {
-      // add to list of all shopping items
-      shoppingItems.setData(updateObject(
-        shoppingItems.data,
-        json.id,
-        { name: item }
-      ))
+    createShoppingItem.sendRequest(
+      JSON.stringify({ name: item }),
+      (res) => {
+        shoppingItems.setData(updateObject(
+          shoppingItems.data,
+          res.id,
+          { name: item }
+        ))
 
-      setSelectedItem(json.id);
-    })
+        setSelectedItem(res.id);
+      },
+      () => {}
+    )
   }
 
   return <div className='ShoppingItemInputContainer'>
@@ -134,6 +124,7 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
       className='shoppingItemInputNumber'
       value={shoppingList[index].amount ? shoppingList[index].amount : 1}
       onChange={changeAmount}
+      disabled={createShoppingItem.isLoading}
     />
     <CreatableSelect
       className="react-select-container"
@@ -143,6 +134,7 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
       onChange={handleSelection}
       onCreateOption={handleCreation}
       ref={ref}
+      isDisabled={createShoppingItem.isLoading}
       value={
         shoppingItems.data && 
         selectedItem &&

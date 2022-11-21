@@ -4,7 +4,7 @@ import useGetWeekLists from '../hooks/useGetWeekLists';
 import '../css/pages/HomePage.css';
 
 const HomePage = () => {
-  const { data: weekLists, isLoading, error, sendRequest } = useGetWeekLists();
+  const { data: weekLists, _, isLoading, error, sendRequest } = useGetWeekLists();
 
   useEffect(() => {
     sendRequest();
