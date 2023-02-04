@@ -11,6 +11,20 @@
 }
 
 /**
+ * Returns a copy of an object with an item removed.
+ * 
+ * @param {object} object the object to return a changed copy of
+ * @param {string} key the key of the attribute to remove
+ * @returns 
+ */
+ export function removeItemFromObject(object, key) {
+    const objectDuplicate = Object.assign({}, object);
+    delete objectDuplicate[key]
+
+    return objectDuplicate;
+}
+
+/**
  * Returns a copy of a list with an item changed.
  * 
  * @param {object} list the list to return a changed copy of

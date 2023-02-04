@@ -5,8 +5,9 @@ import "../css/components/ConfirmDeleteButton.css"
  * A button to delete an item but requires client-side confirmation.
  * 
  * @param {function} deleteFunc the delete function to be called if confirmed
+ * @param {boolean} disabled whether the button is disabled or not
  */
-const ConfirmDeleteButton = ({ deleteFunc }) => {
+const ConfirmDeleteButton = ({ deleteFunc, disabled }) => {
   const [open, setOpen] = useState(false);
 
   const switchOpen = () => {
@@ -19,7 +20,11 @@ const ConfirmDeleteButton = ({ deleteFunc }) => {
   }
 
   return <div className="confirmDeleteButton">
-    {!open && <button className="deleteButton" onClick={switchOpen}>
+    {!open && <button
+      className="deleteButton"
+      onClick={switchOpen}
+      disabled={disabled}
+    >
       🗑️
     </button>}
     {open && <>

@@ -23,6 +23,11 @@
   cursor: pointer;
 }
 
+.confirmDeleteButton > button:disabled {
+  background-color: hsl(0, 0%, 26.7%);
+}
+
+
 .confirmDeleteButton > .deleteButton {
   padding: 10px;
   color: #F8F4EF;

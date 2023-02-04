@@ -11,15 +11,28 @@ import logging
 
 SIM_DELAY = 0.3
 
-# load data
 def load_data():
     with open("./data/db.json", "r") as f:
         return json.load(f)
 
-# save data
 def save_data(data):
     with open("./data/db.json", "w+") as f:
         json.dump(data, f, indent=4)
+
+def archive_data(data, type=None):
+    with open("./data/archive.json", "r+") as f:
+        content = json.load(f)
+        content["deleted_records"].append(
+            {
+                "type": type,
+                "deleted_date": get_datetime(),
+                "record": data
+            }
+        )
+
+        f.truncate(0)
+        f.seek(0)
+        json.dump(content, f, indent=4)
 
 # verify token
 def verify_token(request):
@@ -90,7 +103,7 @@ def all_week_lists():
         print(request.method + " not implemented for this route!")
         abort(404)
 
-@app.route("/weekLists/<string:arg>", methods=["GET", "PUT"])
+@app.route("/weekLists/<string:arg>", methods=["GET", "PUT", "DELETE"])
 @cross_origin()
 def specific_week_list(arg):
     # authorize client
@@ -112,6 +125,9 @@ def specific_week_list(arg):
         # change existing weeklist record
         print(f"{get_datetime()} -- Changing existing weeklist record with id: {arg}...")
 
+        if arg not in data["weekLists"]:
+            abort(404)
+
         weekList = data["weekLists"][arg]
         weekList["meals"] = request.json["meals"]
         weekList["shoppingList"] = request.json["shoppingList"]
@@ -120,6 +136,19 @@ def specific_week_list(arg):
         save_data(data)
 
         return jsonify({"id" : arg})
+    elif request.method == "DELETE":
+        # delete existing weeklist record
+        print(f"{get_datetime()} -- Deleting weeklist record with id: {arg}...")
+
+        if arg not in data["weekLists"]:
+            abort(404)
+
+        # archive the data in case of accidental deletion
+        weekList = data["weekLists"].pop(arg)
+        archive_data({ arg: weekList }, "weekList")
+        save_data(data)
+
+        return "", 204
     else:
         print(request.method + " not implemented for this route!")
         abort(404)

@@ -1,11 +1,44 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import useGetWeekLists from '../hooks/useGetWeekLists';
+import useDeleteWeekList from '../hooks/useDeleteWeekList';
+import { removeItemFromObject } from '../utils';
 import '../css/pages/HomePage.css';
 import ConfirmDeleteButton from '../components/ConfirmDeleteButton';
 
+const WeekListItem = ({ weekList, setWeekLists }) => {
+  const deleteWeekList = useDeleteWeekList(weekList.id);
+
+  const onDelete = () => {
+    deleteWeekList.sendRequest(
+      () => setWeekLists(prev => removeItemFromObject(prev, weekList.id))
+    );
+  }
+  
+  return <div className='weekListItemContainer' >
+    {!deleteWeekList.isLoading &&
+    <Link to={`/week/${weekList.id}`} className="weekListItem">
+      {weekList.creationDate}
+    </Link>}
+    {deleteWeekList.isLoading &&
+    <p className="weekListItem">
+      Deleting... {weekList.creationDate}
+    </p>}
+    <ConfirmDeleteButton 
+      deleteFunc={onDelete}
+      disabled={deleteWeekList.isLoading}
+    />
+  </div>
+}
+
 const HomePage = () => {
-  const { data: weekLists, _, isLoading, error, sendRequest } = useGetWeekLists();
+  const {
+    data: weekLists,
+    setData: setWeekLists,
+    isLoading,
+    error,
+    sendRequest 
+  } = useGetWeekLists();
 
   useEffect(() => {
     sendRequest();
@@ -22,16 +55,13 @@ const HomePage = () => {
       {error && <p className='error'>Error: {error.message}</p>}
       {!error && isLoading && <p className='loading'>Loading....</p>}
       {weekLists &&
-        sortWeekLists(Object.entries(weekLists)).map((el) => 
-          // el = [id, { creationDate, meals{}, shoppingList{} }]
-          <div className='weekListItemContainer' key={el[0]}>
-            <Link to={`/week/${el[0]}`} className="weekListItem">
-              {el[1].creationDate}
-            </Link>
-            <ConfirmDeleteButton 
-              deleteFunc={() => console.log("Deleted: " + el[0])}
-            />
-          </div>
+        sortWeekLists(Object.entries(weekLists)).map((weekList) => 
+          // weekList = [id, { creationDate, meals{}, shoppingList{} }]
+          <WeekListItem
+            weekList={{...weekList[1], id: weekList[0]}}
+            setWeekLists={setWeekLists}
+            key={weekList[0]}
+          />
         )
       }
     </div>  
