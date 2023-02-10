@@ -5,15 +5,15 @@ import "../css/components/Modal.css";
 function Modal({ children, activator }) {
   const [showModal, setShowModal] = useState(false);
 
-	const clickOutside = (e) => {
-		if (e.target.classList.contains("modal-container")) {
-			setShowModal(false);
-		}
-	}
+  const clickOutside = (e) => {
+    if (e.target.classList.contains("modal-container")) {
+      setShowModal(false);
+    }
+  }
 
-	const clickActivator = (e) => {
-		setShowModal(true);
-	}
+  const clickActivator = (e) => {
+    setShowModal(true);
+  }
 
   return (
     <>
