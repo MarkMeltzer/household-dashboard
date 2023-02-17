@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory} from 'react-router-dom';
-import useGetWeekList from '../hooks/useGetWeekList';
-import useUpdateWeekList from '../hooks/useUpdateWeekList';
-import useCreateWeekList from '../hooks/useCreateWeekList';
-import useGetShoppingItems from '../hooks/useGetShoppingItems';
+import useGetWeekList from '../../hooks/useGetWeekList';
+import useUpdateWeekList from '../../hooks/useUpdateWeekList';
+import useCreateWeekList from '../../hooks/useCreateWeekList';
+import useGetShoppingItems from '../../hooks/useGetShoppingItems';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
-import '../css/components/WeekList.css';
+import '../../css/components/WeekList.css';
 
 const WeekList = (props) => {
   const hist = useHistory();

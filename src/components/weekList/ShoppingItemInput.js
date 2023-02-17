@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import { useRef } from "react";
 import CreatableSelect from 'react-select/creatable';
-import { updateObject, updateArray } from '../utils';
-import '../css/components/ShoppingItemInput.css';
-import useCreateShoppingItem from "../hooks/useCreateShoppingItem";
+import { updateObject, updateArray } from '../../utils';
+import '../../css/components/ShoppingItemInput.css';
+import useCreateShoppingItem from "../../hooks/useCreateShoppingItem";
 
 /**
  * Dropdown for slecting and creating shopping items

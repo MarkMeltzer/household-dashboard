@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import WeekList from "../components/WeekList";
+import WeekList from "../components/weekList/WeekList";
 
 const WeekListPage = () => {
     const { id } = useParams();

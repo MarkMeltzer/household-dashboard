@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WeekList from "../components/WeekList";
+import WeekList from "../components/weekList/WeekList";
 import "../css/pages/NewWeekListPage.css";
 
 const NewWeekListPage = () => {
