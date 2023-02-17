@@ -71,7 +71,8 @@
 }
 
 .shoppingItemViewMode {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto auto minmax(0, 1fr);
+    grid-gap: .3rem;
     padding: 0.15em;
     /* padding-left: 0.5em; */
     padding-right: 0.5em;
@@ -81,13 +82,44 @@
     grid-template-columns: auto 1fr auto;
 }
 
-.shoppingItemEditMode button {
+.shoppingListItemMenuButton {
     width: 38px;
     height: 38px;
     border: 1px solid hsl(0, 0%, 80%);
     border-radius: 4px;
-    color: hsl(0, 78%, 43%);
     margin-right: 5px;
+    font-size: larger;
+}
+
+.shoppingListItemInlineNote {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(106, 108, 121);
+    font-style: italic;;
+}
+
+.shoppingListItemDeleteButton {
+    background-color: #5D4632;
+    color: #ff6e6e;
+    border: none;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    height: 2rem;
+}
+
+.shoppingListItemDeleteButton:hover {
+    background-color: hsl(28, 30%, 32%);
+    color: #ff9c9c;
+}
+
+.shoppingListEditModeModal {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,.082);
+    padding: 1rem;
+    /* min-width: 25rem; */
 }
 
 .shoppingItemEditMode input[type="text"] {
@@ -137,7 +169,6 @@
     }
 
     .shoppingItemViewMode input[type=checkbox] {
-        margin-right: 1em;
         height: 25px;
         width: 25px;
         background-color: #5D4632;
