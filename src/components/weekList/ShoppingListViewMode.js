@@ -21,7 +21,7 @@ function ShoppingListViewMode({
   shoppingItems,
   weekListId,
   bottomStyle,
-  shopColors
+  shopColors,
 }) {
   const context = useContext(globalContext);
 
@@ -102,7 +102,7 @@ function ShoppingListViewMode({
                       {item.note}
                     </div>
                   }
-                  activatorStyle={{ maxWidth: "100%" }}
+                  activatorStyle={{ maxWidth: "100%", gridColumn: "-1/-2" }}
                 >
                   <ViewModeModal item={item} shoppingItems={shoppingItems} />
                 </Modal>

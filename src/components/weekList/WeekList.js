@@ -7,6 +7,7 @@ import useGetShoppingItems from '../../hooks/useGetShoppingItems';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
 import '../../css/components/WeekList.css';
+import { updateObject } from '../../utils';
 
 const WeekList = (props) => {
   const hist = useHistory();
@@ -21,15 +22,19 @@ const WeekList = (props) => {
 
   // initialize mealList
   let initialMeals = [];
+  let initialDates = [];
   if (newWeekList) {
-    // if this is a new week being created, create an empty mealList
-    initialMeals = [ {}, {}, {}, {}, {}, {}, {} ].map((_, index) => {
+    // if this is a new week being created, create empty meal- and dateLists
+    initialMeals = [...Array(7)].map(_ => { return { meal: "" } });
+
+    initialDates = [...Array(7)].map((_, index) => {
       const newDate = new Date(props.startingDate);
       newDate.setDate(newDate.getDate() + index);
-      return  { date: newDate.toDateString(), meal: ""};
-    })
+      return newDate.toDateString()
+    });
   }
   const [meals, setMeals] = useState(initialMeals);
+  const [mealDates, setMealDates] = useState(initialDates);
 
   // initialize shoppingList
   const [shoppingList, setShoppingList] = useState([]);
@@ -47,7 +52,15 @@ const WeekList = (props) => {
 
     // set local data once it arrives
     if (!newWeekList && !getWeekList.error && getWeekList.data) {
-      setMeals(getWeekList.data["meals"])
+      // split mealObjects so we can reorder meals (and their attributes) independently of dates
+      const mealData = getWeekList.data['meals']
+
+      setMeals(mealData.map(mealObj => {
+        const { date, ...meal } = mealObj;
+        return meal;
+      }))
+      setMealDates(mealData.map(mealObj => mealObj.date))
+
       setShoppingList(getWeekList.data["shoppingList"])
     }
 
@@ -70,6 +83,7 @@ const WeekList = (props) => {
     isEditing={isEditing}
     setMeals={setMeals}
     meals={meals}
+    mealDates={mealDates}
   />
   
   /*=======================================================================
@@ -108,6 +122,11 @@ const WeekList = (props) => {
       }
     )
     setShoppingList(filteredShoppingList);
+
+    // reassemble mealList
+    meals.forEach((meal, index) => {
+      meal.date = mealDates[index];
+    });
 
     // collect the data to send back to the server
     const objToSend = {
