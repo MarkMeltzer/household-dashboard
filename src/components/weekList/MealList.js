@@ -52,7 +52,7 @@ const MealList = ({ isEditing, setMeals, meals, mealDates }) => {
         <>
           <div className="editModeDays">
             {mealDates.map((date) => {
-              return <p className="day">{getDayLabel(date)}</p>;
+              return <p className="day" key={date}>{getDayLabel(date)}</p>;
             })}
           </div>
           <ReactSortable
