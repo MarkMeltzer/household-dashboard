@@ -11,7 +11,9 @@ const EditModeModal = ({ item, index, shoppingList, setShoppingList, shoppingIte
 
   return (
     <div className="shoppingListEditModeModal">
-      <p className="shoppingItemName">{shoppingItems.data[item.id].name}</p>
+      <p className="shoppingItemName">
+        {item.id === "newItem" ? "New Item" : shoppingItems.data[item.id].name}
+      </p>
       <button
         className="shoppingListItemDeleteButton"
         onClick={(e) => {
