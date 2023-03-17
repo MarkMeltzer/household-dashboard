@@ -140,6 +140,7 @@ const ShoppingItemInput = ({ shoppingItems, shoppingList, setShoppingList, index
         selectedItem &&
         { value: selectedItem, label: shoppingItems.data[selectedItem]?.name }
       }
+      openMenuOnFocus={true}
     ></CreatableSelect>
   </div>
 }
