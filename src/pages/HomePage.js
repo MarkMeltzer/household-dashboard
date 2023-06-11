@@ -54,6 +54,11 @@ const HomePage = () => {
     <div className="WeekListList">
       {error && <p className='error'>Error: {error.message}</p>}
       {!error && isLoading && <p className='loading'>Loading....</p>}
+      {weekLists && 
+        <Link to="/newweek" className='newWeekButton'>
+          New Week
+        </Link>
+      }
       {weekLists &&
         sortWeekLists(Object.entries(weekLists)).map((weekList) => 
           // weekList = [id, { creationDate, meals{}, shoppingList{} }]

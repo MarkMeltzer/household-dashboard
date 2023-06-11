@@ -10,7 +10,6 @@ const Nav = ({ setLoginToken }) => {
 
   const links = [
     { location: "/", label: "Home" },
-    { location: "/newweek", label: "New Week" },
     { location: "/playground", label: "Playground" },
     { location: "/shoppingItems", label: "Shopping Items" },
   ];
