@@ -9,8 +9,18 @@ const ShoppingList = ({ isEditing, shoppingItems, shoppingList, setShoppingList,
   };
 
   // extend the shoppinglist when it gets too big
-  const nMaxItems = window.innerWidth < 1000 ? 20 : 30;
-  const nRows = (Math.floor(shoppingList.length / nMaxItems) + 1) * 10;
+  let nCols = 1;
+  if (window.innerWidth < 1200) {
+    nCols = 1;
+  } else if (window.innerWidth < 1900) {
+    nCols = 2;
+  } else {
+    nCols = 3;
+  }
+
+  const rowStep = 20
+  const nMaxItems = nCols * rowStep
+  const nRows = (Math.floor(shoppingList.length / nMaxItems) + 1) * rowStep;
   const bottomStyle = {
     gridTemplateRows: `repeat(${nRows}, auto)`,
   };
