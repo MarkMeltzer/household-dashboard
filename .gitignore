@@ -30,3 +30,5 @@ docker-image.tar
 /data_backups
 
 venv
+
+__pycache__
