@@ -31,3 +31,7 @@ docker-image.tar
 venv
 
 __pycache__
+
+
+backend/data/*
+!backend/data/*.example
