@@ -20,3 +20,14 @@ There is currently no proper data validation using schema's and changes to datab
 ├── routes              # containes the routes split across multiple files
 └── app.py              # main application code lives here
 ```
+
+# Known Issues/possible improvements
+- Currently token do not expire (and logout does not remove hash)
+- Data is not validated
+- Salts are appended to hash so don't need to be saved separately
+- Flask is still run using werkzeuk in development mode
+- Database migrations should be saved as scripts in a structured and reproducable manner (like django)
+- Database should be cached in memory
+- Database should not be JSON files lol
+- Many more...
+

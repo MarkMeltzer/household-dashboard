@@ -20,3 +20,11 @@ Authorization is done by sending the username and password to the backend to get
 ├── public              # static files
 └── docker_files        # files used for deployment, forex. configuration files
 ```
+
+# Known Issues/possible improvements
+- Switch from CRA to vite
+- Implement cleanup functions for useEffect fetches
+- CSS is split across files inconsistently
+- Naming inconsistencies/general code quality improvements (`==` vs `===`)
+- Switch to Typescript
+- Many more...
