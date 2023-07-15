@@ -1,5 +1,6 @@
 FROM node:19.5 as builder
 
+ARG version
 ARG backend_url
 
 COPY . /code
@@ -8,7 +9,10 @@ WORKDIR /code
 # Add backend url into config.json
 RUN apt update && \
     apt install jq -y
+# TODO if the arg is even necessary
 RUN jq --arg url "$backend_url" '."DATA_SERVER_URL"=$url' src/config.json > tmp.json && \
+    mv tmp.json src/config.json
+RUN jq --arg app_version "$version" '."VERSION"=$app_version' src/config.json > tmp.json && \
     mv tmp.json src/config.json
 
 RUN npm install

@@ -6,11 +6,15 @@ services:
       context: ./frontend
       args:
         - backend_url=${backend_url}
+        - version=${version}
     ports:
       - ${frontend_port}:80
 
   backend:
     build: ./backend
+    environment:
+      - APP_VERSION=${version}
+      - BASENAME=${basename}
     ports:
       - ${backend_port}:5000
     volumes:

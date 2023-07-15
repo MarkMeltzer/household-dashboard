@@ -8,14 +8,17 @@ const Nav = ({ setLoginToken }) => {
   const [overflowOpen, setOverflowOpen] = useState(false);
   const [overflowCuttoff, setOverflowCuttoff] = useState(2);
 
-  const links = [
+  const links = [ 
     { location: "/", label: "Home" },
     { location: "/playground", label: "Playground" },
     { location: "/shoppingItems", label: "Shopping Items" },
+    { location: "/about", label: "About" },
   ];
 
   useEffect(() => {
-    if (windowSize.width < 600) {
+    if (windowSize.width < 365) {
+      setOverflowCuttoff(2);
+    } else if (windowSize.width < 600) {
       setOverflowCuttoff(3);
     } else if (windowSize.width < 1200) {
       setOverflowCuttoff(2);
@@ -41,6 +44,11 @@ const Nav = ({ setLoginToken }) => {
     setOverflowOpen((prev) => !prev);
   }
 
+  const logoutDiv = 
+    <a href="" onClick={logout}>
+      Logout!
+    </a>
+
   return (
     <nav>
       <div className="menu">
@@ -55,9 +63,7 @@ const Nav = ({ setLoginToken }) => {
             </Link>
           );
         })}
-        <a href="" onClick={logout}>
-          Logout!
-        </a>
+        {overflowCuttoff >= links.length && logoutDiv}
         {overflowCuttoff < links.length && (
           <a href="" onClick={toggleOverflow}>
             {overflowOpen ? "≢" : "≡"}
@@ -77,6 +83,7 @@ const Nav = ({ setLoginToken }) => {
               </Link>
             );
           })}
+          {logoutDiv}
         </div>
       )}
     </nav>
