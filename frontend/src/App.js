@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from "./pages/LoginPage";
 import ShoppingItemPage from './pages/ShoppingItemPage';
 import ShoppingItemsPage from './pages/ShoppingItemsPage';
+import AboutPage from './pages/AboutPage'
 import Nav from './components/Nav';
 import globalContext from './globalContext';
 import './css/App.css';
@@ -31,7 +32,7 @@ function App() {
   }
 
   return (
-    <Router basename={"/household-dashboard"}>
+    <Router>
     <div className="App">
       <globalContext.Provider value={{"token" : token}}>
         <div className="content">
@@ -43,6 +44,7 @@ function App() {
             <Route path="/shoppingItems"><ShoppingItemsPage /></Route>
             <Route path="/shoppingItem/:id"><ShoppingItemPage /></Route>
             <Route path="/playground"><PlaygroundPage /></Route>
+            <Route path="/about"><AboutPage /></Route>
             <Route render={() => <h1>Page not found :(</h1>} />
           </Switch>
         </div>

@@ -3,32 +3,46 @@
         "4d3370ec178d47778ab90a8e603127e6": {
             "meals": [
                 {
-                    "date": "Thu Sep 22 2022",
-                    "meal": "Vega kip, Broccoli en gekookte aardappel"
+                    "chosen": false,
+                    "meal": "Vega kip, Broccoli en gekookte aardappel",
+                    "selected": false,
+                    "date": "Thu Sep 22 2022"
                 },
                 {
-                    "date": "Fri Sep 23 2022",
-                    "meal": "Bami + ei en kroepoek"
+                    "chosen": false,
+                    "meal": "Bami + ei en kroepoek",
+                    "selected": false,
+                    "date": "Fri Sep 23 2022"
                 },
                 {
-                    "date": "Sat Sep 24 2022",
-                    "meal": "Pannekoeken"
+                    "chosen": false,
+                    "meal": "Pannekoeken",
+                    "selected": false,
+                    "date": "Sat Sep 24 2022"
                 },
                 {
-                    "date": "Sun Sep 25 2022",
-                    "meal": "Spaghetti"
+                    "chosen": false,
+                    "meal": "Spaghetti",
+                    "selected": false,
+                    "date": "Sun Sep 25 2022"
                 },
                 {
-                    "date": "Mon Sep 26 2022",
-                    "meal": "Pompoensoep m\\ stokbrood"
+                    "chosen": false,
+                    "meal": "Pompoensoep m\\ stokbrood",
+                    "selected": false,
+                    "date": "Mon Sep 26 2022"
                 },
                 {
-                    "date": "Tue Sep 27 2022",
-                    "meal": "Pizza"
+                    "chosen": false,
+                    "meal": "Pizza",
+                    "selected": false,
+                    "date": "Tue Sep 27 2022"
                 },
                 {
-                    "date": "Wed Sep 28 2022",
-                    "meal": "Rosti, sperziebonen, groente shnitzel"
+                    "chosen": false,
+                    "meal": "Rosti, sperziebonen, groente shnitzel",
+                    "selected": false,
+                    "date": "Wed Sep 28 2022"
                 }
             ],
             "shoppingList": [
@@ -148,14 +162,24 @@
                     "selected": false
                 },
                 {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "04a87a23f5f84f83a50c8b92b6cb3315",
+                    "note": "",
+                    "selected": false
+                },
+                {
                     "checked": true,
                     "chosen": false,
                     "id": "0575e1c812bb476aa77d3e4137e936b8",
                     "selected": false
                 },
                 {
+                    "checked": false,
+                    "chosen": false,
                     "id": "004ab4c7b4684db09ed98e6c4355d584",
-                    "checked": false
+                    "note": "Volkoren",
+                    "selected": false
                 },
                 {
                     "checked": false,
@@ -182,8 +206,10 @@
                     "selected": false
                 },
                 {
+                    "checked": false,
+                    "chosen": false,
                     "id": "0459785515cd49e78f7b0177a4511aad",
-                    "checked": false
+                    "selected": false
                 }
             ],
             "creationDate": "Thursday 22 Sep 2022 - 23:32"
@@ -271,145 +297,272 @@
         "7e0806fcee0a4d2487a7a2aae9778121": {
             "meals": [
                 {
-                    "date": "Wed Oct 26 2022",
-                    "meal": ""
+                    "chosen": false,
+                    "meal": "",
+                    "selected": false,
+                    "date": "Wed Oct 26 2022"
                 },
                 {
-                    "date": "Thu Oct 27 2022",
-                    "meal": ""
+                    "chosen": false,
+                    "meal": "",
+                    "selected": false,
+                    "date": "Thu Oct 27 2022"
                 },
                 {
-                    "date": "Fri Oct 28 2022",
-                    "meal": ""
+                    "chosen": false,
+                    "meal": "dd",
+                    "selected": false,
+                    "date": "Fri Oct 28 2022"
                 },
                 {
-                    "date": "Sat Oct 29 2022",
-                    "meal": ""
+                    "chosen": false,
+                    "meal": "d",
+                    "selected": false,
+                    "date": "Sat Oct 29 2022"
                 },
                 {
-                    "date": "Sun Oct 30 2022",
-                    "meal": ""
+                    "chosen": false,
+                    "meal": "",
+                    "selected": false,
+                    "date": "Sun Oct 30 2022"
                 },
                 {
-                    "date": "Mon Oct 31 2022",
-                    "meal": ""
+                    "chosen": false,
+                    "meal": "",
+                    "selected": false,
+                    "date": "Mon Oct 31 2022"
                 },
                 {
-                    "date": "Tue Nov 01 2022",
-                    "meal": ""
-                }
-            ],
-            "shoppingList": [],
-            "creationDate": "Wednesday 26 Oct 2022 - 17:40"
-        },
-        "13553503cf8541c89482584edc4baf7c": {
-            "meals": [
-                {
-                    "date": "Wed Nov 09 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Thu Nov 10 2022",
-                    "meal": "I only eat on this day"
-                },
-                {
-                    "date": "Fri Nov 11 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Sat Nov 12 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Sun Nov 13 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Mon Nov 14 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Tue Nov 15 2022",
-                    "meal": ""
+                    "chosen": false,
+                    "meal": "dssadas",
+                    "selected": false,
+                    "date": "Tue Nov 01 2022"
                 }
             ],
             "shoppingList": [
                 {
+                    "amount": 5,
                     "checked": false,
                     "chosen": false,
-                    "id": "0684963bfe1f4a6eacf916c2600f4a6b",
+                    "id": "07f6610de49a4202b81ae84f179b9dee",
+                    "note": "Of rode of groene welke maak niet zo veel uit. Of rode of groene welke maak niet zo veel uit.Of rode of groene welke maak niet zo veel uit.",
                     "selected": false
                 },
                 {
-                    "id": "055f5e822bac4f848b4079cdf487562a",
-                    "checked": false
+                    "amount": 3,
+                    "checked": false,
+                    "chosen": false,
+                    "id": "04a87a23f5f84f83a50c8b92b6cb3315",
+                    "note": "Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango Die mango ",
+                    "selected": false
                 },
                 {
+                    "amount": 0,
                     "checked": true,
                     "chosen": false,
+                    "id": "055f5e822bac4f848b4079cdf487562a",
+                    "note": "Bloemen ",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0684963bfe1f4a6eacf916c2600f4a6b",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
                     "id": "004ab4c7b4684db09ed98e6c4355d584",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "amount": 4,
+                    "checked": false,
+                    "chosen": false,
+                    "id": "065ef124b5c04bf4bddb3e75ebeeda67",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0459785515cd49e78f7b0177a4511aad",
+                    "note": "",
+                    "selected": false
+                }
+            ],
+            "creationDate": "Wednesday 26 Oct 2022 - 17:40"
+        },
+        "0d6b5535307848a8ab132500c17cbddf": {
+            "meals": [
+                {
+                    "chosen": false,
+                    "meal": "",
+                    "selected": false,
+                    "date": "Sat Feb 18 2023"
+                },
+                {
+                    "chosen": false,
+                    "meal": "Who knows? water and wine?",
+                    "selected": false,
+                    "date": "Sun Feb 19 2023"
+                },
+                {
+                    "chosen": false,
+                    "meal": "fdg",
+                    "selected": false,
+                    "date": "Mon Feb 20 2023"
+                },
+                {
+                    "chosen": false,
+                    "meal": "Some curry on this day and Some curry on this day and Some curry on this day and Some curry on this day and Some curry on this day and Some curry on this day and Some curry on this day.",
+                    "selected": false,
+                    "date": "Tue Feb 21 2023"
+                },
+                {
+                    "chosen": false,
+                    "meal": "",
+                    "selected": false,
+                    "date": "Wed Feb 22 2023"
+                },
+                {
+                    "chosen": false,
+                    "meal": "This here is the place for wraps",
+                    "selected": false,
+                    "date": "Thu Feb 23 2023"
+                },
+                {
+                    "chosen": false,
+                    "meal": "Today we eat pizza or sumtin",
+                    "selected": false,
+                    "date": "Fri Feb 24 2023"
+                }
+            ],
+            "shoppingList": [
+                {
+                    "amount": 1,
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0798f00eee5047abbb42c61ceb66a06e",
+                    "note": "Geen mango? Dan perzik.",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0684963bfe1f4a6eacf916c2600f4a6b",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "04a87a23f5f84f83a50c8b92b6cb3315",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "055f5e822bac4f848b4079cdf487562a",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "07f6610de49a4202b81ae84f179b9dee",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "10a0603d80b64738b3033eaaf0b00ccd",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0fe93f7f8b004d449113adb0ebb5ea86",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "10829e6e8cb04b4cacc92bfcd72b3b77",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0a1ffdaa69c8459bb461087502b4e29c",
+                    "note": "asdasdasdasd",
                     "selected": false
                 },
                 {
                     "checked": false,
                     "chosen": false,
                     "id": "0575e1c812bb476aa77d3e4137e936b8",
-                    "selected": false
-                },
-                {
-                    "checked": true,
-                    "chosen": false,
-                    "id": "dfde009540bd48f5a89deef311cbf4d6",
+                    "note": "",
                     "selected": false
                 },
                 {
                     "checked": false,
                     "chosen": false,
-                    "id": "c53a9b5ec6944ec38988a43ac16c0bbb",
+                    "id": "0a8832a8327e4cbc932a0413cd70aca4",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "004ab4c7b4684db09ed98e6c4355d584",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0edb1696349548658dca2211aed5c4c1",
+                    "note": "ssssss",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "0459785515cd49e78f7b0177a4511aad",
+                    "note": "",
                     "selected": false
                 },
                 {
                     "checked": false,
                     "chosen": false,
                     "id": "065ef124b5c04bf4bddb3e75ebeeda67",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "1061e1ebcc984263926a8e6b9362ebab",
+                    "note": "",
+                    "selected": false
+                },
+                {
+                    "checked": false,
+                    "chosen": false,
+                    "id": "229a159458e24736baa3379a265082cf",
+                    "note": "",
                     "selected": false
                 }
             ],
-            "creationDate": "Tuesday  1 Nov 2022 - 14:54"
-        },
-        "499149b4064349fc9330814673d65c59": {
-            "meals": [
-                {
-                    "date": "Thu Nov 03 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Fri Nov 04 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Sat Nov 05 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Sun Nov 06 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Mon Nov 07 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Tue Nov 08 2022",
-                    "meal": ""
-                },
-                {
-                    "date": "Wed Nov 09 2022",
-                    "meal": ""
-                }
-            ],
-            "shoppingList": [],
-            "creationDate": "Sunday 13 Nov 2022 - 21:04"
+            "creationDate": "Saturday 18 Feb 2023 - 12:22"
         }
     },
     "shoppingItems": {
@@ -1446,6 +1599,57 @@
         },
         "dfde009540bd48f5a89deef311cbf4d6": {
             "name": "yega"
+        },
+        "6bf5f4b0a3164c4199366bce1bf86c44": {
+            "name": "Testing usePost"
+        },
+        "e128cbafa7454a5e8bc0a612cdbfe78c": {
+            "name": "zesty"
+        },
+        "9ceab8e6703f49c7ad519350c9e9200e": {
+            "name": "zesty2"
+        },
+        "3b9cd50c7800443b9e29aa3ff7745aaa": {
+            "name": "testty1"
+        },
+        "afd07f5427d748d8a2a5e74168cefd50": {
+            "name": "testty2"
+        },
+        "7f9da79708614c83a281646601f33377": {
+            "name": "testty3"
+        },
+        "ccfdee0811e14fd4bd4ebca55fed0798": {
+            "name": "testty4"
+        },
+        "bebd4426382b42c1a0eb5c795ac4a4f6": {
+            "name": "testty5"
+        },
+        "c295858f7809461eb58918f4d2a99aee": {
+            "name": "testty6"
+        },
+        "57af750555504b9fac0ee27e413204a0": {
+            "name": "testty8"
+        },
+        "2a048fe730544f54b0459dcf80d0cfcd": {
+            "name": "testty9"
+        },
+        "30ae314dee724603827eb6ffae5811df": {
+            "name": "testty10"
+        },
+        "1b4daee3c3d5461c8fd7e53d12632ca1": {
+            "name": "testty11"
+        },
+        "d92d994a39ae48199219156fb928a862": {
+            "name": "testty12"
+        },
+        "598007d230a14ca4a9380ccbee54bf4c": {
+            "name": "testty13"
+        },
+        "772a0d18300f4710839967ace69ff241": {
+            "name": "testty14"
+        },
+        "18cbe17d3bd043c98d4330276c6b5069": {
+            "name": "testty15"
         }
     }
 }

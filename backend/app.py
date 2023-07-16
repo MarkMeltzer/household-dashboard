@@ -3,6 +3,7 @@ from flask_cors import CORS
 from routes import blueprints
 import logging
 import time
+import os
 
 SIM_DELAY = 0.0
 
@@ -21,7 +22,11 @@ for blueprint in blueprints:
 
 @app.route("/", methods=["GET"])
 def landing_page():
-    return "<h1>Welcome to the backend webapi of my household dashboard application!</h1>\n"
+    return (
+        f"<h1>"
+        f"Welcome to the backend of my household dashboard ({os.environ.get('BASENAME')}) application version {os.environ.get('APP_VERSION')}!"
+        f"</h1>\n"
+    )
 
 @app.after_request
 def add_header(response):
