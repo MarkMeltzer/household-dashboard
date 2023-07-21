@@ -12,6 +12,8 @@ const ShoppingItemPage = () => {
   const updateShoppingItem = useUpdateShoppingItem(id);
 
   useEffect(() => {
+    // TODO: check if this is necessary and we can't just use the setData from useGetShoppingItem
+
     // request shoppingItem data when component mounts
     if (!data && !isLoading) {
       sendRequest();

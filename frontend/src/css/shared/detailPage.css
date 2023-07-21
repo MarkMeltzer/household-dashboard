@@ -1,0 +1,66 @@
+.detailDisplay {
+    margin: 10px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.082);
+    text-align: left;
+}
+
+.detailDisplay a {
+    color: #F8F4EF;
+    text-decoration: none;
+    text-decoration: underline;
+}
+
+.detailEditButton {
+    float: right;
+    width: 20%;
+    height: 30px;
+
+    /* color: white;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-color: rgba(126, 126, 126, 0.75);
+    border-style: solid;
+    border-radius: 3px; */
+}
+
+.itemType {
+    font-size: 0.8rem;
+    margin: 0px;
+    color: rgb(199, 199, 199);
+}
+
+.itemName {
+    font-size: 2rem;
+    color: white;
+    margin: 0px;
+    margin-bottom: 30px;
+}
+
+.itemName > input {
+    font-size: 1.8rem;
+}
+
+.attributeLabel {
+    color: rgb(199, 199, 199);
+}
+
+/* TODO: fix the overflow for (for example) the url */
+.attributeValue {
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.textAreaValue {
+    color: white;
+    white-space: pre-wrap;
+    background-color: rgba(0, 0, 0, 0.082);
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.textAreaValue > textarea {
+    width: 100%;
+    max-width: 100%;
+}
