@@ -4,28 +4,46 @@ import useGetRecipe from '../hooks/useGetRecipe';
 import useUpdateRecipe from '../hooks/useUpdateRecipe';
 import { updateObject } from '../utils';
 import "../css/shared/detailPage.css"
+import useCreateRecipe from '../hooks/useCreateRecipe';
+import { useHistory} from 'react-router-dom';
 
-function RecipePage() {
+function RecipePage({ newRecipe }) {
   const { id } = useParams();
-  const { data: recipe, setData: setRecipe, isLoading, error, sendRequest } = useGetRecipe(id)
+  const history = useHistory()
+  const [isEditing, setIsEditing] = useState(newRecipe)
+  
+  const { data: recipe, setData: setRecipe, isLoading, error, sendRequest: getRecipe } = useGetRecipe(id)
   const updateRecipe = useUpdateRecipe(id)
-  const [isEditing, setIsEditing] = useState(false)
+  const createRecipe = useCreateRecipe()
 
   useEffect(() => {
-    sendRequest()
+    if (!newRecipe) {
+      getRecipe()
+    } else {
+      setRecipe({
+        "name": "",
+        "sourceUrl": "",
+        "recipeText": "",
+      })
+    }
   }, [])
 
   function handleEditClick() {
-    if (isEditing) {
-      updateRecipe.sendRequest(
-        JSON.stringify(recipe),
-        () => { setIsEditing(false) },
-        () => { setIsEditing(false) },
-      )
-
-      setIsEditing(false)
-    } else {
+    if (!isEditing) {
       setIsEditing(true)
+      return
+    }
+
+    setIsEditing(false)
+
+    if (!newRecipe) {
+      updateRecipe.sendRequest(JSON.stringify(recipe))
+    } else {
+      createRecipe.sendRequest(
+        JSON.stringify(recipe),
+        res => history.push(`/recipe/${res['id']}`),
+        err => alert("Error submitting recipe: \n" + err) 
+      )
     }
   }
 

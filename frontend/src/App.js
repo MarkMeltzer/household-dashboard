@@ -47,6 +47,7 @@ function App() {
             <Route path="/shoppingItem/:id"><ShoppingItemPage /></Route>
             <Route path="/recipes"><RecipeListPage /></Route>
             <Route path="/recipe/:id"><RecipePage /></Route>
+            <Route path="/newrecipe"><RecipePage newRecipe /></Route>
             <Route path="/playground"><PlaygroundPage /></Route>
             <Route path="/about"><AboutPage /></Route>
             <Route render={() => <h1>Page not found :(</h1>} />
