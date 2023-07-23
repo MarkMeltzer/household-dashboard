@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../css/components/Nav.css";
 import useWindowSize from "../hooks/useWindowSize";
 
 const Nav = ({ setLoginToken }) => {
+  const location = useLocation()
   const windowSize = useWindowSize();
   const [overflowOpen, setOverflowOpen] = useState(false);
   const [overflowCuttoff, setOverflowCuttoff] = useState(2);
@@ -59,6 +60,7 @@ const Nav = ({ setLoginToken }) => {
               to={link.location}
               key={link.location + link.label}
               onClick={() => setOverflowOpen(false)}
+              className={link.location === location.pathname ? "currentPage" : ""}
             >
               {link.label}
             </Link>
@@ -76,6 +78,7 @@ const Nav = ({ setLoginToken }) => {
           {links.slice(overflowCuttoff).map((link) => {
             return (
               <Link
+                className={link.location === location.pathname ? "currentPage" : ""}
                 to={link.location}
                 key={link.location + link.label}
                 onClick={() => setOverflowOpen(false)}
