@@ -47,7 +47,14 @@ function RecipePage({ newRecipe }) {
     }
   }
 
-  const dataDisplay = recipe &&
+  const dataDisplay = recipe && <div className='detailDisplayContainer'>
+    {(recipe.imageUrl && !isEditing) &&
+      <img
+        src={recipe.imageUrl}
+        alt="banner image"
+        className='bannerImage'
+      />
+    }
     <div className="detailDisplay">
       <button 
         className="detailEditButton"
@@ -95,6 +102,25 @@ function RecipePage({ newRecipe }) {
         </span>
       </div>
 
+      <div className="imageUrl">
+        <span className="attributeLabel">Banner image link: </span>
+        <span className="attributeValue">
+          {!isEditing && (
+            recipe.imageUrl ? 
+              <a href={recipe.sourceUrl}>{recipe.imageUrl}</a> : 
+              "No link specified"
+          ) }
+          {isEditing && 
+            <input
+              type="text"
+              value={recipe.imageUrl ? recipe.imageUrl : ""}
+              disabled={updateRecipe.isLoading}
+              onChange={(e)=>(
+                setRecipe(updateObject(recipe, "imageUrl", e.target.value)))}
+            />}
+        </span>
+      </div>
+
       <div className="recipeText">
         <span className="attributeLabel">Recipe text: </span>
         <div className="textAreaValue">
@@ -110,6 +136,7 @@ function RecipePage({ newRecipe }) {
         </div>
       </div>
     </div>
+  </div>
 
   return <div>
     {error && <p className="error">Error: {error.message}</p>}

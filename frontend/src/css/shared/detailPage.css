@@ -1,5 +1,12 @@
+.detailDisplayContainer {
+    margin-top: 10px;
+
+    display: grid;
+}
+
 .detailDisplay {
     margin: 10px;
+    margin-top: 0px;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.082);
     text-align: left;
@@ -63,4 +70,15 @@
 .textAreaValue > textarea {
     width: 100%;
     max-width: 100%;
+}
+
+.bannerImage {
+    margin: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    object-fit: cover;
+    width: calc(100% - 20px);
+    height: 20vh;
+    height: 20lvh;
 }
