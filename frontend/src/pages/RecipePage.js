@@ -102,24 +102,20 @@ function RecipePage({ newRecipe }) {
         </span>
       </div>
 
-      <div className="imageUrl">
-        <span className="attributeLabel">Banner image link: </span>
-        <span className="attributeValue">
-          {!isEditing && (
-            recipe.imageUrl ? 
-              <a href={recipe.sourceUrl}>{recipe.imageUrl}</a> : 
-              "No link specified"
-          ) }
-          {isEditing && 
+      {isEditing && 
+        <div className="imageUrl">
+          <span className="attributeLabel">Banner image link: </span>
+          <span className="attributeValue">
             <input
               type="text"
               value={recipe.imageUrl ? recipe.imageUrl : ""}
               disabled={updateRecipe.isLoading}
               onChange={(e)=>(
                 setRecipe(updateObject(recipe, "imageUrl", e.target.value)))}
-            />}
-        </span>
-      </div>
+            />
+          </span>
+        </div>      
+      }
 
       <div className="recipeText">
         <span className="attributeLabel">Recipe text: </span>
