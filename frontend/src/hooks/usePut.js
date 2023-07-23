@@ -35,7 +35,7 @@ const usePut = (resourceUrl, authorize=true) => {
 
   const context = useContext(globalContext);
 
-  const sendRequest = (body, onSucces, onFail) => {
+  const sendRequest = (body, onSucces = () => {}, onFail = () => {}) => {
     // reset defaults for subsequent requests
     setIsLoading(true);
     setData(null);

@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../css/components/Nav.css";
 import useWindowSize from "../hooks/useWindowSize";
 
 const Nav = ({ setLoginToken }) => {
+  const location = useLocation()
   const windowSize = useWindowSize();
   const [overflowOpen, setOverflowOpen] = useState(false);
   const [overflowCuttoff, setOverflowCuttoff] = useState(2);
 
   const links = [ 
-    { location: "/", label: "Home" },
+    { location: "/", label: "Home", "subPages": ['/week', "/newweek"] },
+    { location: "/recipes", label: "Recipes", "subPages": ['/recipe', "/newrecipe"] },
+    { location: "/shoppingItems", label: "Shopping Items", "subPages": ["/shoppingItem"] },
     { location: "/playground", label: "Playground" },
-    { location: "/shoppingItems", label: "Shopping Items" },
     { location: "/about", label: "About" },
   ];
 
@@ -44,6 +46,11 @@ const Nav = ({ setLoginToken }) => {
     setOverflowOpen((prev) => !prev);
   }
 
+  function currentOrSubPage(link) {
+    return link.location === location.pathname ||
+      link.subPages?.filter(subPage => location.pathname.startsWith(subPage))?.length
+  }
+
   const logoutDiv = 
     <a href="" onClick={logout}>
       Logout!
@@ -58,6 +65,7 @@ const Nav = ({ setLoginToken }) => {
               to={link.location}
               key={link.location + link.label}
               onClick={() => setOverflowOpen(false)}
+              className={currentOrSubPage(link) ? "highlighted" : ""}
             >
               {link.label}
             </Link>
@@ -75,6 +83,7 @@ const Nav = ({ setLoginToken }) => {
           {links.slice(overflowCuttoff).map((link) => {
             return (
               <Link
+                className={currentOrSubPage(link) ? "highlighted" : ""}
                 to={link.location}
                 key={link.location + link.label}
                 onClick={() => setOverflowOpen(false)}
