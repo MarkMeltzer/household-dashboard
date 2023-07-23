@@ -15,7 +15,7 @@ This is a web app to assist with various of our household tasks. For now it's ma
 
 # Demo
 
-A demo is available at http://markmeltzer.nl/household-dashboard-demo/.
+A demo is available at [http://markmeltzer.nl/household-dashboard-demo/](https://hhd-demo.markmeltzer.nl/).
 
 The username and password are "demo".
 
