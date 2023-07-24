@@ -16,6 +16,10 @@ const MealList = ({ isEditing, setMeals, meals, mealDates }) => {
     6: "Za",
   };
 
+  function isToday(date) {
+    return new Date(date).toDateString() === new Date().toDateString()
+  }
+
   function getDayLabel(date) {
     const dateObj = new Date(date);
     return dayLabelMap[dateObj.getDay()] + " " + dateObj.getDate();
@@ -34,13 +38,14 @@ const MealList = ({ isEditing, setMeals, meals, mealDates }) => {
         mealDates.map((date, index) => {
           const dayLabel = getDayLabel(date);
           const meal = meals[index];
+          const today = isToday(date) ? 'today' : ''
 
           return (
             <React.Fragment key={date}>
-              <p className="day" key={date}>
+              <p className={`day ${today}`}  key={date}>
                 {dayLabel}
               </p>
-              <p className="meal" key={"mealOf" + mealDates[index]}>
+              <p className={`meal ${today}`} key={"mealOf" + mealDates[index]}>
                 {meal.meal}
               </p>
             </React.Fragment>

@@ -37,9 +37,17 @@
     text-align: center;
 }
 
+.topSection .day.today {
+    background-color: rgb(161, 181, 161);
+}
+
 .topSection .meal {
     background-color: hsl(56, 25%, 87%);
     text-align: left;
+}
+
+.topSection .meal.today {
+    background-color: rgb(175, 197, 175);
 }
 
 .topSection .editModeMeals {
