@@ -40,4 +40,5 @@ def archive_data(data, type=None):
 
 # get current time in nice format
 def get_datetime():
+    # TODO: figure out which date-time format to use, this or the pretty version and if so change the frontend to match and write migration
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
