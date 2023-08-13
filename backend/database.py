@@ -1,5 +1,6 @@
 import json
 import time
+from datetime import datetime
 import copy
 import uuid
 
@@ -9,16 +10,32 @@ class Database():
         self._load_data()
 
     def _load_data(self):
-        with open(self.db_path, "r") as f:
+        with open(self.db_path, 'r') as f:
             self.data = json.load(f)
         
     def _save_data(self):
-        with open(self.db_path, "w+") as f:
+        with open(self.db_path, 'w+') as f:
             json.dump(self.data, f, indent=4)
 
     def _get_current_time(self) -> str:
         now = time.localtime()
-        return time.strftime("%A %e %b %Y - %H:%M", now)
+        return time.strftime('%A %e %b %Y - %H:%M', now)
+
+    def _archive_data(self, data: dict, record_type: str = None):
+        with open('./data/archive.json', 'w+') as f:
+            try:
+                content = json.load(f)
+            except ValueError:
+                content = {'deleted_records': []}
+
+            content['deleted_records'].append(
+                {
+                    'type': record_type,
+                    'deleted_date': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    'record': data
+                }
+            )
+            json.dump(content, f, indent=4)
 
     def get_record(self, table: str, id: str) -> dict:
         return self.data[table][id]
@@ -53,8 +70,18 @@ class Database():
     
     def delete_record(self, table: str, id: str):
         '''
-        Bla bla, archive record
+        Remove database record from `table`. 
+        
+        Will not delete archive completely
+        immediately, but rather archive the record to a separate file, this archive
+        is not guaranteed to stick around for long but can be used to recover
+        accidentally deleted records.
         '''
 
-        # TODO: write docstring
-        raise NotImplementedError
+        record = self.data[table].pop(id)
+        record_type = table.removesuffix('s')
+
+        self._archive_data({ id: record }, record_type)
+
+
+        self._save_data()
