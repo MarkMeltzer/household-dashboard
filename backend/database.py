@@ -5,7 +5,8 @@ import copy
 import uuid
 
 class Database():
-    def __init__(self, db_path: str = './data/db.json'):
+    def __init__(self, db_path: str = './data/db.json', archive_path: str = './data/archive.json'):
+        self.archive_path = archive_path
         self.db_path = db_path
         self._load_data()
 
@@ -22,7 +23,7 @@ class Database():
         return time.strftime('%A %e %b %Y - %H:%M', now)
 
     def _archive_data(self, data: dict, record_type: str = None):
-        with open('./data/archive.json', 'w+') as f:
+        with open(self.archive_path, 'w+') as f:
             try:
                 content = json.load(f)
             except ValueError:
