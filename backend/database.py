@@ -44,7 +44,7 @@ class Database():
     def get_record(self, table: str, id: str) -> dict:
         return self.data[table][id]
 
-    def get_all_records(self, table) -> dict:
+    def get_all_records(self, table: str) -> dict:
         return self.data[table]
 
     def add_record(self, table: str, data: dict, add_creation_date: bool = True) -> str:
@@ -93,10 +93,12 @@ class Database():
 
         return id
     
-    def delete_record(self, table: str, id: str):
+    def delete_record(self, table: str, id: str) -> str:
         '''
         Remove database record from `table`. 
         
+        returns id of deleted record
+
         Will not delete archive completely
         immediately, but rather archive the record to a separate file, this archive
         is not guaranteed to stick around for long but can be used to recover
@@ -108,5 +110,6 @@ class Database():
 
         self._archive_data({ id: record }, record_type)
 
-
         self._save_data()
+
+        return id

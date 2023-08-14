@@ -20,29 +20,22 @@ def all_week_lists():
         print("Wrong token.")
         abort(401)
 
-    data = load_data()
+    db = Database()
 
     if request.method == "GET":
         print(f"{get_datetime()} -- Retrieving all weekList records...")
 
-        return jsonify(data["weekLists"])
+        return jsonify(db.get_all_records('weekLists'))
     elif request.method == "POST":
         # add a new weeklist record
         print(f"{get_datetime()} -- Adding new weekList record...")
 
-        weekList = request.json
-        now = time.localtime()
-        nowStr = time.strftime("%A %e %b %Y - %H:%M", now)
-        weekList["creationDate"] = nowStr
+        record_id = db.add_record('weekLists', request.json)
         
-        id = uuid.uuid4().hex
-        data["weekLists"][id] = weekList
-        save_data(data)
-        
-        return jsonify({"id" : id})
+        return jsonify({"id" : record_id})
     else:
         print(request.method + " not implemented for this route!")
-        abort(404)
+        abort(501)
 
 @blueprint.route("/<string:record_id>", methods=["GET", "PUT", "DELETE"])
 def specific_week_list(record_id):
