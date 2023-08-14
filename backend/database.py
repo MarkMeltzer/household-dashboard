@@ -38,6 +38,9 @@ class Database():
             )
             json.dump(content, f, indent=4)
 
+    def record_exists(self, table: str, id: str) -> bool:
+        return id in self.data[table]
+
     def get_record(self, table: str, id: str) -> dict:
         return self.data[table][id]
 
@@ -75,8 +78,15 @@ class Database():
         '''
 
         record_data = copy.deepcopy(data)
+
         record_data.pop('creationDate', None)
 
+        # add creationDate field to record if it existed before
+        creation_date = self.data[table][id].get('creationDate')
+        if creation_date:
+            record_data['creationDate'] = creation_date
+
+        # oh no I loose creationDate of original record
         self.data[table][id] = record_data
 
         self._save_data()
