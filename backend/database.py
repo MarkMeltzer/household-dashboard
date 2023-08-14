@@ -66,8 +66,22 @@ class Database():
         return id
    
     def update_record(self, table: str, id: str, data: dict) -> str:
-        # TODO: write docstring
-        raise NotImplementedError
+        '''
+        Replaces data of record under `id` in `table` with values from `data`.
+
+        Returns id of updated object.
+
+        Ignores the value of `creationDate` field.
+        '''
+
+        record_data = copy.deepcopy(data)
+        record_data.pop('creationDate', None)
+
+        self.data[table][id] = record_data
+
+        self._save_data()
+
+        return id
     
     def delete_record(self, table: str, id: str):
         '''
