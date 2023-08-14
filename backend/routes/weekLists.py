@@ -1,7 +1,5 @@
 from flask import Blueprint, request, abort, jsonify
-from utils import verify_token, load_data, save_data, get_datetime, archive_data
-import uuid
-import time
+from utils import verify_token, get_datetime
 from database import Database
 
 blueprint = Blueprint('weekLists', __name__, url_prefix='/weekLists')
@@ -60,19 +58,28 @@ def specific_week_list(record_id):
 
     if request.method == "GET":
         # get existing weeklist record
-        print(f"{get_datetime()} -- Retrieving weekList record with id: {record_id}...")
+        print(
+            f"{get_datetime()} -- Retrieving weekList record with id: "
+            f"{record_id}..."
+        )
 
         return jsonify(db.get_record('weekLists', record_id))
     elif request.method == "PUT":
         # change existing weeklist record
-        print(f"{get_datetime()} -- Changing existing weeklist record with id: {record_id}...")
+        print(
+            f"{get_datetime()} -- Changing existing weeklist record with id: "
+            f"{record_id}..."
+        )
 
         db.update_record('weekLists', record_id, request.json)
 
         return jsonify({"id" : record_id})
     elif request.method == "DELETE":
         # delete existing weeklist record
-        print(f"{get_datetime()} -- Deleting weeklist record with id: {record_id}...")
+        print(
+            f"{get_datetime()} -- Deleting weeklist record with id: "
+            f"{record_id}..."
+        )
 
         db.delete_record('weekLists', record_id)
 
@@ -82,7 +89,10 @@ def specific_week_list(record_id):
         # TODO: make enum for HTTP status codes
         abort(405)
 
-@blueprint.route("/<string:weekListId>/shoppingList/<int:index>", methods=["GET", "PATCH"])
+@blueprint.route(
+    "/<string:weekListId>/shoppingList/<int:index>",
+    methods=["GET", "PATCH"],
+)
 def shoppingListItem(weekListId, index):
     '''
     Endpoint for specific shoppingListItems.
@@ -108,11 +118,17 @@ def shoppingListItem(weekListId, index):
     item = weekList["shoppingList"][index]
 
     if request.method == "GET":
-        print(f"{get_datetime()} -- Retrieving shoppingList item record: index {index} from weekList {weekListId}...")
+        print(
+            f"{get_datetime()} -- Retrieving shoppingList item record: "
+            f"index {index} from weekList {weekListId}..."
+        )
         
         return jsonify(item)
     elif request.method == "PATCH":
-        print(f"{get_datetime()} -- Patching shoppingList item record: index {index} from weekList {weekListId}...")
+        print(
+            f"{get_datetime()} -- Patching shoppingList item record: "
+            f"index {index} from weekList {weekListId}..."
+        )
 
         # TODO: I should split the shoppingList into it's own relational table
         # then I can just use the db.delta_update_function

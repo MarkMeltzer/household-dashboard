@@ -89,7 +89,10 @@ def specific_shopping_item(id):
             abort(404)
     elif request.method == "PUT":
         # get specific shoppingItem record
-        print(f"{get_datetime()} -- Changing existing shoppingItem record with id: {id}...")
+        print(
+            f"{get_datetime()} -- Changing existing shoppingItem record with id: "
+            f"{id}..."
+        )
 
         data = load_data()
         data["shoppingItems"][id] = request.json

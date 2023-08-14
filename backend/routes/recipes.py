@@ -71,7 +71,10 @@ def specific_recipes(arg):
             abort(404)
     elif request.method == "PUT":
         # change existing weeklist record
-        print(f"{get_datetime()} -- Changing existing weeklist record with id: {arg}...")
+        print(
+            f"{get_datetime()} -- Changing existing weeklist record with id: "
+            f"{arg}..."
+        )
 
         if arg not in data["recipes"]:
             abort(404)
