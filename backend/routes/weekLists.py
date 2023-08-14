@@ -2,6 +2,7 @@ from flask import Blueprint, request, abort, jsonify
 from utils import verify_token, load_data, save_data, get_datetime, archive_data
 import uuid
 import time
+from database import Database
 
 blueprint = Blueprint('weekLists', __name__, url_prefix='/weekLists')
 
@@ -43,8 +44,8 @@ def all_week_lists():
         print(request.method + " not implemented for this route!")
         abort(404)
 
-@blueprint.route("/<string:arg>", methods=["GET", "PUT", "DELETE"])
-def specific_week_list(arg):
+@blueprint.route("/<string:record_id>", methods=["GET", "PUT", "DELETE"])
+def specific_week_list(record_id):
     '''
     Endpoint for specific weekLists.
 
@@ -59,47 +60,34 @@ def specific_week_list(arg):
         print("Wrong token.")
         abort(401)
 
-    data = load_data()
+    db = Database()
+
+    if not db.record_exists('weekLists', record_id):
+        abort(404)
 
     if request.method == "GET":
         # get existing weeklist record
-        print(f"{get_datetime()} -- Retrieving weekList record with id: {arg}...")
+        print(f"{get_datetime()} -- Retrieving weekList record with id: {record_id}...")
 
-        if arg in data["weekLists"]:
-            return jsonify(data["weekLists"][arg])
-        else:
-            abort(404)
+        return jsonify(db.get_record('weekLists', record_id))
     elif request.method == "PUT":
         # change existing weeklist record
-        print(f"{get_datetime()} -- Changing existing weeklist record with id: {arg}...")
+        print(f"{get_datetime()} -- Changing existing weeklist record with id: {record_id}...")
 
-        if arg not in data["weekLists"]:
-            abort(404)
+        db.update_record('weekLists', record_id, request.json)
 
-        weekList = data["weekLists"][arg]
-        weekList["meals"] = request.json["meals"]
-        weekList["shoppingList"] = request.json["shoppingList"]
-        
-        data["weekLists"][arg] = weekList
-        save_data(data)
-
-        return jsonify({"id" : arg})
+        return jsonify({"id" : record_id})
     elif request.method == "DELETE":
         # delete existing weeklist record
-        print(f"{get_datetime()} -- Deleting weeklist record with id: {arg}...")
+        print(f"{get_datetime()} -- Deleting weeklist record with id: {record_id}...")
 
-        if arg not in data["weekLists"]:
-            abort(404)
+        db.delete_record('weekLists', record_id)
 
-        # archive the data in case of accidental deletion
-        weekList = data["weekLists"].pop(arg)
-        archive_data({ arg: weekList }, "weekList")
-        save_data(data)
-
-        return "", 204
+        return jsonify({"id" : record_id})
     else:
         print(request.method + " not implemented for this route!")
-        abort(404)
+        # TODO: make enum for HTTP status codes
+        abort(501)
 
 @blueprint.route("/<string:weekListId>/shoppingList/<string:index>", methods=["GET", "PATCH"])
 def shoppingListItem(weekListId, index):
