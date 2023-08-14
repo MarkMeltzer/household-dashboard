@@ -51,9 +51,9 @@ class Database():
         '''
         Add new database record to `table`. Assumes `data` is validated.
 
-        Generates id to save record under and returns said id.
-
         Setting `add_creation_date` adds `creationDate` field with current time.
+
+        Generates id to save record under and returns said id.
         '''
 
         record_data = copy.deepcopy(data)
@@ -72,9 +72,9 @@ class Database():
         '''
         Replaces data of record under `id` in `table` with values from `data`.
 
-        Returns id of updated object.
-
         Ignores the value of `creationDate` field.
+
+        Returns id of updated object.
         '''
 
         record_data = copy.deepcopy(data)
@@ -93,16 +93,34 @@ class Database():
 
         return id
     
+    def delta_update_record(self, table: str, id: str, data: dict) -> str:
+        '''
+        Perform a delta update on the record with `id` in `table`.
+
+        For each key present in `data` the same key in the record will be changed
+        to the corresponding value from `data`. If a key from `data` is not present
+        in the record an error will be raised.
+
+        Returns the id of the updated record.
+        '''
+
+        record = self.data[table][id]
+
+        for key in data:
+            record[key] = data[key]
+
+        self._save_data()
+    
     def delete_record(self, table: str, id: str) -> str:
         '''
         Remove database record from `table`. 
-        
-        returns id of deleted record
 
         Will not delete archive completely
         immediately, but rather archive the record to a separate file, this archive
         is not guaranteed to stick around for long but can be used to recover
         accidentally deleted records.
+        
+        Returns id of deleted record.
         '''
 
         record = self.data[table].pop(id)
