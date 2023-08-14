@@ -35,7 +35,7 @@ def all_week_lists():
         return jsonify({"id" : record_id})
     else:
         print(request.method + " not implemented for this route!")
-        abort(501)
+        abort(405)
 
 @blueprint.route("/<string:record_id>", methods=["GET", "PUT", "DELETE"])
 def specific_week_list(record_id):
@@ -80,9 +80,9 @@ def specific_week_list(record_id):
     else:
         print(request.method + " not implemented for this route!")
         # TODO: make enum for HTTP status codes
-        abort(501)
+        abort(405)
 
-@blueprint.route("/<string:weekListId>/shoppingList/<string:index>", methods=["GET", "PATCH"])
+@blueprint.route("/<string:weekListId>/shoppingList/<int:index>", methods=["GET", "PATCH"])
 def shoppingListItem(weekListId, index):
     '''
     Endpoint for specific shoppingListItems.
@@ -99,9 +99,13 @@ def shoppingListItem(weekListId, index):
         abort(401)    
 
     # load dat and get shoppingList item
-    data = load_data()
-    shoppingList = data["weekLists"][weekListId]["shoppingList"]
-    item = shoppingList[int(index)]
+    db = Database()
+    weekList = db.get_record('weekLists', weekListId)
+
+    if index > len(weekList['shoppingList']) - 1:
+        abort(400)
+    
+    item = weekList["shoppingList"][index]
 
     if request.method == "GET":
         print(f"{get_datetime()} -- Retrieving shoppingList item record: index {index} from weekList {weekListId}...")
@@ -110,15 +114,18 @@ def shoppingListItem(weekListId, index):
     elif request.method == "PATCH":
         print(f"{get_datetime()} -- Patching shoppingList item record: index {index} from weekList {weekListId}...")
 
-
+        # TODO: I should split the shoppingList into it's own relational table
+        # then I can just use the db.delta_update_function
         for key in request.json:
             if key not in item:
                 abort(400)
 
             item[key] = request.json[key]
 
-        data["weekLists"][weekListId]["shoppingList"][int(index)] = item
-        save_data(data)
+        weekList['shoppingList'][int(index)] = item
+
+        db.update_record('weekLists', weekListId, weekList)
+        
         return "", 204
 
     abort(405)
