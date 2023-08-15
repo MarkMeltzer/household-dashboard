@@ -1,7 +1,5 @@
 from flask import Blueprint, request, abort, jsonify
-from utils import verify_token, get_datetime, load_data, save_data
-import time
-import uuid
+from utils import verify_token, get_datetime, load_data
 from . import base
 
 blueprint = Blueprint('shoppingItems', __name__, url_prefix='/shoppingItems')
