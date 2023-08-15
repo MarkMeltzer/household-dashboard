@@ -1,6 +1,7 @@
 from flask import Blueprint, request, abort, jsonify
-from utils import verify_token, get_datetime, load_data
+from utils import verify_token, get_datetime
 from . import base
+from database import Database
 
 blueprint = Blueprint('shoppingItems', __name__, url_prefix='/shoppingItems')
 
@@ -28,5 +29,7 @@ def all_shopping_items_names():
 
     print(f"{get_datetime()} -- Retrieving all shoppingItem name records...")
     
-    data = load_data()["shoppingItems"]
-    return jsonify([data[id]["name"] for id in data])
+    db = Database()
+
+    shoppingItems = db.get_all_records('shoppingItems')
+    return jsonify([shoppingItem["name"] for shoppingItem in shoppingItems.values()])
