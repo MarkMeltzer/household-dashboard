@@ -17,6 +17,7 @@ import globalContext from './globalContext';
 import './css/App.css';
 import RecipeListPage from "./pages/RecipeListPage";
 import RecipePage from "./pages/RecipePage";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   // look for login token in localstorage
@@ -49,6 +50,7 @@ function App() {
             <Route path="/recipe/:id"><RecipePage /></Route>
             <Route path="/newrecipe"><RecipePage newRecipe /></Route>
             <Route path="/playground"><PlaygroundPage /></Route>
+            <Route path="/settings"><SettingsPage /></Route>
             <Route path="/about"><AboutPage /></Route>
             <Route render={() => <h1>Page not found :(</h1>} />
           </Switch>
