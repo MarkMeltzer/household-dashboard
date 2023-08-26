@@ -8,7 +8,7 @@ def verify_token(request):
     token = request.headers["Authorization"].split(" ")[1]
 
     with open("./data/users.json", "r") as f:
-        content = json.load(f)
+        content = json.load(f)['users']
     
     for user in content:
         if token in content[user]["login_tokens"]:

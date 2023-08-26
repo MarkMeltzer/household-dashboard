@@ -22,7 +22,7 @@ def getLoginToken():
 
     # get login data
     with open("./data/users.json", "r") as f:
-        users_data = json.load(f)
+        users_data = json.load(f)['users']
     
     if username not in users_data:
         print(f"User {username} not found.")
