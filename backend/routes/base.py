@@ -31,7 +31,7 @@ def generate_route(route, *args, **kwargs):
     # function has, such as __name__
     return update_wrapper(partial_function, route)
 
-def all_records(table: str):
+def all_records(table: str, add_creation_date: bool = True):
     '''
     Endpoint for all records in `table`.
 
@@ -54,7 +54,7 @@ def all_records(table: str):
         # add a new record
         print(f"{get_datetime()} -- Adding new {table} record...")
 
-        record_id = db.add_record(table, request.json)
+        record_id = db.add_record(table, request.json, add_creation_date=add_creation_date)
         
         return jsonify({"id" : record_id})
     
