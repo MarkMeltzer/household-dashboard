@@ -1,19 +1,19 @@
-import json
 from datetime import datetime
+from flask import Request
+from database import Database
 
-def verify_token(request):
+
+def get_user_by_token(request: Request):
     if "Authorization" not in request.headers:
-        return False
-
+        return None
     token = request.headers["Authorization"].split(" ")[1]
 
-    with open("./data/users.json", "r") as f:
-        content = json.load(f)['users']
-    
-    for user in content:
-        if token in content[user]["login_tokens"]:
-            return True
-    return False
+    db = Database(db_path='./data/users.json')
+    users = db.get_all_records('users')
+
+    for user in users:
+        if token in users[user]['login_tokens']:
+            return users[user]
 
 # get current time in nice format
 def get_datetime():

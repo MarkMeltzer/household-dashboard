@@ -1,5 +1,6 @@
+from http import HTTPStatus
 from flask import Blueprint, request, abort, jsonify
-from utils import verify_token, get_datetime
+from utils import get_user_by_token, get_datetime
 from database import Database
 from . import base
 
@@ -28,16 +29,16 @@ def shoppingListItem(weekListId, index):
     '''
 
     # authorize client
-    if not verify_token(request):
+    if not get_user_by_token(request):
         print("Wrong token.")
-        abort(401)    
+        abort(HTTPStatus.UNAUTHORIZED)    
 
     # load dat and get shoppingList item
     db = Database()
     weekList = db.get_record('weekLists', weekListId)
 
     if index > len(weekList['shoppingList']) - 1:
-        abort(400)
+        abort(HTTPStatus.BAD_REQUEST)
     
     item = weekList["shoppingList"][index]
 
@@ -58,7 +59,7 @@ def shoppingListItem(weekListId, index):
         # then I can just use the db.delta_update_function
         for key in request.json:
             if key not in item:
-                abort(400)
+                abort(HTTPStatus.BAD_REQUEST)
 
             item[key] = request.json[key]
 
@@ -66,6 +67,6 @@ def shoppingListItem(weekListId, index):
 
         db.update_record('weekLists', weekListId, weekList)
         
-        return "", 204
+        return "", HTTPStatus.NO_CONTENT
 
-    abort(405)
+    abort(HTTPStatus.METHOD_NOT_ALLOWED)
