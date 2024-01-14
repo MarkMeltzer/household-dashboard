@@ -31,14 +31,11 @@ const ShoppingItemPage = () => {
     updateShoppingItem.sendRequest(JSON.stringify(shoppingItem))
   }
 
-  function getShopLocations(shopName) {
-    const shop = Object.entries(shops).find(shop => shop[1].name === shopName)
+  function setShop(shopId) {
+    // Clear location since shop no longer matches
+    let newShoppingItem = updateObject(shoppingItem, "location", "")
 
-    if (!shop) {
-      return []
-    }
-
-    return shop[1].locations
+    setShoppingItem(updateObject(newShoppingItem, "shop", shopId))
   }
   
   const dataDisplay = shoppingItem && shops &&
@@ -83,37 +80,35 @@ const ShoppingItemPage = () => {
         </span>
       </div>
 
-      <div className="location">
+      {shoppingItem.shop && <div className="location">
         <span className="locationTitle">Location: </span>
         <span className="locationValue">
-          {!isEditing && (shoppingItem.location ? shoppingItem.location : "Not specified")}
+          {!isEditing && (shoppingItem.location ? shops[shoppingItem.shop].locations[shoppingItem.location].name : "Not specified")}
           {isEditing && <select name="location"
             value={shoppingItem.location ? shoppingItem.location : ""}
             disabled={updateShoppingItem.isLoading}
             onChange={(e)=>(
               setShoppingItem(updateObject(shoppingItem, "location", e.target.value)))}
           >
-            {getShopLocations(shoppingItem.shop).map(location => {
-              return <option key={location} value={location}>{location}</option>
+            {Object.entries(shops[shoppingItem.shop].locations).map(location => {
+              return <option key={location[0]} value={location[0]}>{location[1].name}</option>
             })}
             <option value="">None</option>
           </select>}
         </span>
-      </div>
+      </div>}
 
       <div className="shop">
         <span className="shopTitle">Shop: </span>
         <span className="shopValue">
-          {!isEditing && (shoppingItem.shop ? shoppingItem.shop : "Not specified")}
+          {!isEditing && (shoppingItem.shop ? shops[shoppingItem.shop].name : "Not specified")}
           {isEditing && <select name="shops"
             value={shoppingItem.shop ? shoppingItem.shop : ""}
             disabled={updateShoppingItem.isLoading}
-            onChange={(e)=>(
-              setShoppingItem(updateObject(shoppingItem, "shop", e.target.value)))}
+            onChange={(e)=> setShop(e.target.value)}
           >
             {Object.entries(shops).map(shop => {
-              const shopName = shop[1].name
-              return <option key={shopName} value={shopName}>{shopName}</option>
+              return <option key={shop[0]} value={shop[0]}>{shop[1].name}</option>
             })}
             <option value="">None</option>
           </select>}
