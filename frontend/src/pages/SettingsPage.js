@@ -4,7 +4,7 @@ import '../css/pages/SettingsPage.css'
 import React, { useEffect, useState } from 'react'
 import useGetSettings from '../hooks/useGetSettings'
 import useGetShops from '../hooks/useGetShops'
-import { updateObject } from '../utils'
+import { DebugRenderObject, updateObject } from '../utils'
 
 
 function SettingsPage() {
@@ -30,11 +30,7 @@ function SettingsPage() {
   }
 
   return <div>
-    <div style={{textAlign: 'left'}}>
-      <pre>
-        {JSON.stringify(settings, null, 4)}
-      </pre>
-    </div>
+    <DebugRenderObject objectToRender={settings} />
     <div className="detailDisplayContainer">
       {settings && 
         <div className="detailDisplay">
