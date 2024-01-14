@@ -80,6 +80,23 @@ const ShoppingItemPage = () => {
         </span>
       </div>
 
+      <div className="shop">
+        <span className="shopTitle">Shop: </span>
+        <span className="shopValue">
+          {!isEditing && (shoppingItem.shop ? shops[shoppingItem.shop].name : "Not specified")}
+          {isEditing && <select name="shops"
+            value={shoppingItem.shop ? shoppingItem.shop : ""}
+            disabled={updateShoppingItem.isLoading}
+            onChange={(e)=> setShop(e.target.value)}
+          >
+            {Object.entries(shops).map(shop => {
+              return <option key={shop[0]} value={shop[0]}>{shop[1].name}</option>
+            })}
+            <option value="">None</option>
+          </select>}
+        </span>
+      </div>
+
       {shoppingItem.shop && <div className="location">
         <span className="locationTitle">Location: </span>
         <span className="locationValue">
@@ -97,23 +114,6 @@ const ShoppingItemPage = () => {
           </select>}
         </span>
       </div>}
-
-      <div className="shop">
-        <span className="shopTitle">Shop: </span>
-        <span className="shopValue">
-          {!isEditing && (shoppingItem.shop ? shops[shoppingItem.shop].name : "Not specified")}
-          {isEditing && <select name="shops"
-            value={shoppingItem.shop ? shoppingItem.shop : ""}
-            disabled={updateShoppingItem.isLoading}
-            onChange={(e)=> setShop(e.target.value)}
-          >
-            {Object.entries(shops).map(shop => {
-              return <option key={shop[0]} value={shop[0]}>{shop[1].name}</option>
-            })}
-            <option value="">None</option>
-          </select>}
-        </span>
-      </div>
     </div>
 
   // TODO: handle errors from multiple sources more gracefully (eg. shoppingItem AND shops)
