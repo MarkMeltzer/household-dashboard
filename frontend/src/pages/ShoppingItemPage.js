@@ -2,44 +2,46 @@ import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import useGetShoppingItem from "../hooks/useGetShoppingItem";
 import useUpdateShoppingItem from "../hooks/useUpdateShoppingItem";
+import useGetShops from "../hooks/useGetShops";
 import { updateObject } from "../utils";
 import "../css/pages/ShoppingItemPage.css"
 
 const ShoppingItemPage = () => {
   const { id } = useParams();
-  const { data, _, isLoading, error, sendRequest } = useGetShoppingItem(id);
-  const [shoppingItem, setShoppingItem] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const { data: shoppingItem, setData: setShoppingItem, ...getShoppingItem} = useGetShoppingItem(id)
   const updateShoppingItem = useUpdateShoppingItem(id);
+  const { data: shops, ...getShops} = useGetShops()
 
   useEffect(() => {
-    // TODO: check if this is necessary and we can't just use the setData from useGetShoppingItem
-
     // request shoppingItem data when component mounts
-    if (!data && !isLoading) {
-      sendRequest();
-    }
+    getShoppingItem.sendRequest()
+    getShops.sendRequest()
+  }, [])
 
-    // data has arrived, lets keep track of it so we can change it later
-    if (data && !error) {
-      setShoppingItem(data)
-    }
-  }, [data, error])
-
-  const [isEditing, setIsEditing] = useState(false);
   function handleEditClick(e) {
-    if (isEditing) {
-      // lets submit the changed shoppingItem data to the server
-      updateShoppingItem.sendRequest(
-        JSON.stringify(shoppingItem),
-        (_) => { setIsEditing(false); },
-        (_) => { setIsEditing(false); },
-      )
-    } else {
-      setIsEditing(true);
+    if (!isEditing) {
+      setIsEditing(true)
+      return
     }
+
+    setIsEditing(false)
+
+    updateShoppingItem.sendRequest(JSON.stringify(shoppingItem))
+  }
+
+  function getShopLocations(shopName) {
+    const shop = Object.entries(shops).find(shop => shop[1].name === shopName)
+
+    if (!shop) {
+      return []
+    }
+
+    return shop[1].locations
   }
   
-  const dataDisplay = shoppingItem &&
+  const dataDisplay = shoppingItem && shops &&
     <div className="shoppingItemDisplay">
       <button 
         className="shoppingItemEditButton"
@@ -85,12 +87,17 @@ const ShoppingItemPage = () => {
         <span className="locationTitle">Location: </span>
         <span className="locationValue">
           {!isEditing && (shoppingItem.location ? shoppingItem.location : "Not specified")}
-          {isEditing && <input type="text"
+          {isEditing && <select name="location"
             value={shoppingItem.location ? shoppingItem.location : ""}
             disabled={updateShoppingItem.isLoading}
             onChange={(e)=>(
               setShoppingItem(updateObject(shoppingItem, "location", e.target.value)))}
-          />}
+          >
+            {getShopLocations(shoppingItem.shop).map(location => {
+              return <option key={location} value={location}>{location}</option>
+            })}
+            <option value="">None</option>
+          </select>}
         </span>
       </div>
 
@@ -104,19 +111,21 @@ const ShoppingItemPage = () => {
             onChange={(e)=>(
               setShoppingItem(updateObject(shoppingItem, "shop", e.target.value)))}
           >
-            <option value="Lidl">Lidl</option>
-            <option value="Jumbo">Jumbo</option>
-            <option value="Albert Heijn">Albert Heijn</option>
+            {Object.entries(shops).map(shop => {
+              const shopName = shop[1].name
+              return <option key={shopName} value={shopName}>{shopName}</option>
+            })}
             <option value="">None</option>
           </select>}
         </span>
       </div>
     </div>
 
+  // TODO: handle errors from multiple sources more gracefully (eg. shoppingItem AND shops)
   return <div className="shoppingItemDisplayContainer">
-    {error && <p className="error">Error: {error.message}</p>}
-    {!error && isLoading && <p className='loading'>Loading....</p>}
-    {!error && !isLoading && dataDisplay}
+    {getShoppingItem.error && <p className="error">Error: {getShoppingItem.error.message}</p>}
+    {!getShoppingItem.error && getShoppingItem.isLoading && <p className='loading'>Loading....</p>}
+    {!getShoppingItem.error && !getShoppingItem.isLoading && dataDisplay}
   </div>
 }
 

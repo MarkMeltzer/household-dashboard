@@ -1,9 +1,9 @@
 import React from 'react'
 
 function SettingToggle({ label, summary, value, setValue, setChangedSettings }) {
-  function toggleValue() {
+  function toggleValue(e) {
     setChangedSettings(true)
-    setValue(oldValue => !oldValue)
+    setValue(e.target.checked)
   }
 
   return (
@@ -12,7 +12,7 @@ function SettingToggle({ label, summary, value, setValue, setChangedSettings }) 
       <input 
         type='checkBox'
         id='toggle'
-        value={value}
+        checked={value}
         onChange={toggleValue}
         className="settingCheckbox"
       ></input>

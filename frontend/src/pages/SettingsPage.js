@@ -2,78 +2,73 @@ import SettingToggle from '../components/settingsPage/SettingToggle'
 import ShopSortOrder from '../components/settingsPage/ShopSortOrder'
 import '../css/pages/SettingsPage.css'
 import React, { useEffect, useState } from 'react'
+import useGetSettings from '../hooks/useGetSettings'
+import useGetShops from '../hooks/useGetShops'
+import { updateObject } from '../utils'
 
 
 function SettingsPage() {
   // have any settings been changed?
   const [changedSettings, setChangedSettings] = useState(false)
 
-  // Settings state
-  const [sortOnSubmit, setSortOnSubmit] = useState(false)
+  const { data: settings, setData: setSettings, ...getSettings} = useGetSettings()
+  const { data: shops, ...getShops} = useGetShops()
+  
+  useEffect(() => {
+    getSettings.sendRequest()
+    getShops.sendRequest()
+  }, [])
 
-  const [lidlOrder, setLidlOrder] = useState([
-    'Ultra vers',
-    'Fruit',
-    'Broodjes',
-    'Vega/vlees',
-  ])
+  function setSortOnSubmit(newValue) {
+    setSettings(
+      updateObject(settings, 'sortOnSubmit', newValue)
+    )
+  }
 
-  const [alberHeijnOrder, setAlberHeijnOrder] = useState([
-    'Fruit',
-    'Vleesvervangers',
-    'Broodjes',
-  ])
-
-  const [jumboOrder, setJumboOrder] = useState([
-    'Fruit',
-    'Vleesvervangers',
-    'Broodjes',
-  ])
+  function submitSettings() {
+    // TODO: implement updateSettings and this
+  }
 
   return <div>
+    <div style={{textAlign: 'left'}}>
+      <pre>
+        {JSON.stringify(settings, null, 4)}
+      </pre>
+    </div>
     <div className="detailDisplayContainer">
-      <div className="detailDisplay">
-        <button 
-          className="detailEditButton"
-          disabled={!changedSettings}
-        >
-          Save settings
-        </button>
+      {settings && 
+        <div className="detailDisplay">
+          <button 
+            className="detailEditButton"
+            disabled={!changedSettings}
+            onClick={submitSettings}
+          >
+            Save settings
+          </button>
 
-        <p className="itemName">Settings</p>
+          <p className="itemName">Settings</p>
 
-        <p className="sectionHeader">Weeklist shoppinglist sorting</p>
-        <SettingToggle
-          label={'Auto sort on submit'}
-          summary={'Automatically sort shoppinglist on when submitting the week list according to the order specified below.'}
-          value={sortOnSubmit}
-          setValue={setSortOnSubmit}
-          setChangedSettings={setChangedSettings}
-        />
+          <p className="sectionHeader">Weeklist shoppinglist sorting</p>
+          <SettingToggle
+            label={'Auto sort on submit'}
+            summary={'Automatically sort shoppinglist on when submitting the week list according to the order specified below.'}
+            value={settings.sortOnSubmit}
+            setValue={setSortOnSubmit}
+            setChangedSettings={setChangedSettings}
+          />
 
-        <p className='subsectionHeader'>Shop sorting order</p>
+          <p className='subsectionHeader'>Shop sorting order</p>
 
-        <ShopSortOrder
-          label={'Lidl'}
-          list={lidlOrder}
-          setList={setLidlOrder}
-          setChangedSettings={setChangedSettings}
-        />
-
-        <ShopSortOrder
-          label={'Jumbo'}
-          list={jumboOrder}
-          setList={setJumboOrder}
-          setChangedSettings={setChangedSettings}
-        />
-
-        <ShopSortOrder
-          label={'Albert Heijn'}
-          list={alberHeijnOrder}
-          setList={setAlberHeijnOrder}
-          setChangedSettings={setChangedSettings}
-        />
-      </div>
+          {shops && Object.entries(shops).map((shop => (
+              <ShopSortOrder
+                key={shop[0]}
+                shop={{'id': shop[0], ...shop[1]}}
+                settings={settings}
+                setSettings={setSettings}
+                setChangedSettings={setChangedSettings}
+            />
+          )))}
+        </div>}
     </div>
   </div>
 }
