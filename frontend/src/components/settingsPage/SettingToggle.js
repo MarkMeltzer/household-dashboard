@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SettingToggle({ label, summary, value, setValue, setChangedSettings }) {
+function SettingToggle({ label, summary, value, setValue, setChangedSettings, disabled }) {
   function toggleValue(e) {
     setChangedSettings(true)
     setValue(e.target.checked)
@@ -15,6 +15,7 @@ function SettingToggle({ label, summary, value, setValue, setChangedSettings }) 
         checked={value}
         onChange={toggleValue}
         className="settingCheckbox"
+        disabled={disabled}
       ></input>
       <p className="settingSummary">{summary}</p>
     </div>

@@ -7,6 +7,7 @@ function ShopSortOrder({
   settings,
   setSettings,
   setChangedSettings,
+  disabled
  }) {
   function setShopOrder(newOrder) {
     setSettings(
@@ -22,11 +23,12 @@ function ShopSortOrder({
     <div className="shopOrder">
       <label className='settingLabel'>{shop.name}:</label>
       <ReactSortable
-      list={settings.shopOrder[shop.id]}
-      setList={setShopOrder}
-      handle='.dragHandle'
-      animation={150}
-      onChange={() => setChangedSettings(true)}
+        list={settings.shopOrder[shop.id]}
+        setList={setShopOrder}
+        handle='.dragHandle'
+        animation={150}
+        onChange={() => setChangedSettings(true)}
+        disabled={disabled}
       >
         {settings.shopOrder[shop.id].map((locationId) => (
           <div className='locationContainer' key={locationId}>

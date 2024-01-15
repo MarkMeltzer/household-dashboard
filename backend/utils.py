@@ -11,9 +11,11 @@ def get_user_by_token(request: Request):
     db = Database(db_path='./data/users.json')
     users = db.get_all_records('users')
 
-    for user in users:
-        if token in users[user]['login_tokens']:
-            return users[user]
+    for user_id in users:
+        if token in users[user_id]['login_tokens']:
+            user = users[user_id]
+            user['id'] = user_id
+            return user
 
 # get current time in nice format
 def get_datetime():

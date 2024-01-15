@@ -3,6 +3,7 @@ import ShopSortOrder from '../components/settingsPage/ShopSortOrder'
 import '../css/pages/SettingsPage.css'
 import React, { useEffect, useState } from 'react'
 import useGetSettings from '../hooks/useGetSettings'
+import useUpdateSettings from '../hooks/useUpdateSettings'
 import useGetShops from '../hooks/useGetShops'
 import { DebugRenderObject, updateObject } from '../utils'
 
@@ -13,7 +14,8 @@ function SettingsPage() {
 
   const { data: settings, setData: setSettings, ...getSettings} = useGetSettings()
   const { data: shops, ...getShops} = useGetShops()
-  
+  const updateSettings = useUpdateSettings()
+
   useEffect(() => {
     getSettings.sendRequest()
     getShops.sendRequest()
@@ -26,7 +28,15 @@ function SettingsPage() {
   }
 
   function submitSettings() {
-    // TODO: implement updateSettings and this
+    updateSettings.sendRequest(
+      JSON.stringify(settings),
+      () => {
+        setChangedSettings(false)
+      },
+      (err) => {
+        alert("Error submitting list: \n" + err);
+      }
+    )
   }
 
   return <div>
@@ -36,10 +46,10 @@ function SettingsPage() {
         <div className="detailDisplay">
           <button 
             className="detailEditButton"
-            disabled={!changedSettings}
+            disabled={!changedSettings || getSettings.isLoading || updateSettings.isLoading}
             onClick={submitSettings}
           >
-            Save settings
+            {updateSettings.isLoading ? 'Submitting...' : 'Save settings'}
           </button>
 
           <p className="itemName">Settings</p>
@@ -51,6 +61,7 @@ function SettingsPage() {
             value={settings.sortOnSubmit}
             setValue={setSortOnSubmit}
             setChangedSettings={setChangedSettings}
+            disabled={getSettings.isLoading || updateSettings.isLoading}
           />
 
           <p className='subsectionHeader'>Shop sorting order</p>
@@ -62,6 +73,7 @@ function SettingsPage() {
                 settings={settings}
                 setSettings={setSettings}
                 setChangedSettings={setChangedSettings}
+                disabled={getSettings.isLoading || updateSettings.isLoading}
             />
           )))}
         </div>}
