@@ -21,6 +21,11 @@
     height: 30px;
 }
 
+.weekListSortButton {
+    width: 35%;
+    height: 30px;
+}
+
 .topSection {
     display: grid;
     grid-template-columns: 55px 1fr;

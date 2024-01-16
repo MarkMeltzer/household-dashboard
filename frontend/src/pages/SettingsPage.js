@@ -40,7 +40,6 @@ function SettingsPage() {
   }
 
   return <div>
-    <DebugRenderObject objectToRender={settings} />
     <div className="detailDisplayContainer">
       {settings && 
         <div className="detailDisplay">
