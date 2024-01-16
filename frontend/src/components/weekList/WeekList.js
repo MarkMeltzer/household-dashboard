@@ -8,6 +8,7 @@ import MealList from './MealList';
 import ShoppingList from './ShoppingList';
 import '../../css/components/WeekList.css';
 import { updateObject } from '../../utils';
+import { weekListShopOrder as shopOrder } from '../../consts';
 
 const WeekList = (props) => {
   const hist = useHistory();

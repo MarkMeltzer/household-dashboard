@@ -3,6 +3,7 @@ import Modal from "../Modal";
 import { removeItemFromArray, updateArray, updateObject } from "../../utils";
 import { ReactSortable } from "react-sortablejs";
 import ShoppingItemInput from "./ShoppingItemInput";
+import { weekListShopColors as shopColors } from "../../consts";
 
 const EditModeModal = ({ item, index, shoppingList, setShoppingList, shoppingItems }) => {
   function deleteShoppingItem(index) {
@@ -47,7 +48,6 @@ function ShoppingListEditMode({
   setShoppingList,
   shoppingItems,
   bottomStyle,
-  shopColors,
 }) {
   function addShoppingItem() {
     setShoppingList([...shoppingList, { id: "newItem", checked: false, note: "" }]);

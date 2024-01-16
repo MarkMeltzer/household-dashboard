@@ -2,12 +2,6 @@ import ShoppingListViewMode from "./ShoppingListViewMode";
 import ShoppingListEditMode from "./ShoppingListEditMode";
 
 const ShoppingList = ({ isEditing, shoppingItems, shoppingList, setShoppingList, weekListId }) => {
-  const shopColors = {
-    Lidl: "rgba(0, 79, 170, 0.178)",
-    Jumbo: "rgba(238, 184, 23, 0.37)",
-    "Albert Heijn": "rgba(0, 173, 230, 0.253)",
-  };
-
   // extend the shoppinglist when it gets too big
   let nCols = 1;
   if (window.innerWidth < 1200) {
@@ -41,7 +35,6 @@ const ShoppingList = ({ isEditing, shoppingItems, shoppingList, setShoppingList,
       shoppingItems={shoppingItems}
       weekListId={weekListId}
       bottomStyle={bottomStyle}
-      shopColors={shopColors}
     />
   } else if (shoppingItems.data && isEditing) {
     // Edit mode
@@ -50,7 +43,6 @@ const ShoppingList = ({ isEditing, shoppingItems, shoppingList, setShoppingList,
       setShoppingList={setShoppingList}
       shoppingItems={shoppingItems}
       bottomStyle={bottomStyle}
-      shopColors={shopColors}
     />
   }
 

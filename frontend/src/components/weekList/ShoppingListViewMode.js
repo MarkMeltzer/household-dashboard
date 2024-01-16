@@ -5,6 +5,7 @@ import { useContext } from "react";
 import globalContext from "../../globalContext";
 import { updateArray, updateObject } from "../../utils";
 import Modal from "../Modal";
+import { weekListShopColors as shopColors } from "../../consts";
 
 const ViewModeModal = ({ item, shoppingItems }) => {
   return (
@@ -21,7 +22,6 @@ function ShoppingListViewMode({
   shoppingItems,
   weekListId,
   bottomStyle,
-  shopColors,
 }) {
   const context = useContext(globalContext);
 
