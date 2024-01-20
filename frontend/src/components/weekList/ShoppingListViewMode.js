@@ -21,7 +21,7 @@ function ShoppingListViewMode({
   setShoppingList,
   shoppingItems,
   weekListId,
-  bottomStyle,
+  shoppingListStyle,
 }) {
   const context = useContext(globalContext);
 
@@ -61,7 +61,7 @@ function ShoppingListViewMode({
   }
 
   return (
-    <div className="bottomSection" style={bottomStyle}>
+    <div style={shoppingListStyle}>
       {shoppingList.map((item, index) => (
         // item = { id, checked, amount }
         <div

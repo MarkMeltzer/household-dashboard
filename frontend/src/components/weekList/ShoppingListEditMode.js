@@ -47,7 +47,7 @@ function ShoppingListEditMode({
   shoppingList,
   setShoppingList,
   shoppingItems,
-  bottomStyle,
+  shoppingListStyle,
 }) {
   function addShoppingItem() {
     setShoppingList([...shoppingList, { id: "newItem", checked: false, note: "" }]);
@@ -59,8 +59,7 @@ function ShoppingListEditMode({
       setList={setShoppingList}
       handle=".dragHandle"
       animation={150}
-      className="bottomSection"
-      style={bottomStyle}
+      style={shoppingListStyle}
       filter=".addNewButton"
     >
       {shoppingList

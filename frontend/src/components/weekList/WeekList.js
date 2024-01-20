@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory} from 'react-router-dom';
 import useGetWeekList from '../../hooks/useGetWeekList';
 import useUpdateWeekList from '../../hooks/useUpdateWeekList';
@@ -7,7 +7,6 @@ import useGetShoppingItems from '../../hooks/useGetShoppingItems';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
 import '../../css/components/WeekList.css';
-import { updateObject } from '../../utils';
 import useGetSettings from '../../hooks/useGetSettings';
 import { weekListShopOrder as shopOrder } from '../../consts';
 
@@ -96,14 +95,30 @@ const WeekList = (props) => {
   ============================= Bottom section ============================
   =========================================================================*/   
   const bottomSection = <ShoppingList 
-    isEditing={isEditing}
     shoppingItems={shoppingItems}
     shoppingList={shoppingList}
     setShoppingList={setShoppingList}
+    clickSortButton={() => {
+      const filteredShoppingList = filterShoppingList(shoppingList)
+      const sortedShoppingList = sortShoppingList(filteredShoppingList)
+      setShoppingList(sortedShoppingList)
+    }}
+    submitWeekList={submitWeekList}
     weekListId={props.weekListId}
+    isEditing={isEditing}
   />
 
-  function sortShoppingList(shoppingList) {
+  /**
+   * Returns a copy of the shoppingList without the empty item
+   */
+  function filterShoppingList(shoppingList) {
+    return shoppingList.filter(item => item.id != "newItem")
+  }
+  
+  /**
+   * Returns a sorted copy of the shoppingList
+   */
+  function sortShoppingList(shoppingList) {    
     const sortedShoppingList = [...shoppingList].sort(
       (a, b) => {
         // first order by shop
@@ -131,16 +146,10 @@ const WeekList = (props) => {
     return sortedShoppingList
   }
 
-  function clickEditButton() {
-    if (!isEditing) {
-      setIsEditing(true);
-      return;
-    }
-    setIsEditing(false);
-
-    // sort the shopping list
-    let filteredShoppingList = shoppingList.filter(item => item.id != "newItem")
-    if (settings.sortOnSubmit) {
+  function submitWeekList(sort = false) {
+    // filter and sort the shopping list
+    let filteredShoppingList = filterShoppingList(shoppingList)
+    if (sort) {
       filteredShoppingList = sortShoppingList(filteredShoppingList)
       setShoppingList(filteredShoppingList)
     }
@@ -179,10 +188,14 @@ const WeekList = (props) => {
     }
   }
 
-  function clickSortButton() {
-    const filteredShoppingList = shoppingList.filter(item => item.id != "newItem")
-    const sortedShoppingList = sortShoppingList(filteredShoppingList)
-    setShoppingList(sortedShoppingList)
+  function clickEditButton() {
+    if (!isEditing) {
+      setIsEditing(true);
+      return;
+    }
+    setIsEditing(false);
+
+    submitWeekList(settings.sortOnSubmit)
   }
 
   if (getWeekList.error) return <div className="weekList"><p className="error">Error: {getWeekList.error.message}</p></div>
@@ -191,13 +204,6 @@ const WeekList = (props) => {
     <div className="weekList">
       {title}
       <div className="weekListEditButtonContainer">
-        <button 
-          className="weekListSortButton"
-          onClick={clickSortButton}
-          disabled={updateWeekList.isLoading || createWeekList.isLoading}
-        >
-          Sort (PLACEHOLDER)
-        </button>
         <button 
           className="weekListEditButton"
           onClick={clickEditButton}
