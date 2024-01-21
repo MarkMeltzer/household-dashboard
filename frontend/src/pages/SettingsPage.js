@@ -44,7 +44,7 @@ function SettingsPage() {
       {settings && 
         <div className="detailDisplay">
           <button 
-            className="detailEditButton"
+            className="submitSettingsButton"
             disabled={!changedSettings || getSettings.isLoading || updateSettings.isLoading}
             onClick={submitSettings}
           >
