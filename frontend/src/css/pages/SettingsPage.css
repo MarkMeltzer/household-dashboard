@@ -14,7 +14,7 @@
     margin-bottom: 5px;
 }
 
-.dragHandleContainer {
+.shopDragHandleContainer {
     width: auto;
     height: 100%;
     display: flex;
@@ -23,9 +23,9 @@
     margin-right: 5px;
 }
 
-.dragHandle {
+.shopDragHandle {
     background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsLW9wYWNpdHk9IjAiPjwvcmVjdD4KPHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMCI+PC9yZWN0Pgo8L3N2Zz4=");
-    width: 12px;
+    width: 20px;
     height: 76%;
     cursor: grab;
 }
@@ -34,6 +34,8 @@
     display: grid;
     grid-template-columns: auto 1fr;
     color: white;
+    height: 2rem;
+    align-items: center;
 }
 
 .locationLabel {
@@ -51,7 +53,15 @@
 .settingLabel {
     color: white;
     font-size: 1rem;
+    margin: 0px;
 }
+
+.settingShopTitle {
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+}  
 
 .settingSummary {
     margin-top: 0px;
@@ -66,7 +76,8 @@
 }
 
 .shopOrder {
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .submitSettingsButton {

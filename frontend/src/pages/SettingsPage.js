@@ -63,7 +63,8 @@ function SettingsPage() {
             disabled={getSettings.isLoading || updateSettings.isLoading}
           />
 
-          <p className='subsectionHeader'>Shop sorting order</p>
+          <p className='settingLabel'>Shop sorting order</p>
+          <p className="settingSummary">Set the order of locations which items will be sorted by per shop.</p>
 
           {shops && Object.entries(shops).map((shop => (
               <ShopSortOrder
