@@ -22,7 +22,8 @@ def getLoginToken():
 
     # get login data
     with open("./data/users.json", "r") as f:
-        users_data = json.load(f)['users']
+        user_db = json.load(f)
+        users_data = user_db['users']
     
     if username not in users_data:
         print(f"User {username} not found.")
@@ -42,7 +43,8 @@ def getLoginToken():
     token = uuid.uuid4().hex
 
     users_data[username]["login_tokens"].append(token)
+    user_db['users'] = users_data
     with open("./data/users.json", "w") as f:
-        json.dump(users_data, f, indent=4)
+        json.dump(user_db, f, indent=4)
 
     return jsonify({"token" : token})
