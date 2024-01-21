@@ -75,6 +75,30 @@
     text-align: right;
 }
 
+.sortButton {
+    /* border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit; */
+
+    margin-bottom: 5px;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    /* flex-grow: 1;
+    background: hsl(40, 24%, 65%);
+    background: linear-gradient(147deg, hsl(40, 34%, 60%) 16%, hsl(40, 34%, 45%) 100%); 
+
+    color: #F8F4EF; */
+}
+
+/* .sortButton:hover {
+    background: hsl(40, 24%, 65%);
+    background: linear-gradient(147deg, hsl(40, 34%, 70%) 16%, hsl(40, 34%, 60%) 100%); 
+} */
+
 .bottomSection {
     text-align: left;
     padding: 10px;
