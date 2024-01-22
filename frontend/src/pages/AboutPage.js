@@ -14,7 +14,7 @@ const AboutPage = () => {
       </p>
 
       <p>
-        Version: {config.VERSION}
+        Version: <a href={"https://github.com/MarkMeltzer/household-dashboard/releases/tag/v" + config.VERSION}>{config.VERSION}</a>
         <br />
         Source code: <a href="https://github.com/MarkMeltzer/household-dashboard">Github</a>
       </p>
