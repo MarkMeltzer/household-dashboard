@@ -38,6 +38,9 @@ def all_records(table: str, add_creation_date: bool = True):
 
     - GET returns list of all records in `table`
     - POST creates new record in `table` from data in request body
+
+    Arguments:
+        - `add_creation_date` specifies whether record created with a POST request gets a creation date.
     '''
 
     # authorize client
