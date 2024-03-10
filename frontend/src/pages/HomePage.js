@@ -18,7 +18,7 @@ const WeekListItem = ({ weekList, setWeekLists }) => {
   return <div className='weekListItemContainer' >
     {!deleteWeekList.isLoading &&
     <Link to={`/week/${weekList.id}`} className="weekListItem">
-      {weekList.creationDate}
+      {new Date(weekList.creationDate).toLocaleString('en-NL', {weekday: 'long', day: 'numeric', month: 'short', year: 'numeric'})}
     </Link>}
     {deleteWeekList.isLoading &&
     <p className="weekListItem">
