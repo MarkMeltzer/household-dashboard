@@ -8,7 +8,7 @@ import MealList from './MealList';
 import ShoppingList from './ShoppingList';
 import '../../css/components/WeekList.css';
 import useGetSettings from '../../hooks/useGetSettings';
-import { weekListShopOrder as shopOrder } from '../../consts';
+import { weekListShopOrder as shopOrder, weekListDateTimeFormat } from '../../consts';
 
 const WeekList = (props) => {
   const hist = useHistory();
@@ -79,7 +79,7 @@ const WeekList = (props) => {
   =========================================================================*/
   let title;
   if (!newWeekList) {
-    title = <div className="title">{getWeekList.data ? getWeekList.data["creationDate"] : "Loading..."}</div>
+    title = <div className="title">{getWeekList.data ? new Date(getWeekList.data["creationDate"]).toLocaleString('en-NL', weekListDateTimeFormat)  : "Loading..."}</div>
   } else {
     title = <div className="title">New Week List</div>
   }

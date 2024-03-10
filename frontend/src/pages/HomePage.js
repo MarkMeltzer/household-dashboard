@@ -5,7 +5,7 @@ import useDeleteWeekList from '../hooks/useDeleteWeekList';
 import { removeItemFromObject } from '../utils';
 import '../css/pages/HomePage.css';
 import ConfirmDeleteButton from '../components/ConfirmDeleteButton';
-
+import { weekListDateTimeFormat } from '../consts';
 const WeekListItem = ({ weekList, setWeekLists }) => {
   const deleteWeekList = useDeleteWeekList(weekList.id);
 
@@ -18,7 +18,7 @@ const WeekListItem = ({ weekList, setWeekLists }) => {
   return <div className='weekListItemContainer' >
     {!deleteWeekList.isLoading &&
     <Link to={`/week/${weekList.id}`} className="weekListItem">
-      {new Date(weekList.creationDate).toLocaleString('en-NL', {weekday: 'long', day: 'numeric', month: 'short', year: 'numeric'})}
+      {new Date(weekList.creationDate).toLocaleString('en-NL', weekListDateTimeFormat)}
     </Link>}
     {deleteWeekList.isLoading &&
     <p className="weekListItem">
