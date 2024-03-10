@@ -20,7 +20,14 @@ class Database():
 
     def _get_current_time(self) -> str:
         now = time.localtime()
-        return time.strftime('%A %e %b %Y - %H:%M', now)
+
+        date_time_part = time.strftime('%Y-%m-%dT%H:%M:%S', now)
+        timezone_part = time.strftime('%z', now)
+
+        # add colon to timezone part to comply with javascripts version of iso format
+        timezone_part = timezone_part[:3] + ':' + timezone_part[3:]
+
+        return date_time_part + timezone_part
 
     def _archive_data(self, data: dict, record_type: str = None):
         with open(self.archive_path, 'w+') as f:
