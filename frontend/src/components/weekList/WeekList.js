@@ -8,7 +8,23 @@ import MealList from './MealList';
 import ShoppingList from './ShoppingList';
 import '../../css/components/WeekList.css';
 import useGetSettings from '../../hooks/useGetSettings';
-import { weekListShopOrder as shopOrder, weekListDateTimeFormat } from '../../consts';
+import useGetShops from '../../hooks/useGetShops';
+import { weekListShopOrder, weekListDateTimeFormat } from '../../consts';
+
+export function convertShopLookupTable(lookupTable, shops) {
+  // convert lookup table with shop name keys to use shop id keys
+  const lookupTableById = {}
+  Object.entries(lookupTable).forEach(([shopName, value]) => {
+    const matchedShops = Object.entries(shops).filter(([_, shop]) => shop.name === shopName)
+    if (matchedShops.length) {
+      lookupTableById[matchedShops[0][0]] = value
+    } else {
+      lookupTableById[shopName] = value
+    }
+  })
+
+  return lookupTableById
+}
 
 const WeekList = (props) => {
   const hist = useHistory();
@@ -21,6 +37,7 @@ const WeekList = (props) => {
   const updateWeekList = useUpdateWeekList(props.weekListId);
   const createWeekList = useCreateWeekList(props.weekListId);
   const { data: settings, ...getSettings } = useGetSettings();
+  const { data: shops, ...getShops } = useGetShops();
 
   // initialize mealList
   let initialMeals = [];
@@ -71,6 +88,9 @@ const WeekList = (props) => {
 
     // get user settings
     getSettings.sendRequest()
+
+    // get shop information
+    getShops.sendRequest()
   }, [getWeekList.data, getWeekList.error])
   // TODO: do useEffect cleanup
 
@@ -98,6 +118,7 @@ const WeekList = (props) => {
     shoppingItems={shoppingItems}
     shoppingList={shoppingList}
     setShoppingList={setShoppingList}
+    shops={shops}
     showSortButton={!settings?.sortOnSubmit}
     clickSortButton={() => {
       const filteredShoppingList = filterShoppingList(shoppingList)
@@ -119,15 +140,20 @@ const WeekList = (props) => {
   /**
    * Returns a sorted copy of the shoppingList
    */
-  function sortShoppingList(shoppingList) {    
+  function sortShoppingList(shoppingList) {
+    // since we handle shops by ID but shopOrder lookup table is based on shop name
+    // we need to convert the shopOrder to have shop ids as key instead, this is jank
+    // but should be fixed once we move the shopOrder to the backend in future
+    const shopOrderById = convertShopLookupTable(weekListShopOrder, shops)
+
     const sortedShoppingList = [...shoppingList].sort(
       (a, b) => {
         // first order by shop
         const aShop = shoppingItems.data[a.id].shop
         const bShop = shoppingItems.data[b.id].shop
-        if (shopOrder[aShop] < shopOrder[bShop]) {
+        if (shopOrderById[aShop] < shopOrderById[bShop]) {
           return -1;
-        } else if (shopOrder[bShop] < shopOrder[aShop]) {
+        } else if (shopOrderById[bShop] < shopOrderById[aShop]) {
           return 1;
         }
 

@@ -5,6 +5,7 @@ const ShoppingList = ({
   shoppingItems,
   shoppingList,
   setShoppingList,
+  shops,
   showSortButton,
   clickSortButton,
   submitWeekList,
@@ -45,6 +46,7 @@ const ShoppingList = ({
         shoppingList={shoppingList}
         setShoppingList={setShoppingList}
         shoppingItems={shoppingItems}
+        shops={shops}
         weekListId={weekListId}
         shoppingListStyle={shoppingListStyle}
       />
@@ -59,6 +61,7 @@ const ShoppingList = ({
         shoppingList={shoppingList}
         setShoppingList={setShoppingList}
         shoppingItems={shoppingItems}
+        shops={shops}
         shoppingListStyle={shoppingListStyle}
       />
     </div>
