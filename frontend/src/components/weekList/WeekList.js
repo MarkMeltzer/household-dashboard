@@ -119,7 +119,7 @@ const WeekList = (props) => {
     shoppingList={shoppingList}
     setShoppingList={setShoppingList}
     shops={shops}
-    showSortButton={!settings?.sortOnSubmit}
+    manuallySortable={!settings?.sortOnSubmit}
     clickSortButton={() => {
       const filteredShoppingList = filterShoppingList(shoppingList)
       const sortedShoppingList = sortShoppingList(filteredShoppingList)

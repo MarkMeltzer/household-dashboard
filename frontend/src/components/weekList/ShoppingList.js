@@ -6,7 +6,7 @@ const ShoppingList = ({
   shoppingList,
   setShoppingList,
   shops,
-  showSortButton,
+  manuallySortable,
   clickSortButton,
   submitWeekList,
   weekListId,
@@ -39,7 +39,7 @@ const ShoppingList = ({
   } else if (shoppingItems.data && !isEditing) {
     // View mode
     return <div className="bottomSection">
-      {showSortButton && <div className="sortButtonContainer">
+      {manuallySortable && <div className="sortButtonContainer">
         <button onClick={() => submitWeekList(true)} className="sortButton">Sort</button>
       </div>}
       <ShoppingListViewMode 
@@ -54,7 +54,7 @@ const ShoppingList = ({
   } else if (shoppingItems.data && isEditing) {
     // Edit mode
     return <div className="bottomSection">
-      {showSortButton && <div className="sortButtonContainer">
+      {manuallySortable && <div className="sortButtonContainer">
         <button onClick={() => clickSortButton()} className="sortButton">Sort</button>
       </div>}
       <ShoppingListEditMode 
@@ -63,6 +63,7 @@ const ShoppingList = ({
         shoppingItems={shoppingItems}
         shops={shops}
         shoppingListStyle={shoppingListStyle}
+        manuallySortable={manuallySortable}
       />
     </div>
   }

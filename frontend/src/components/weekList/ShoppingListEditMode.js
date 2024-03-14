@@ -50,6 +50,7 @@ function ShoppingListEditMode({
   shoppingItems,
   shops,
   shoppingListStyle,
+  manuallySortable,
 }) {
   function addShoppingItem() {
     setShoppingList([...shoppingList, { id: "newItem", checked: false, note: "" }]);
@@ -65,6 +66,7 @@ function ShoppingListEditMode({
       animation={150}
       style={shoppingListStyle}
       filter=".addNewButton"
+      sort={manuallySortable}
     >
       {shoppingList
         .map((item, index) => (
@@ -80,7 +82,7 @@ function ShoppingListEditMode({
           >
             {
               <>
-                <div className="dragHandleContainer">
+                <div className="dragHandleContainer" style={{width: manuallySortable ? 'auto' : '0px'}}>
                   <div className="dragHandle"></div>
                 </div>
                 <ShoppingItemInput
