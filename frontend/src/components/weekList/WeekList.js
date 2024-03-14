@@ -151,13 +151,16 @@ const WeekList = (props) => {
         // first order by shop
         const aShop = shoppingItems.data[a.id].shop
         const bShop = shoppingItems.data[b.id].shop
-        if (shopOrderById[aShop] < shopOrderById[bShop]) {
+
+        if (!aShop && !bShop) {
+          return 0
+        } else if (shopOrderById[aShop] < shopOrderById[bShop]) {
           return -1;
         } else if (shopOrderById[bShop] < shopOrderById[aShop]) {
           return 1;
         }
 
-        // then order by order from user settings
+        // then order by location order from user settings
         const aIndex = settings.shopOrder[aShop].indexOf(shoppingItems.data[a.id].location)
         const bIndex = settings.shopOrder[bShop].indexOf(shoppingItems.data[b.id].location)
         if (aIndex < bIndex) {
