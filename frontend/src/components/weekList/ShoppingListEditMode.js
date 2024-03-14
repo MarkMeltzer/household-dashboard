@@ -67,6 +67,7 @@ function ShoppingListEditMode({
       style={shoppingListStyle}
       filter=".addNewButton"
       sort={manuallySortable}
+      className="shoppingList"
     >
       {shoppingList
         .map((item, index) => (

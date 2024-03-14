@@ -65,7 +65,7 @@ function ShoppingListViewMode({
   const shopColors = shops ? convertShopLookupTable(weekListShopColors, shops) : {}
 
   return (
-    <div style={shoppingListStyle}>
+    <div className="shoppingList" style={shoppingListStyle}>
       {shoppingList.map((item, index) => (
         // item = { id, checked, amount }
         <div
