@@ -574,7 +574,7 @@
         },
         "70128a2b8ccc4f22a37d909a20d5b3a4": {
             "name": "3x paprika",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "333da0503ff54ab0be488a72d1eef35c": {
             "name": "3L milk"
@@ -588,49 +588,48 @@
         },
         "e36c26cbdcdc4463a30d0309be0c8c37": {
             "name": "Brocolli",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0684963bfe1f4a6eacf916c2600f4a6b": {
             "name": "Pasta",
             "price": 6.9,
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "b19391ad064c4eb6b284edbc514ddc2f": {
             "name": "avocado"
         },
         "4e117cecffd346d5b62cabafb4036fed": {
             "name": "salami",
-            "shop": "Albert Heijn"
+            "shop": "5ed0cc9786c84578aec1290b3ce3f5ea"
         },
         "2580c5c400af4e10b53f44d846aebf38": {
-            "location": "Cosmetics",
             "name": "toilet paper",
             "price": 2.5,
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8878b170b33c40fa852c006f824b6a6a": {
             "name": "Bloem",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "5287dd5e33704d7987b9023a548646f0": {
             "name": "Kaas",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "ae51c41814ad4dd08a15b2fc1739657e": {
             "name": "Uien",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0a1ffdaa69c8459bb461087502b4e29c": {
             "name": "Eieren",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "98dafac7aa35419b870a7af344e7f2fe": {
             "name": "Melk",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "e2307d6c7bbe41e0884bd4ef0a95386d": {
             "name": "Karamel stroop",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "a351d3cbb57e48d38a41aa903665702f": {
             "name": "poedersuiker"
@@ -658,7 +657,7 @@
         },
         "6077e76573af4810a82e5ff49abed638": {
             "name": "adipiscing shannon is mooi",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "809f242bebc743bfbc0a6f24028eb98f": {
             "name": "elit"
@@ -697,8 +696,7 @@
             "name": "aliqua"
         },
         "19ddb0ea294d4ed5a4f27789afa95bf3": {
-            "shop": "Lidl",
-            "location": "brood",
+            "shop": "fb757f49e2a14add905150e060196da0",
             "price": 1.2,
             "name": "Brood"
         },
@@ -716,622 +714,620 @@
         },
         "1061e1ebcc984263926a8e6b9362ebab": {
             "name": "Coca-Cola Cherry",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "b5c0cb7763b2421cbd6877776b8018f8": {
             "name": "Coca-Cola Vanille",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "f0e10ea310024eb088487cd89a34ef03": {
-            "location": "Conservatives",
             "name": "Bamikruiden",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "3dc95735380a4582adecb4fc4374b13f": {
             "name": "Aardappelbakje",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "e9724d0c2c044df585dc7cca9d5fe84e": {
             "name": "Stokbrood",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "fc1f007efb27416a8f60bbb528c41524": {
             "name": "Wortels",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "4ae3c1320e1447808a33ce4f6a9239c5": {
             "name": "Knoflookgarnalen",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "25703065ecac42508ebe90a284ee9218": {
             "name": "Kookroom 250ml",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "d150c9cda8964d54a77372e76aadb575": {
             "name": "Voorgekookte aardappels 200gr",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "7ff6392a5f3b4aa6bd4dc0acfb592f59": {
             "name": "Lunch",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "b48c25d3db274cf5a470a798ddb1a400": {
             "name": "Broodbeleg",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0a8832a8327e4cbc932a0413cd70aca4": {
             "name": "Vega vilet"
         },
         "fdf3e86f0e8d4ddd9d2850f24ca35a41": {
             "name": "Vega filet americain",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "bcf8593e866b45a4bf555ab986ac510e": {
             "name": "Vleeswaren",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "b536a0022f034a068cdad79a3f752c3e": {
             "name": "Italiaanse groente ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "818791ba5079427ea629ba56aed4e4e4": {
             "name": "Spekjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8e9fefbefd404cbdbb5595af70500df5": {
             "name": "Handzeep",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "78d47e3a68c34fa48a4322cd53b6ca46": {
             "name": "Bananen",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "3f336a943b434246bd3f5d80b88505df": {
             "name": "Blok kaas \ud83e\uddc0",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "50b8e541bab44ccda0bffcc8438356f8": {
             "name": "WC papier",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0e99b4a301874411a88a7ef9f5a91cd3": {
             "name": "ACE",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "14628557a92d426e85dd159a21da8316": {
             "name": "Taco shells",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "ce9d2e3a50f94e3b97b1918346172617": {
             "name": "Wraps",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "9e5d53bc13ea487d9a9dac5a9142c3d2": {
             "name": "Taco kruiden",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "cc9b196519e44af69f7b0801105a8baf": {
             "name": "Avocado's ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "4e205f096a324c84a19b12e4f414d6e8": {
             "name": "Guacamole",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "47c3d84eb9aa437e96ddbcfcc5bb51a6": {
             "name": "Reistepap "
         },
         "fec29e2952714daf8ee144cced8e2e22": {
             "name": "Mona toetje",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "b9ad63560fe24e7690c74da1aa050735": {
             "name": "Chips"
         },
         "80dd0eba09f94b14b428245dada6c4b8": {
             "name": "Zoute boter",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "7fd34e0e1f284d12b3e126d2e969abcf": {
             "name": "Salsa",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "1ec23994412346a9bc6282497408a9cf": {
             "name": "Kropsla ijsberg",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8eb59b4553034c41a77e18f81cc96524": {
             "name": "Ma\u00efs",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "5f65e7dff15b44f7afea2a67e6e2d381": {
             "name": "Geraspte kaas",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a3ce4735f0f54353ad934d718adfc9ed": {
             "name": "Taug\u00e9",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "07f6610de49a4202b81ae84f179b9dee": {
             "name": "Pesto",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "d6db824327314f6c9738e5df6c809968": {
             "name": "Half om Half gehakt 1kg",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "dc925e8b7533411da199bd413cb1553d": {
             "name": "Vega gehakt",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "3094e7b3d6f648569bc1fb6af7bf3d78": {
             "name": "Bami groente",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "acd0b75c8d6e4b70b71872fe900272b4": {
             "name": "Mie",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "c2aac3ce73e04dd4a5046dc8a50e9e4f": {
             "name": "Kroepoek",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "bcc5754117974dbbbe33bd256313af8d": {
             "name": "Sat\u00e9saus",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "fe46c1ffdfe544688f25e55745f6825e": {
             "name": "Komkommer",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "ba9f820d2299495c8a184f985faabbfc": {
             "name": "Snoep tomaatjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0ebc2ce85cad47eab87ac22f351549ce": {
             "name": "Wasverzachter",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "18e492bd0c5443c0ba80ee551afd1342": {
             "name": "Ham",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "262baf4b7c8e42aeb7c3838aa4ff8bb5": {
             "name": "Achterham",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "454e831f2ac8470da21b2d424f5ebf35": {
             "name": "Speltbrood of glutenvrij",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "e8ab4fde374b403e9c0e23bd57830bc5": {
             "name": "Pretzel",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a368d66928184d48b867d8c821bf91fd": {
             "name": "Berlinerbol",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "d02741b3360a473d82830f95291cbeeb": {
             "name": "Vanille Donut",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "db370193e92d435a942003d28b8ae714": {
             "name": "Croissant",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "89064d84a25a40cc937746258a8a1670": {
             "name": "Cola",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a3f7bc7f73ca4e5cb17362957227040f": {
             "name": "Nep-dubbelfris",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "c4e1e8c140ef4e6fbca4fa401c3a4eb8": {
             "name": "Sinas",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "b399a270475b420db6b720db9272a261": {
             "name": "Cookie dough en brownie ijs",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "99853155f1f54e86a819f6ac51d2a582": {
             "name": "Geitenkaas",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "373c6a8cf3ed491c82894a8df49a953c": {
             "name": "Gekruide krieltjes groen",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "7fec73fbf4bb4885a8743016f7d0f65c": {
             "name": "Pureer-pompoensoep",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "4148dd1455b94500ab218ed832744bc9": {
             "name": "Vissticks",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "748fe9c7235d4e9cbd67d0e95a41c00b": {
             "name": "Gesneden Ijsbergsla",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "9476cc8ec2fe4bbdae6b0bc345f1a619": {
             "name": "Wasa Sandwich Cheese Tomato & Basil ",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "138b886105d54b589791eb4c6c8d8c78": {
             "name": "Wasa Sandwich Cheese",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "46b51a2e88014b13a9f4785477c5aa30": {
             "name": "Melk chocovlokken",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "28c3ba177e314be6a574cc87105fc0c0": {
             "name": "Eiersalade",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "4db124c8fd284513a20ee47e5566aba4": {
             "name": "Luxe knoflooksaus",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "73c0f4254148476aa27a2b9d91480323": {
             "name": "Sla melange",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "35839cd8a0c546b48c4b988688e769ad": {
             "name": "Peren",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "3765beb9c333494894fb27c4fc6715c8": {
             "name": "Truffel ossenworst",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "d649c6ff078443aebedbb750df485096": {
             "name": "Schoolkoek",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8cb3669c1b654dfb8a625b30b61d14b3": {
             "name": "Kip Burger vegetarische Slager",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "3bdf28754fe24e629552962f5121abd3": {
             "name": "Keukenrol",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "93deefd34810456e9e57d81be45cf266": {
             "name": "Margarine",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "7df74f52335f4765bdb8aabdb4b8e823": {
             "name": "Appels",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "842546f191634befae40a4438014638c": {
             "name": "Volkoren brood",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "cc0fe0fdfba14807aac6a344392c12ce": {
             "name": "Groente Schnitzel",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "6b09087340ce4007877c01cbe56b0a31": {
             "name": "Gevulde"
         },
         "a8f59ac729e7416bbc7b731a5e712051": {
             "name": "Gevulde gnocchi ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "683133950dc04058965321092be77fe8": {
             "name": "Gratis Ice Tea",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "2420516af389407298cd5e7dc416b0b0": {
             "name": "Gekruide zoete aardappel",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "3c03f12f61054de1b3007a472a1b9107": {
             "name": "Maiskolf",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "2ccbb4cc13a446d4ba2bc09ddc6bf8d5": {
             "name": "Kaaschnitzel",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "e5cdcc886e5443b2b970999667851f40": {
             "name": "Spanaziebodem",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "7ef76480b1804ff9814c7facfe3c8042": {
             "name": "Courgette",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "10829e6e8cb04b4cacc92bfcd72b3b77": {
             "name": "Winterpeen",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "88dcee0b25b9410f94b4ad6da21152c3": {
             "name": "Kookroom 125ml",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "71a52213322249ee9a015b7257a2976b": {
             "name": "Chinese groeten ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0e1d3c387c3441039f35aa2add4a28b3": {
             "name": "Krieltjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "53dd998f4bac4dc69ecc89f651c7c5f2": {
             "name": "Vandaag",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "fd6eaa9641c44d599f46187fd5c8a811": {
             "name": "Dinsdag",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "fcc9ddb131f14f9abb22c1eca0734482": {
             "name": "Glansmiddel",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "219c13db5e094cb69f6c2de0c8882954": {
             "name": "Smoothie",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "1f59b6ab41674699b488117d96d3acce": {
             "name": "Italiaanse bollen",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "7007fcb51eb34657976099c85b9c11ce": {
             "name": "Rucola",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "3f092588c3f2473eafb84c67b40cceca": {
             "name": "Walnoten",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "17eabfc9bc624530ae7f92970459f65f": {
             "name": "Gekruide aardappel golfjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "4d37ae719a8146bcaa13112db159ed01": {
             "name": "Snijbonen",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0fe93f7f8b004d449113adb0ebb5ea86": {
             "name": "Rode pesto",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "3af208ba5dbf4577911f947a900c6e0f": {
             "name": "Pesto rood",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "1deecdf0ab9d436da17599087e65f8ce": {
             "name": "Fruit",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "50b4e654e3cd45b296adb46fbc118c9d": {
             "name": "Brie",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "240890c3e2a5482299cad49d0beb31e3": {
             "name": "Vegan Slagroom",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "3ab2f0e898f94783971677331479d6fa": {
             "name": "Chocoladesaus",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "59c1da64ccc1480ba4b27d250def7279": {
             "name": "Vegan Yoghurt",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0575e1c812bb476aa77d3e4137e936b8": {
-            "name": "yega",
-            "shop": ""
+            "name": "yega"
         },
         "1924b938eca24663a960962fed0e4f39": {
             "name": "Roti pak",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "8793af7a192445cf975c6e39b8e33139": {
             "name": "Sperziebonen",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "50427cde2146408cab3b0fb834f8bbec": {
             "name": "Aardappelen",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "c7001d6de4ae4f36a9a377ce95d15118": {
             "name": "Jus",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8026cd87b8c74c87bbb9fcdddca59a5d": {
             "name": "Vega braadworst",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "632e027d76a04b9dafddd22c818dce15": {
             "name": "Kip",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "c4651fd289f943419ebfe07181c657bc": {
             "name": "Couscous ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "96ce4fee393e4770a402ddc56abe504a": {
             "name": "Feta",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "7ff0236829c34c438598436c617c89d1": {
             "name": "Turks brood",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "229a159458e24736baa3379a265082cf": {
             "name": "Frietsaus",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "25548be08e824756a2602bf2e56e6e1e": {
             "name": "Bapao",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "5607abb07ae547229dc4350f52fa11d0": {
             "name": "Snackgroenten",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "980a0efc19f949a785b81be889bb52ae": {
             "name": "Milka Maxx Hazelnoot",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "86ac3e3079034e94a9924ba05622b9d8": {
             "name": "Coolbest Ijs mango",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "95ea811ac00545dcb1f40bc67dd65b25": {
             "name": "Pizzadeeg met saus",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "800818433b2449b7bd33ff860a71aeed": {
             "name": "Ontbijtkoek",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8ca8a3d09ce54f71964daab2aa61990c": {
             "name": "Burrito pak",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "4236de7d2bfb4c428c92bfc433e9f301": {
             "name": "Bobotie pak",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "7ef1db353f1646b3b5398c61257d40a0": {
             "name": "Cr\u00e8me Fraiche",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "7be869ff8da64485842a32aaf37f5fff": {
             "name": "Bami/Nasi groenten",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "b451cc40bd774df2b3dc92487f208008": {
             "name": "Vegan Cr\u00e8me Fraiche",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8a5c7d26f41f428ca31a42584635ba36": {
             "name": "Paprika",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "9456b663bc314c62ba7c9b72db329815": {
             "name": "Champignons",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "c75ca5b976964f0f917086a312c33832": {
             "name": "Mozzarella",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "ddfcff06d7f44d5389ae623cbb927a7c": {
             "name": "Soja Yoghurt",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "d997a9d7a9f94de08b6cebf0cc4f147a": {
             "name": "Sweet Corner Drop in zak",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a11cfff7c27748cc9333d317fd4fad51": {
             "name": "Toscaanse Aardappelpartjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "ecfcd1b7e9ff4df49a5c8f618b42ae36": {
             "name": "Vega kip krokant",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8c3252e8c0cd4b77a12e88999d9e798d": {
             "name": "Broccoli ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "76984a7206c14991bb4d0535c8111f2d": {
             "name": "Groene appel"
         },
         "3029aa90d0b24e12bd26446c3bb936c0": {
             "name": "Groene appel \ud83c\udf4f ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8e1e02aaa9c84ffb89489aafe34e8352": {
             "name": "Humus",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "f0f95671746149838fe104e2733cb9eb": {
             "name": "Grillworst",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "135e2105cfd14319861c4bf094223504": {
             "name": "Jumbo Lekker Veggie Spareribs BBQ Saus Vegan 210g",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "64ce56cee8cf4ad097f2f6b0aeb4ec98": {
             "name": "Mocktail Nojito",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "5befd39eb6a9443392bbf96c16d86a04": {
             "name": "Mocktail Strawberry Mockiri",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "04a87a23f5f84f83a50c8b92b6cb3315": {
             "name": "Arizona Ijsthee",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "52bbb1bbdc864eef9887e74ebbd6dc7a": {
             "name": "Bromelia",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8f3c8b7e97dc41c594a324517ff54759": {
             "name": "Gekruide pita broodjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "2dda7668ee7a42f6aed276d7a21d7522": {
             "name": "Grillworst met kaas",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "dd841f65e50f4d58ba2773f36791b6c6": {
             "name": "Kiwi's \ud83e\udd5d",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "23c01b6ebd94425facd5c5255a6b6a8b": {
             "name": "kiwi"
         },
         "0798f00eee5047abbb42c61ceb66a06e": {
             "name": "Freeway Ijsthee Mango",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "89149b2cd0724d3a90f96ac25e633dd0": {
             "name": "Vanille Donut lekker",
-            "shop": "Albert Heijn"
+            "shop": "5ed0cc9786c84578aec1290b3ce3f5ea"
         },
         "2d5a942c86794c4baa27a9e81d061a5d": {
             "name": "Oude kaas salade",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "8d4f508b42164aebb4c3fec283bc20a4": {
             "name": "Paracetamol",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a1e32a0b2a0a4808bdd842f0eb61f5d9": {
             "name": "Pasta saus",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "e52e9beb03ee471091bcd1f10dab6075": {
             "name": "Spaghetti",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "6574ac6162a94991ac80c1b913538b58": {
             "name": "Solevita Vruchtendrank",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "065ef124b5c04bf4bddb3e75ebeeda67": {
             "name": "Spelt Vloerbrood",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "b4f6484d33c04d09b31f3ce9b4d47ede": {
             "name": "Cassave kroepoek",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a19fb75cd49242febff21d01e8b9c4b6": {
             "name": "Cool new test item"
@@ -1368,15 +1364,15 @@
         },
         "3a656bc88a044bcbb10f110aea89a080": {
             "name": "AH Biologisch Vegan groenteburger",
-            "shop": "Albert Heijn"
+            "shop": "5ed0cc9786c84578aec1290b3ce3f5ea"
         },
         "5cc09df8153d40318b28d7e8122a5747": {
             "name": "Aardappelgratin",
-            "shop": "Albert Heijn"
+            "shop": "5ed0cc9786c84578aec1290b3ce3f5ea"
         },
         "6403802e8f3b4a8b9f39bbce5b1df5f2": {
             "name": "Vega spekjes",
-            "shop": "Albert Heijn"
+            "shop": "5ed0cc9786c84578aec1290b3ce3f5ea"
         },
         "fc5eba62249944f699c47db1d6e1d620": {
             "name": "Rode Ui"
@@ -1407,62 +1403,62 @@
         },
         "a9e175e5226b46c99713deed0bc10ee2": {
             "name": "Roti saus",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "350576ef3c7b4a179c352840f415a914": {
             "name": "Ovenkrieltjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "1d555dcf1b534769b4bf72ae6edb6258": {
             "name": "AH Falafel",
-            "shop": "Albert Heijn"
+            "shop": "5ed0cc9786c84578aec1290b3ce3f5ea"
         },
         "2469db766fb345aa94f999a241cfc697": {
             "name": "AH Vega Kip",
-            "shop": "Albert Heijn"
+            "shop": "5ed0cc9786c84578aec1290b3ce3f5ea"
         },
         "ff2fa9da3cf446188e76c69b1a047255": {
             "name": "Spaghetti groente pakket",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "620d3b15906e46ad8e3b4dcbe1cb4782": {
             "name": "Cocktail limonade",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "9126b5a4303743fc97e47fa53365b04c": {
             "name": "Pasta rietje",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "f05d2e0bfdc14766b8e95a16c2b019f9": {
             "name": "Zoete aardappel",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "66fe7e4222ed4f8d9eaa8fb6b15aa21d": {
             "name": "Sandwich spread",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "fe389ca384fb4ef097c4a5936af89ffe": {
             "name": "Spinazie a la creme",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "af565a63db1245a7841c26548a083152": {
             "name": "Wchool"
         },
         "633cc51e3c8141df873297aa72924967": {
             "name": "Belgische boterwafels",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "924e1cdbb40c40669ed8f9017f5f08ef": {
             "name": "Pizza vegan",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "b178c705aa6e43898c3d087ad08fa49a": {
             "name": "Sla malange ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a51281cccf06448aac2bdb21fa24e932": {
             "name": "Sla dressing",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "e8092def166c4461b8e85088c8cb9121": {
             "name": "Gezoute boter"
@@ -1475,93 +1471,93 @@
         },
         "6fce22c4460b4a1fb80460c85f4c1b6d": {
             "name": "Koekje",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0459785515cd49e78f7b0177a4511aad": {
             "name": "Parmezaanse kaas 40 gram",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "275acd61afec4cf8b66e10711a096fae": {
             "name": "Lente ui"
         },
         "41115a730d684e2dac841bf3cbf51add": {
             "name": "Lente uitjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "9c9335aba29b4bbfa6e10a4c94a3aba2": {
             "name": "Ciabatta",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "99cedcca797740469ab04bdb6c5e8c0c": {
             "name": "Knoflook ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "f9320216a2f54bb7a2c05b97a5f1ae05": {
             "name": "Kookroom 200 ml",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "0e2c0ff376ec4eb4882548c5afe8ebe3": {
             "name": "Kanneelbroodje",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "6b2d8ccfecec49daa67c72c75fa5f5e5": {
             "name": "Rode bieten falafel ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "730acff6770d43259e785787110b1937": {
             "name": "Bananen donut",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "e705c04ce81340158a9e876115da2696": {
             "name": "Haselback potatos",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "976403bcd6cb42d3ab1974f0bcbc2afc": {
             "name": "Melk taarje",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "5c9c3c28487b451d8bdeb3bebd2aa8df": {
             "name": "Curry kruiden",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "8929aa02d5344a1f84bd98d5c8a2c0db": {
             "name": "Bloemkool en broccoli mini",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "ee86c8fb4d4b4e438ab6b5b35a485ef9": {
             "name": "Naan brood",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "a8159a76eb804fdf83cdaf1e0ef8dcf3": {
             "name": "Bio rode linzen pasta",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "2b06cca4641a4c73b4979751b169f3e4": {
             "name": "Cocosmelk",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "d846c8ff6bbb4de28a17b41a3b6109c2": {
             "name": "Showergel"
         },
         "e71887ca322342d7a143d0c6f66fe6db": {
             "name": "Zoete aardappel gratin",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "906db3f46106462692650ad65c1c7975": {
             "name": "Valess Gouda Kaasschnitzel Vega",
-            "shop": "Jumbo"
+            "shop": "1a27a8f00e9b4e9ab53131af4d2c4507"
         },
         "055f5e822bac4f848b4079cdf487562a": {
             "name": "Honing",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "87097349f629474e8d2568ea4989d844": {
             "name": "Daim ijs",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "cfe7195172674887a59e069de88c8447": {
             "name": "Groentebouillon",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "c3ff66acb8a2492085b04d44146afe2f": {
             "name": "Hekjes"
@@ -1571,31 +1567,31 @@
         },
         "191591d78bf742febd6bdd4fc966e8ac": {
             "name": "Vega shoarma",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "3af5f1b38acc46998bbb0ca53ff0d6ff": {
             "name": "Pita broodjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "a97042fcd5d74cab9327a01fa21b4eb5": {
             "name": "Wasmiddel",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "bc034526eb6841c6ba9facbb4004e048": {
             "name": "Pak sap",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "62588662a2db41b79573077a3d4a5886": {
             "name": "Dreft vaatwasblokjes",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "c7e76bb4555246b4b51e5ea77a47f3a8": {
             "name": "Ambachtelijke salade",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "10a0603d80b64738b3033eaaf0b00ccd": {
             "name": "Oreillettes (kroepoek koekjes?) ",
-            "shop": "Lidl"
+            "shop": "fb757f49e2a14add905150e060196da0"
         },
         "dfde009540bd48f5a89deef311cbf4d6": {
             "name": "yega"
@@ -1683,6 +1679,50 @@
             "sourceUrl": "",
             "recipeText": "",
             "creationDate": "2023-07-23T21:11:00+01:00"
+        }
+    },
+    "shops": {
+        "fb757f49e2a14add905150e060196da0": {
+            "name": "Lidl",
+            "locations": {
+                "852ceeb1c9134717bd87a89f4ba8a0ba": {
+                    "name": "Ultravers"
+                },
+                "11cb000a032f45639f8b3fec6d83c0d1": {
+                    "name": "Groente/Fruit"
+                },
+                "7ae2599047e74a70ac8902c0676372dd": {
+                    "name": "Broodjes"
+                }
+            }
+        },
+        "5ed0cc9786c84578aec1290b3ce3f5ea": {
+            "name": "Albert Heijn",
+            "locations": {
+                "d574f079861945c3bb1d17e2ce08397c": {
+                    "name": "Fruit"
+                },
+                "a51a21146db9414a92732e18bc84fde6": {
+                    "name": "Vleesvervangers"
+                },
+                "3774795e7c6c4a04a59cba8fe8b13e3f": {
+                    "name": "Broodjes"
+                }
+            }
+        },
+        "1a27a8f00e9b4e9ab53131af4d2c4507": {
+            "name": "Jumbo",
+            "locations": {
+                "baaef7013cb74fe7bfe3c974dd493395": {
+                    "name": "Fruit"
+                },
+                "dbe7091d62e64ca881e4ee4ac29def0e": {
+                    "name": "Vleesvervangers"
+                },
+                "98f830681d7c42a8bbb01675d4c68119": {
+                    "name": "Broodjes"
+                }
+            }
         }
     }
 }

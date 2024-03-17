@@ -5,9 +5,10 @@ updating records etc.
 '''
 
 from flask import request, abort, jsonify
-from utils import verify_token, get_datetime
+from utils import get_user_by_token, get_datetime
 from database import Database
 from functools import partial, update_wrapper
+from http import HTTPStatus
 
 def generate_route(route, *args, **kwargs):
     '''
@@ -31,18 +32,21 @@ def generate_route(route, *args, **kwargs):
     # function has, such as __name__
     return update_wrapper(partial_function, route)
 
-def all_records(table: str):
+def all_records(table: str, add_creation_date: bool = True):
     '''
     Endpoint for all records in `table`.
 
     - GET returns list of all records in `table`
     - POST creates new record in `table` from data in request body
+
+    Arguments:
+        - `add_creation_date` specifies whether record created with a POST request gets a creation date.
     '''
 
     # authorize client
-    if not verify_token(request):
+    if not get_user_by_token(request):
         print("Wrong token.")
-        abort(401)
+        abort(HTTPStatus.UNAUTHORIZED)
 
     db = Database()
 
@@ -54,7 +58,7 @@ def all_records(table: str):
         # add a new record
         print(f"{get_datetime()} -- Adding new {table} record...")
 
-        record_id = db.add_record(table, request.json)
+        record_id = db.add_record(table, request.json, add_creation_date=add_creation_date)
         
         return jsonify({"id" : record_id})
     
@@ -71,14 +75,14 @@ def specific_record(table: str, record_id: str):
     '''
 
     # authorize client
-    if not verify_token(request):
+    if not get_user_by_token(request):
         print("Wrong token.")
-        abort(401)
+        abort(HTTPStatus.UNAUTHORIZED)
 
     db = Database()
 
     if not db.record_exists(table, record_id):
-        abort(404)
+        abort(HTTPStatus.NOT_FOUND)
 
     if request.method == "GET":
         # get existing record

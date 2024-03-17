@@ -1,5 +1,6 @@
+from http import HTTPStatus
 from flask import Blueprint, request, abort, jsonify
-from utils import verify_token, get_datetime
+from utils import get_user_by_token, get_datetime
 from . import base
 from database import Database
 
@@ -23,9 +24,9 @@ def all_shopping_items_names():
 
     # TODO: decide wether this route will be used or not, if so make it use query filters
     # authorize client
-    if not verify_token(request):
+    if not get_user_by_token(request):
         print("Wrong token.")
-        abort(401)
+        abort(HTTPStatus.UNAUTHORIZED)
 
     print(f"{get_datetime()} -- Retrieving all shoppingItem name records...")
     

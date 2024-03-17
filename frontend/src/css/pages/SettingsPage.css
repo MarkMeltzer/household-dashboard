@@ -1,0 +1,87 @@
+.sectionHeader {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0px;
+    border-bottom: 1px dashed rgb(196, 196, 196);
+    margin-bottom: 15px;
+}
+
+.subsectionHeader {
+    font-size: 1.25rem;
+    color: white;
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.shopDragHandleContainer {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.shopDragHandle {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsLW9wYWNpdHk9IjAiPjwvcmVjdD4KPHJlY3Qgd2lkdGg9IjIiIGhlaWdodD0iMiIgZmlsbD0iIzAwMCI+PC9yZWN0Pgo8L3N2Zz4=");
+    width: 20px;
+    height: 76%;
+    cursor: grab;
+}
+
+.locationContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    color: white;
+    height: 2rem;
+    align-items: center;
+}
+
+.locationLabel {
+    color: white;
+}
+
+.settingLine {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    margin-top: .8rem;
+    margin-bottom: .8rem;
+}
+
+.settingLabel {
+    color: white;
+    font-size: 1rem;
+    margin: 0px;
+}
+
+.settingShopTitle {
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+}  
+
+.settingSummary {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-style: italic;
+    color: rgb(199, 199, 199);
+}
+
+.settingCheckbox {
+    grid-row: span 2;
+    width: 1.5rem;
+}
+
+.shopOrder {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.submitSettingsButton {
+    float: right;
+    width: 30%;
+    height: 30px;
+}

@@ -3,6 +3,8 @@ import Modal from "../Modal";
 import { removeItemFromArray, updateArray, updateObject } from "../../utils";
 import { ReactSortable } from "react-sortablejs";
 import ShoppingItemInput from "./ShoppingItemInput";
+import { weekListShopColors } from "../../consts";
+import { convertShopLookupTable } from "./WeekList";
 
 const EditModeModal = ({ item, index, shoppingList, setShoppingList, shoppingItems }) => {
   function deleteShoppingItem(index) {
@@ -46,12 +48,15 @@ function ShoppingListEditMode({
   shoppingList,
   setShoppingList,
   shoppingItems,
-  bottomStyle,
-  shopColors,
+  shops,
+  shoppingListStyle,
+  manuallySortable,
 }) {
   function addShoppingItem() {
     setShoppingList([...shoppingList, { id: "newItem", checked: false, note: "" }]);
   }
+
+  const shopColors = shops ? convertShopLookupTable(weekListShopColors, shops) : {}
 
   return (
     <ReactSortable
@@ -59,9 +64,10 @@ function ShoppingListEditMode({
       setList={setShoppingList}
       handle=".dragHandle"
       animation={150}
-      className="bottomSection"
-      style={bottomStyle}
+      style={shoppingListStyle}
       filter=".addNewButton"
+      sort={manuallySortable}
+      className="shoppingList"
     >
       {shoppingList
         .map((item, index) => (
@@ -77,7 +83,7 @@ function ShoppingListEditMode({
           >
             {
               <>
-                <div className="dragHandleContainer">
+                <div className="dragHandleContainer" style={{width: manuallySortable ? 'auto' : '0px'}}>
                   <div className="dragHandle"></div>
                 </div>
                 <ShoppingItemInput

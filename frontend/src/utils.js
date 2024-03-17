@@ -7,7 +7,7 @@
  * @returns 
  */
  export function updateObject(object, key, value) {
-    return {...object, [key]:value};
+	return {...object, [key]:value};
 }
 
 /**
@@ -18,10 +18,10 @@
  * @returns 
  */
  export function removeItemFromObject(object, key) {
-    const objectDuplicate = Object.assign({}, object);
-    delete objectDuplicate[key]
+	const objectDuplicate = Object.assign({}, object);
+	delete objectDuplicate[key]
 
-    return objectDuplicate;
+	return objectDuplicate;
 }
 
 /**
@@ -33,18 +33,26 @@
  * @returns 
  */
  export function updateArray(array, index, value) {
-    const arrayCopy = array.slice();
-    arrayCopy[index] = value;
-    return arrayCopy;
+	const arrayCopy = array.slice();
+	arrayCopy[index] = value;
+	return arrayCopy;
 }
 
 export function swapArrayElements(array, index1, index2) {
-    const arrayCopy = array.slice();
-    arrayCopy[index1] = array[index2];
-    arrayCopy[index2] = array[index1];
-    return arrayCopy;
+	const arrayCopy = array.slice();
+	arrayCopy[index1] = array[index2];
+	arrayCopy[index2] = array[index1];
+	return arrayCopy;
 }
 
 export function removeItemFromArray(array, index) {
-    return array.filter((el, i) => index !== i);
+	return array.filter((el, i) => index !== i);
+}
+
+export function DebugRenderObject(objectToRender) {
+	return <div style={{textAlign: 'left'}}>
+		<pre>
+			{JSON.stringify(objectToRender.objectToRender, null, 4)}
+		</pre>
+	</div>
 }

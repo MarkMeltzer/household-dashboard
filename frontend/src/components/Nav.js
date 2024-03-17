@@ -14,6 +14,7 @@ const Nav = ({ setLoginToken }) => {
     { location: "/recipes", label: "Recipes", "subPages": ['/recipe', "/newrecipe"] },
     { location: "/shoppingItems", label: "Shopping Items", "subPages": ["/shoppingItem"] },
     { location: "/playground", label: "Playground" },
+    { location: "/settings", label: "Settings" },
     { location: "/about", label: "About" },
   ];
 

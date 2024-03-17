@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory} from 'react-router-dom';
 import useGetWeekList from '../../hooks/useGetWeekList';
 import useUpdateWeekList from '../../hooks/useUpdateWeekList';
@@ -7,7 +7,24 @@ import useGetShoppingItems from '../../hooks/useGetShoppingItems';
 import MealList from './MealList';
 import ShoppingList from './ShoppingList';
 import '../../css/components/WeekList.css';
-import { updateObject } from '../../utils';
+import useGetSettings from '../../hooks/useGetSettings';
+import useGetShops from '../../hooks/useGetShops';
+import { weekListShopOrder, weekListDateTimeFormat } from '../../consts';
+
+export function convertShopLookupTable(lookupTable, shops) {
+  // convert lookup table with shop name keys to use shop id keys
+  const lookupTableById = {}
+  Object.entries(lookupTable).forEach(([shopName, value]) => {
+    const matchedShops = Object.entries(shops).filter(([_, shop]) => shop.name === shopName)
+    if (matchedShops.length) {
+      lookupTableById[matchedShops[0][0]] = value
+    } else {
+      lookupTableById[shopName] = value
+    }
+  })
+
+  return lookupTableById
+}
 
 const WeekList = (props) => {
   const hist = useHistory();
@@ -19,6 +36,8 @@ const WeekList = (props) => {
   const getWeekList = useGetWeekList(props.weekListId);
   const updateWeekList = useUpdateWeekList(props.weekListId);
   const createWeekList = useCreateWeekList(props.weekListId);
+  const { data: settings, ...getSettings } = useGetSettings();
+  const { data: shops, ...getShops } = useGetShops();
 
   // initialize mealList
   let initialMeals = [];
@@ -66,6 +85,12 @@ const WeekList = (props) => {
 
     // Get the shoppingItems data
     shoppingItems.sendRequest();
+
+    // get user settings
+    getSettings.sendRequest()
+
+    // get shop information
+    getShops.sendRequest()
   }, [getWeekList.data, getWeekList.error])
   // TODO: do useEffect cleanup
 
@@ -74,7 +99,7 @@ const WeekList = (props) => {
   =========================================================================*/
   let title;
   if (!newWeekList) {
-    title = <div className="title">{getWeekList.data ? getWeekList.data["creationDate"] : "Loading..."}</div>
+    title = <div className="title">{getWeekList.data ? new Date(getWeekList.data["creationDate"]).toLocaleString('en-NL', weekListDateTimeFormat)  : "Loading..."}</div>
   } else {
     title = <div className="title">New Week List</div>
   }
@@ -90,38 +115,74 @@ const WeekList = (props) => {
   ============================= Bottom section ============================
   =========================================================================*/   
   const bottomSection = <ShoppingList 
-    isEditing={isEditing}
     shoppingItems={shoppingItems}
     shoppingList={shoppingList}
     setShoppingList={setShoppingList}
+    shops={shops}
+    manuallySortable={!settings?.sortOnSubmit}
+    clickSortButton={() => {
+      const filteredShoppingList = filterShoppingList(shoppingList)
+      const sortedShoppingList = sortShoppingList(filteredShoppingList)
+      setShoppingList(sortedShoppingList)
+    }}
+    submitWeekList={submitWeekList}
     weekListId={props.weekListId}
+    isEditing={isEditing}
   />
 
-  function clickEditButton(e) {
-    if (!isEditing) {
-      setIsEditing(true);
-      return;
-    }
-    setIsEditing(false);
+  /**
+   * Returns a copy of the shoppingList without the empty item
+   */
+  function filterShoppingList(shoppingList) {
+    return shoppingList.filter(item => item.id != "newItem")
+  }
+  
+  /**
+   * Returns a sorted copy of the shoppingList
+   */
+  function sortShoppingList(shoppingList) {
+    // since we handle shops by ID but shopOrder lookup table is based on shop name
+    // we need to convert the shopOrder to have shop ids as key instead, this is jank
+    // but should be fixed once we move the shopOrder to the backend in future
+    const shopOrderById = convertShopLookupTable(weekListShopOrder, shops)
 
-    // filter and sort the shopping list
-    let filteredShoppingList = shoppingList.filter(item => item.id != "newItem");
-    filteredShoppingList = [...filteredShoppingList].sort(
+    const sortedShoppingList = [...shoppingList].sort(
       (a, b) => {
-        const shopOrder = {"Lidl": 0, "": 1, undefined: 1, "Jumbo": 2, "Albert Heijn": 3}
-        
+        // first order by shop
         const aShop = shoppingItems.data[a.id].shop
         const bShop = shoppingItems.data[b.id].shop
-        if (shopOrder[aShop] < shopOrder[bShop]) {
+
+        if (!aShop && !bShop) {
+          return 0
+        } else if (shopOrderById[aShop] < shopOrderById[bShop]) {
           return -1;
-        } else if (shopOrder[bShop] < shopOrder[aShop]) {
+        } else if (shopOrderById[bShop] < shopOrderById[aShop]) {
+          return 1;
+        }
+
+        // then order by location order from user settings
+        const aIndex = settings.shopOrder[aShop].indexOf(shoppingItems.data[a.id].location)
+        const bIndex = settings.shopOrder[bShop].indexOf(shoppingItems.data[b.id].location)
+        if (aIndex < bIndex) {
+          return -1;
+        } else if (bIndex < aIndex) {
           return 1;
         } else {
           return 0;
         }
       }
     )
-    setShoppingList(filteredShoppingList);
+
+    return sortedShoppingList
+  }
+
+  function submitWeekList(sort = false) {
+    // filter and sort the shopping list
+    let filteredShoppingList = filterShoppingList(shoppingList)
+    if (sort) {
+      filteredShoppingList = sortShoppingList(filteredShoppingList)
+      setShoppingList(filteredShoppingList)
+    }
 
     // reassemble mealList
     meals.forEach((meal, index) => {
@@ -155,6 +216,16 @@ const WeekList = (props) => {
         }
       )
     }
+  }
+
+  function clickEditButton() {
+    if (!isEditing) {
+      setIsEditing(true);
+      return;
+    }
+    setIsEditing(false);
+
+    submitWeekList(settings.sortOnSubmit)
   }
 
   if (getWeekList.error) return <div className="weekList"><p className="error">Error: {getWeekList.error.message}</p></div>

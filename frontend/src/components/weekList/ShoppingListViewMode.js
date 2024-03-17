@@ -5,6 +5,8 @@ import { useContext } from "react";
 import globalContext from "../../globalContext";
 import { updateArray, updateObject } from "../../utils";
 import Modal from "../Modal";
+import { weekListShopColors } from "../../consts";
+import { convertShopLookupTable } from "./WeekList";
 
 const ViewModeModal = ({ item, shoppingItems }) => {
   return (
@@ -20,8 +22,8 @@ function ShoppingListViewMode({
   setShoppingList,
   shoppingItems,
   weekListId,
-  bottomStyle,
-  shopColors,
+  shoppingListStyle,
+  shops,
 }) {
   const context = useContext(globalContext);
 
@@ -60,8 +62,10 @@ function ShoppingListViewMode({
       });
   }
 
+  const shopColors = shops ? convertShopLookupTable(weekListShopColors, shops) : {}
+
   return (
-    <div className="bottomSection" style={bottomStyle}>
+    <div className="shoppingList" style={shoppingListStyle}>
       {shoppingList.map((item, index) => (
         // item = { id, checked, amount }
         <div
