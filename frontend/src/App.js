@@ -1,7 +1,7 @@
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+  Routes,
+  Route,
 } from "react-router-dom";
 import { useState } from "react";
 import WeekListPage from './pages/WeekListPage';
@@ -35,29 +35,29 @@ function App() {
   }
 
   return (
-    <Router>
     <div className="App">
       <globalContext.Provider value={{"token" : token}}>
         <div className="content">
-          <Nav setLoginToken={setToken}/>
-          <Switch>
-            <Route exact path="/"><HomePage /></Route>
-            <Route path="/week/:id"><WeekListPage /></Route>
-            <Route path="/newweek"><NewWeekListPage /></Route>
-            <Route path="/shoppingItems"><ShoppingItemsPage /></Route>
-            <Route path="/shoppingItem/:id"><ShoppingItemPage /></Route>
-            <Route path="/recipes"><RecipeListPage /></Route>
-            <Route path="/recipe/:id"><RecipePage /></Route>
-            <Route path="/newrecipe"><RecipePage newRecipe /></Route>
-            <Route path="/playground"><PlaygroundPage /></Route>
-            <Route path="/settings"><SettingsPage /></Route>
-            <Route path="/about"><AboutPage /></Route>
-            <Route render={() => <h1>Page not found :(</h1>} />
-          </Switch>
+          <Router>
+            <Nav setLoginToken={setToken}/>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/week/:id" element={<WeekListPage />} />
+              <Route path="/newweek" element={<NewWeekListPage />} />
+              <Route path="/shoppingItems" element={<ShoppingItemsPage />} />
+              <Route path="/shoppingItem/:id" element={<ShoppingItemPage />} />
+              <Route path="/recipes" element={<RecipeListPage />} />
+              <Route path="/recipe/:id" element={<RecipePage />} />
+              <Route path="/newrecipe" element={<RecipePage newRecipe />} />
+              <Route path="/playground" element={<PlaygroundPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route render={() => <h1>Page not found :(</h1>} />
+            </Routes>
+          </Router>
         </div>
       </globalContext.Provider>
     </div>
-    </Router>
   );
 }
 
