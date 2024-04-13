@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useHistory} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import useGetWeekList from '../../hooks/useGetWeekList';
 import useUpdateWeekList from '../../hooks/useUpdateWeekList';
 import useCreateWeekList from '../../hooks/useCreateWeekList';
@@ -27,7 +27,7 @@ export function convertShopLookupTable(lookupTable, shops) {
 }
 
 const WeekList = (props) => {
-  const hist = useHistory();
+  const navigate = useNavigate();
   const newWeekList = !props.weekListId && props.startingDate;
   
   /*=======================================================================
@@ -210,7 +210,7 @@ const WeekList = (props) => {
       // new weekList record needs to be created
       createWeekList.sendRequest(
         JSON.stringify(objToSend),
-        (res) => hist.push(`/week/${res["id"]}`),
+        (res) => navigate(`/week/${res["id"]}`),
         (err) => {
           alert("Error submitting list: \n" + err);
         }

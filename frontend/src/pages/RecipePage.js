@@ -5,11 +5,11 @@ import useUpdateRecipe from '../hooks/useUpdateRecipe';
 import { updateObject } from '../utils';
 import "../css/shared/detailPage.css"
 import useCreateRecipe from '../hooks/useCreateRecipe';
-import { useHistory} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 function RecipePage({ newRecipe }) {
   const { id } = useParams();
-  const history = useHistory()
+  const navigate = useNavigate()
   const [isEditing, setIsEditing] = useState(newRecipe)
   
   const { data: recipe, setData: setRecipe, isLoading, error, sendRequest: getRecipe } = useGetRecipe(id)
@@ -41,7 +41,7 @@ function RecipePage({ newRecipe }) {
     } else {
       createRecipe.sendRequest(
         JSON.stringify(recipe),
-        res => history.push(`/recipe/${res['id']}`),
+        res => navigate(`/recipe/${res['id']}`),
         err => alert("Error submitting recipe: \n" + err) 
       )
     }
