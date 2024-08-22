@@ -1,37 +1,38 @@
 from http import HTTPStatus
-from flask import Blueprint, request, abort, jsonify
-from utils import get_user_by_token, get_datetime
-from . import base
+
+from flask import Blueprint, abort, jsonify, request
+
 from database import Database
+from utils import get_datetime, get_user_by_token
 
-blueprint = Blueprint("shoppingItems", __name__, url_prefix="/shoppingItems")
+from . import base
 
-blueprint.route("", methods=["GET", "POST"])(
-    base.generate_route(base.all_records, table="shoppingItems")
+blueprint = Blueprint('shoppingItems', __name__, url_prefix='/shoppingItems')
+
+blueprint.route('', methods=['GET', 'POST'])(
+    base.generate_route(base.all_records, table='shoppingItems'),
 )
 
-blueprint.route("/<string:record_id>", methods=["GET", "PUT", "DELETE"])(
-    base.generate_route(base.specific_record, table="shoppingItems")
+blueprint.route('/<string:record_id>', methods=['GET', 'PUT', 'DELETE'])(
+    base.generate_route(base.specific_record, table='shoppingItems'),
 )
 
 
-@blueprint.route("/all/onlyNames", methods=["GET"])
+@blueprint.route('/all/onlyNames', methods=['GET'])
 def all_shopping_items_names():
-    """
-    Endpoint for the names of all shoppingItems.
+    """Endpoint for the names of all shoppingItems.
 
     - GET returns list of the names of all shoppingItems
     """
-
     # TODO: decide wether this route will be used or not, if so make it use query filters
     # authorize client
     if not get_user_by_token(request):
-        print("Wrong token.")
+        print('Wrong token.')
         abort(HTTPStatus.UNAUTHORIZED)
 
-    print(f"{get_datetime()} -- Retrieving all shoppingItem name records...")
+    print(f'{get_datetime()} -- Retrieving all shoppingItem name records...')
 
     db = Database()
 
-    shoppingItems = db.get_all_records("shoppingItems")
-    return jsonify([shoppingItem["name"] for shoppingItem in shoppingItems.values()])
+    shoppingItems = db.get_all_records('shoppingItems')
+    return jsonify([shoppingItem['name'] for shoppingItem in shoppingItems.values()])

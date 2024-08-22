@@ -1,17 +1,19 @@
+import logging
+import os
+import time
+
 from flask import Flask
 from flask_cors import CORS
+
 from routes import blueprints
-import logging
-import time
-import os
 
 SIM_DELAY = 0.0
 
 logging.basicConfig(
     level=logging.INFO,
-    filename="flask.log",
-    format="%(asctime)s %(levelname)s: %(message)s",
-    datefmt="%d/%b/%Y %H:%M:%S",
+    filename='flask.log',
+    format='%(asctime)s %(levelname)s: %(message)s',
+    datefmt='%d/%b/%Y %H:%M:%S',
 )
 
 app = Flask(__name__)
@@ -21,7 +23,7 @@ for blueprint in blueprints:
     app.register_blueprint(blueprint)
 
 
-@app.route("/", methods=["GET"])
+@app.route('/', methods=['GET'])
 def landing_page():
     return (
         f"<h1>"
@@ -38,5 +40,5 @@ def add_header(response):
     return response
 
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)

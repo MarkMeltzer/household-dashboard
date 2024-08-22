@@ -1,0 +1,58 @@
+[tool.ruff]
+line-length = 100
+force-exclude = true
+extend-exclude = [
+  "*/migrations/*",
+]
+
+[tool.ruff.lint]
+select = ['ALL']  # https://docs.astral.sh/ruff/rules/
+ignore = [
+    'A003',  # Allow attribute shadowing
+    'A002', # some django arguments shadow python builtins (forex. format for views)
+    'ANN',  # No annotations yet
+    "ARG",  # Allow unused arguments
+    'CPY001',  # Do not include copyright notice
+    'D1',  # Do not require docstrings
+    'DJ008',  # __str__ methods are not required for models
+    'DTZ',  # Do not yet require time aware datetimes
+    'EM',  # Allow string literals in exceptions
+    'FBT001',  # Allow boolean typed positional arguments
+    'FBT002',  # Allow boolean default values for keywords
+    'FIX',  # Allow FIXME/TODO/XXX
+    'FURB140',  # Allow using a generator instead of starmap
+    'G004',  # Allow f-strings in logging messages
+    'PT',  # Use unittest
+    'RUF012',  # No annotations yet
+    'SIM108',  # Allow simple if-else-block instead of ternary operator
+    'TD001',  # Allow FIXME
+    'TD002',  # Do not require author
+    'TD003',  # Do not require issue link
+    'TID252',  # Allow relative imports
+    'TRY003',  # long error messages are OK
+]
+
+[tool.ruff.lint.isort]
+lines-between-types = 1
+section-order = [
+  "future",
+  "standard-library",
+  "third-party",
+  "django",
+  "first-party",
+  "local-folder",
+]
+
+[tool.ruff.lint.isort.sections]
+django = [
+  "django",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = 'google'
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = 'single'
+
+[tool.ruff.format]
+quote-style = 'single'  # Prefer single quotes, except for triple quotes strings

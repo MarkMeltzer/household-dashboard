@@ -1,48 +1,48 @@
-from flask import Blueprint, request, abort, jsonify
 import json
-import bcrypt
 import uuid
+
+import bcrypt
+
+from flask import Blueprint, abort, jsonify, request
 
 # TODO: in future I probably want more user related options, this should be
 # generalised to /users
-blueprint = Blueprint("getLoginToken", __name__, url_prefix="/getLoginToken")
+blueprint = Blueprint('getLoginToken', __name__, url_prefix='/getLoginToken')
 
 
-@blueprint.route("", methods=["POST"])
+@blueprint.route('', methods=['POST'])
 def getLoginToken():
-    """
-    Endpoint logging in.
+    """Endpoint logging in.
 
     - POST takes username and password from request body, checks them against
     `users.json` and if correct generates token. Finally it saves said token
     to `users.json` and returns it.
     """
-
-    username = request.json["username"]
-    password = request.json["password"]
+    username = request.json['username']
+    password = request.json['password']
 
     # get login data
-    with open("./data/users.json", "r") as f:
+    with open('./data/users.json') as f:
         user_db = json.load(f)
-        users_data = user_db["users"]
+        users_data = user_db['users']
 
     if username not in users_data:
-        print(f"User {username} not found.")
+        print(f'User {username} not found.')
         abort(401)
 
     # verify password
-    hashed_pw = bcrypt.hashpw(password.encode(), users_data[username]["salt"].encode())
-    if hashed_pw != users_data[username]["pw_hash"].encode():
-        print("Wrong password!")
+    hashed_pw = bcrypt.hashpw(password.encode(), users_data[username]['salt'].encode())
+    if hashed_pw != users_data[username]['pw_hash'].encode():
+        print('Wrong password!')
         abort(401)
 
     # generate, save and send login token
-    print("Login succesful!")
+    print('Login succesful!')
     token = uuid.uuid4().hex
 
-    users_data[username]["login_tokens"].append(token)
-    user_db["users"] = users_data
-    with open("./data/users.json", "w") as f:
+    users_data[username]['login_tokens'].append(token)
+    user_db['users'] = users_data
+    with open('./data/users.json', 'w') as f:
         json.dump(user_db, f, indent=4)
 
-    return jsonify({"token": token})
+    return jsonify({'token': token})
