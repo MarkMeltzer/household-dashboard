@@ -18,6 +18,7 @@ services:
     ports:
       - ${backend_port}:5000
     volumes:
+      - './backend:/code'
       - data:/code/data
 
 volumes:
