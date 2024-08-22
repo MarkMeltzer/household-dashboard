@@ -21,7 +21,7 @@ BASE_DIR = PROJECT_DIR.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%x6yn$b=_msp82#u30--ocp9jo0f+#wpc($5-(oge$+ugycq_3'
+SECRET_KEY = 'django-insecure-%x6yn$b=_msp82#u30--ocp9jo0f+#wpc($5-(oge$+ugycq_3'  # noqa: S105
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

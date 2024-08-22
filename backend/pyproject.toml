@@ -3,6 +3,10 @@ line-length = 100
 force-exclude = true
 extend-exclude = [
     '*/migrations/*',
+    './routes/*',
+    './app.py',
+    './database.py',
+    './utils.py',
 ]
 
 [tool.ruff.lint]
