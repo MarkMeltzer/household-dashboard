@@ -2,7 +2,8 @@
 line-length = 100
 force-exclude = true
 extend-exclude = [
-  "*/migrations/*",
+  '*/migrations/*',
+
 ]
 
 [tool.ruff.lint]
@@ -11,7 +12,7 @@ ignore = [
     'A003',  # Allow attribute shadowing
     'A002', # some django arguments shadow python builtins (forex. format for views)
     'ANN',  # No annotations yet
-    "ARG",  # Allow unused arguments
+    'ARG',  # Allow unused arguments
     'CPY001',  # Do not include copyright notice
     'D1',  # Do not require docstrings
     'DJ008',  # __str__ methods are not required for models
@@ -35,17 +36,17 @@ ignore = [
 [tool.ruff.lint.isort]
 lines-between-types = 1
 section-order = [
-  "future",
-  "standard-library",
-  "third-party",
-  "django",
-  "first-party",
-  "local-folder",
+  'future',
+  'standard-library',
+  'third-party',
+  'django',
+  'first-party',
+  'local-folder',
 ]
 
 [tool.ruff.lint.isort.sections]
 django = [
-  "django",
+  'django',
 ]
 
 [tool.ruff.lint.pydocstyle]
