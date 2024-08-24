@@ -24,6 +24,15 @@ class WeekList(models.Model):
     def __str__(self) -> str:
         return f'Starting date "{self.starting_date}"'
 
+    def save(self, **kwargs):
+        created = not self.pk
+
+        super().save(**kwargs)
+
+        if created:
+            ShoppingList.objects.create(week_list=self)
+            MealsList.objects.create(week_list=self)
+
 
 class MealsList(models.Model):
     week_list = models.OneToOneField(WeekList, on_delete=models.CASCADE)

@@ -17,12 +17,6 @@ class HouseholdSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class WeekListSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = WeekList
-        fields = '__all__'
-
-
 class ShoppingListItemSerializer(serializers.HyperlinkedModelSerializer):
     shopping_item_name = serializers.SlugRelatedField(
         source='shopping_item',
@@ -41,3 +35,11 @@ class ShoppingListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ShoppingList
         fields = ['week_list', 'shopping_list_items']
+
+
+class WeekListSerializer(serializers.HyperlinkedModelSerializer):
+    shopping_list = ShoppingListSerializer(source='shoppinglist')
+
+    class Meta:
+        model = WeekList
+        fields = ['household', 'created', 'starting_date', 'shopping_list']
