@@ -17,6 +17,7 @@ class Household(models.Model):
 
 class WeekList(models.Model):
     household = models.ForeignKey(Household, on_delete=models.CASCADE)
+
     created = models.DateField(auto_now_add=True)
     starting_date = models.DateField()
 
@@ -45,9 +46,12 @@ class ShoppingItem(models.Model):
         return self.name
 
 
+# TODO: this might be improved by adding a manyToMany relationship to shoppingItem and
+# point the 'through' arg to this model. But not entirely sure what the improvement is :P
 class ShoppingListItem(models.Model):
     shopping_list = models.ForeignKey(ShoppingList, on_delete=models.CASCADE)
     shopping_item = models.ForeignKey(ShoppingItem, on_delete=models.CASCADE)
+
     amount = models.IntegerField(default=1, validators=[MinValueValidator(1)])
 
     def __str__(self) -> str:
