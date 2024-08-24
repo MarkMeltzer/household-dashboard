@@ -1,14 +1,18 @@
-from flask import Blueprint, abort, request, jsonify
-from . import base
-from utils import get_user_by_token
-from database import Database
-from http import HTTPStatus
 import uuid
+
+from http import HTTPStatus
+
+from flask import Blueprint, abort, jsonify, request
+
+from database import Database
+from utils import get_user_by_token
+
+from . import base
 
 blueprint = Blueprint('shops', __name__, url_prefix='/shops')
 
 blueprint.route('', methods=['GET'])(
-    base.generate_route(base.all_records, table='shops', add_creation_date=False)
+    base.generate_route(base.all_records, table='shops', add_creation_date=False),
 )
 
 

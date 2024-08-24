@@ -1,9 +1,4 @@
-from . import weekLists
-from . import shoppingItems
-from . import getLoginToken
-from . import recipes
-from . import shops
-from . import users
+from . import getLoginToken, recipes, shoppingItems, shops, users, weekLists
 
 blueprints = [
     weekLists.blueprint,

@@ -18,7 +18,18 @@ services:
     ports:
       - ${backend_port}:5000
     volumes:
+      - './backend:/code'
       - data:/code/data
+    depends_on: 
+      - database
+
+  database:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: postgres
 
 volumes:
   data:
+  postgres_data:
